@@ -78,12 +78,13 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## users_productsテーブル
+## dealingsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |seller_id|references|null: false, foreign_key: { to_table: :users } |
-|buyer_id|references|null: false, foreign_key: true　{ to_table: :users }|
+|buyer_id|references|null: false, foreign_key: true { to_table: :users }|
 |product_id|references|null: false, foreign_key: true|
+|address_id|references|null: false, optional: true|
 ### Association
 - belongs_to :user
 - belongs_to :product
