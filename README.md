@@ -108,7 +108,6 @@ Things you may want to cover:
 |category_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :address
 - belongs_to :brand
 - belongs_to :category
 - has_many :comments
