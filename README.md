@@ -77,7 +77,6 @@ Things you may want to cover:
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :product
 
 ## users_productsテーブル
 |Column|Type|Options|
