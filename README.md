@@ -21,4 +21,137 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+
+# bmarket DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|nickname|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+|birthday|date|null: false|
+### Association
+- has_many :addresses
+- has_many :comments
+- has_many :credits
+- has_many :dealings
+- has_many :products
+
+## creditsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|number|string|null: false|
+|effective_year|integer|null: false|
+|effective_month|integer|null: false|
+|user|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|user|references|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :product
+
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|zipcode|integer|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|town|string|null: false|
+|town_number|string|null: false|
+|building|string||
+|tel|string||
+|user|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+
+## dealingsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|seller|references|null: false, foreign_key: { to_table: :users } |
+|buyer|references|null: false, foreign_key: true { to_table: :users }|
+|product|references|null: false, foreign_key: true|
+|address|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :product
+- belongs_to :address
+
+## productsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|introduction|text|null: false|
+|condition|string|null: false|
+|delivery_cost|string|null: false|
+|from|string|null: false|
+|delivery_day|string|null: false|
+|price|integer|null: false|
+|size|string|null: false|
+|status|string|null: false|
+|user|references|null: false, foreign_key: true|
+|brand|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :brand
+- belongs_to :category
+- has_many :comments, dependent: :destroy
+- has_many :images, dependent: :destroy
+- has_one :dealing, dependent: :destroy
+- has_many :products_tags
+- has_many :tags,  through:  :products_tags
+
+## tagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+### Association
+- has_many :products_tags
+- has_many :products,  through:  :products_tags
+
+## products_tagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product|references|null: false, foreign_key: true|
+|tag|references|null: false, foreign_key: true|
+### Association
+- belongs_to :product
+- belongs_to :tag
+
+## brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+### Association
+- has_many :products
+
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string|null: false|
+### Association
+- has_many :products
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image_url|text|null: false|
+|product|references|null: false, foreign_key: true|
+### Association
+- belongs_to :product
