@@ -47,6 +47,7 @@ Things you may want to cover:
 |number|string|null: false|
 |effective_year|integer|null: false|
 |effective_month|integer|null: false|
+|user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
