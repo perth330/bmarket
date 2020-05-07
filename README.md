@@ -99,10 +99,10 @@ Things you may want to cover:
 |condition|string|null: false|
 |delivery_cost|string|null: false|
 |from|string|null: false|
-|delivery_day|day|null: false|
-|price|integer|null: false|
+|delivery_day|string|null: false|
+|price|string|null: false|
 |size|string|null: false|
-|status|text|null: false|
+|status|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
