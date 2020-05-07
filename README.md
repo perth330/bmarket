@@ -109,7 +109,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :brand
-- belongs_to :category
+- belongs_to :categoryes
 - has_many :comments
 - has_many :images
 - has_one :dealings
@@ -140,7 +140,7 @@ Things you may want to cover:
 ### Association
 - has_many :products
 
-## categorysテーブル
+## categoryesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
