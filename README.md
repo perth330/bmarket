@@ -103,7 +103,7 @@ Things you may want to cover:
 |price|string|null: false|
 |size|string|null: false|
 |status|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |address_id|references|foreign_key: true, optional: true|
