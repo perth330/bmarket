@@ -119,7 +119,7 @@ Things you may want to cover:
 ## tagsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, unique: true|
 ### Association
 - has_many :products_tags
 - has_many :products,  through:  :products_tags
