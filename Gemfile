@@ -74,3 +74,4 @@ end
 group :production do
   gem 'unicorn'
 end
+gem "haml-rails", "~> 2.0"
