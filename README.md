@@ -87,7 +87,7 @@ Things you may want to cover:
 |address_id|references|null: false, optional: true|
 ### Association
 - belongs_to :user
-- belongs_to :product
+- has_one :product
 - belongs_to :address
 
 ## productsテーブル
@@ -112,7 +112,7 @@ Things you may want to cover:
 - belongs_to :category
 - has_many :comments
 - has_many :images
-- has_many :dealings
+- has_one :dealings
 - has_many :products_tags
 - has_many :tags,  through:  :products_tags
 
