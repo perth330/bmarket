@@ -54,8 +54,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :product
@@ -74,17 +74,17 @@ Things you may want to cover:
 |town_number|string|null: false|
 |building|string||
 |tel|string|null: false|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
 ## dealingsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|seller_id|references|null: false, foreign_key: { to_table: :users } |
-|buyer_id|references|null: false, foreign_key: true { to_table: :users }|
-|product_id|references|null: false, foreign_key: true|
-|address_id|references|null: false, optional: true|
+|seller|references|null: false, foreign_key: { to_table: :users } |
+|buyer|references|null: false, foreign_key: true { to_table: :users }|
+|product|references|null: false, foreign_key: true|
+|address|references|null: false, optional: true|
 ### Association
 - belongs_to :user
 - has_one :product
@@ -103,9 +103,9 @@ Things you may want to cover:
 |price|string|null: false|
 |size|string|null: false|
 |status|string|null: false|
-|user_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, foreign_key: true|
-|category_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|brand|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :brand
@@ -127,8 +127,8 @@ Things you may want to cover:
 ## products_tagsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|null: false, foreign_key: true|
-|tag_id|references|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
+|tag|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :product
 - belongs_to :tag
@@ -152,6 +152,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |image_url|text|null: false|
-|product_id|references|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :products
