@@ -106,7 +106,6 @@ Things you may want to cover:
 |user_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
-|address_id|references|foreign_key: true, optional: true|
 ### Association
 - belongs_to :user
 - belongs_to :address
