@@ -74,7 +74,7 @@ Things you may want to cover:
 |town_number|string|null: false|
 |building|string||
 |tel|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - has_many :product
