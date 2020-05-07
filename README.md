@@ -71,9 +71,9 @@ Things you may want to cover:
 |prefecture|string|null: false|
 |city|string|null: false|
 |town|string|null: false|
-|town_number|integer|null: false|
-|building|text||
-|tel|integer|null: false|
+|town_number|string|null: false|
+|building|string||
+|tel|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
