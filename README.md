@@ -97,7 +97,7 @@ Things you may want to cover:
 |name|string|null: false|
 |introduction|text|null: false|
 |condition|string|null: false|
-|delivery_cost|string|null: false||
+|delivery_cost|string|null: false|
 |from|string|null: false|
 |delivery_day|day|null: false|
 |price|integer|null: false|
