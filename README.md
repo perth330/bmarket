@@ -154,4 +154,4 @@ Things you may want to cover:
 |image_url|text|null: false|
 |product_id|references|null: false, foreign_key: true|
 ### Association
-- has_many :products
+- belongs_to :products
