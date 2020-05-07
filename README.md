@@ -73,7 +73,7 @@ Things you may want to cover:
 |town|string|null: false|
 |town_number|string|null: false|
 |building|string||
-|tel|string|null: false|
+|tel|string||
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -84,10 +84,10 @@ Things you may want to cover:
 |seller|references|null: false, foreign_key: { to_table: :users } |
 |buyer|references|null: false, foreign_key: true { to_table: :users }|
 |product|references|null: false, foreign_key: true|
-|address|references|null: false, optional: true|
+|address|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_one :product
+- belongs_to :product
 - belongs_to :address
 
 ## productsテーブル
@@ -100,7 +100,7 @@ Things you may want to cover:
 |delivery_cost|string|null: false|
 |from|string|null: false|
 |delivery_day|string|null: false|
-|price|string|null: false|
+|price|integer|null: false|
 |size|string|null: false|
 |status|string|null: false|
 |user|references|null: false, foreign_key: true|
@@ -109,10 +109,10 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :brand
-- belongs_to :categoryes
+- belongs_to :category
 - has_many :comments, dependent: :destroy
 - has_many :images, dependent: :destroy
-- has_one :dealings, dependent: :destroy
+- has_one :dealing, dependent: :destroy
 - has_many :products_tags
 - has_many :tags,  through:  :products_tags
 
@@ -136,11 +136,11 @@ Things you may want to cover:
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, unique: true|
 ### Association
 - has_many :products
 
-## categoryesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
