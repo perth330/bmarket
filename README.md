@@ -69,7 +69,7 @@ Things you may want to cover:
 |first_name_kana|string|null: false|
 |zipcode|integer|null: false|
 |prefecture|string|null: false|
-|city|string|null: false, foreign_key: true|
+|city|string|null: false|
 |town|string|null: false|
 |town_number|integer|null: false|
 |building|text||
