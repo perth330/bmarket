@@ -94,7 +94,6 @@ Things you may want to cover:
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image_url|text|null: false|
 |name|string|null: false|
 |introduction|text|null: false|
 |condition|string|null: false|
