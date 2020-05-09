@@ -1,0 +1,23 @@
+.mypageNav{
+  &__head{
+    display: inline-block;
+    margin-top: 40px;
+  }
+  &__list{
+    list-style: none;
+    margin-block-start: 1px;
+    margin-block-end: 1px;
+    
+    &__item{
+      background-color: #ffffff;
+      width: 280px;
+      height: 48px;
+      padding: 0 16px;
+      line-height: 48px;
+      margin-bottom: 1px;
+      .active{
+        background-color: #f8f8f8;
+      }
+    }
+  }
+}
