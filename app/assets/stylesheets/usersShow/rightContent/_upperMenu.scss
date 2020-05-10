@@ -1,0 +1,19 @@
+.upperMenu{
+  &__menuTabs{
+    display: flex;
+    &__tab{
+      @include menuTab();
+    }
+  }
+
+  &__tabMenu{
+    &__announce{
+      display: none;
+      position: absolute;
+      top: 75px;
+      &.active{
+        display: block;
+      }
+    }
+  }
+}

@@ -75,3 +75,7 @@ group :production do
   gem 'unicorn'
 end
 gem "haml-rails", "~> 2.0"
+gem "devise"
+gem "ancestry"
+gem "payjp"
+gem 'font-awesome-rails'

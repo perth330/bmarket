@@ -1,0 +1,50 @@
+%main.contents.clearfix
+
+  .contents__leftContent
+    = render "user_menu_bar"
+  .contents__rightContent
+    .rightContent__user
+      = image_tag "material/pict/bg-mainVisual-pict_pc.jpg"
+      .user__icon
+        = link_to "#" do
+          = image_tag "material/icon/member_photo_noimage_thumb.png"
+          %h2
+            = @user.nickname
+          .user__icon__number
+            出品数
+            %span 0
+    .rightContent__upperMenu
+      %ul.upperMenu__menuTabs
+        %li.upperMenu__menuTabs__tab.active
+          %h3
+            = link_to "お知らせ","#"
+        %li.upperMenu__menuTabs__tab
+          %h3
+            = link_to "ToDo","#"
+      .upperMenu__tabMenu
+        %ul.upperMenu__tabMenu__announce.active
+          %li.announce
+            お知らせはありません
+        %ul.upperMenu__tabMenu__announce
+          %li.announce
+            お知らせはありません
+    .rightContent__bottomMenu
+      %h2.bottomMenu__title 購入した商品
+      %ul.bottomMenu__menuTabs
+        %li.bottomMenu__menuTabs__tab.active
+          %h3
+            = link_to "お知らせ","#"
+        %li.bottomMenu__menuTabs__tab
+          %h3
+            = link_to "ToDo","#"
+      .bottomMenu__tabMenu
+        %ul.bottomMenu__tabMenu__announce.active
+          %li.announce
+            お知らせはありません
+        %ul.bottomMenu__tabMenu__announce
+          %li.announce
+            お知らせはありません
+  .contents__floatIcon
+    = link_to "#" do
+      %p 出品
+      =image_tag "material/icon/icon_camera.png"

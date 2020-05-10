@@ -1,0 +1,38 @@
+.contents{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #f8f8f8;
+  padding: 30px 0;
+  
+  &__floatIcon{
+    text-align: center;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    background-color:  #3CCACE;
+    font-size: 22px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    a{
+      text-decoration: none;
+      color: #ffffff;
+    }
+    p{
+      margin-top: 30px;
+    }
+    img{
+      display: inline-block;
+      height: 60px;
+      width: 60px;
+    }
+  }
+  &__leftContent{
+    width: 280px;
+    margin-right: 40px;
+  }
+  &__rightContent{
+    width: 700px;
+  }
+}
