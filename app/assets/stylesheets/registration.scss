@@ -1,0 +1,145 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+  .header {
+    height: 150px;
+    background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+    &__icon {
+      display: block;
+      margin: 0 auto;
+      padding: 50px;
+    }  
+  }
+
+  .layout {
+    display: flex;
+    flex: 1;
+    h1 {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      padding: 30px;
+      border-bottom: 2px solid #ebe7e7be;
+    }
+    &__center{
+      flex: 1;
+      font-size: 15px;
+      .center__content {
+        width: 345px;
+        height: 750px;
+        margin: auto;
+      }
+    }
+    &__left {
+      width: 400px;
+      background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+    }
+    &__right {
+      width: 400px;
+      background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+    }
+  }
+
+  .footer {
+    height: 150px;
+    background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+    &__icon {
+      display: block;
+      margin: 0 auto;
+      padding: 50px;
+    }
+  }
+
+
+  .sign__label {
+    height: 20px;
+    width: 340px;
+    padding-top: 20px;
+    &__head {
+      height: 30px;
+      width: 50px;
+      margin: 15px;
+      font-weight: bold;
+    }
+    &__required {
+      background-color: rgba($color: #e91212, $alpha: 1.0);
+      color: rgba($color: white, $alpha: 1.0);
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px;
+    }
+  }
+
+
+  .form {
+    height: 40px;
+    width: 340px;
+    padding-top: 10px;
+    display: flex;
+    &__defalt {
+      width: 340px;
+      height: 40px;
+      border: 2px solid #ebe7e7be;
+      border-radius: 5px;
+      padding-left: 10px;
+    }
+    &__half {
+      width: 170px;
+      height: 40px;
+      border: 2px solid #ebe7e7be;
+      border-radius: 5px;
+      padding-left: 10px;
+    }
+  }
+
+
+  .select {
+    height: 40px;
+    width: 340px;
+    padding-top: 10px;
+    display: flex;
+    &__defalt {
+      width: 80px;
+      height: 40px;
+      border: 2px solid #ebe7e7be;
+      border-radius: 5px;
+    }
+    &__half {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #ebe7e7be;
+      border-radius: 5px;
+    }
+    &__name {
+      padding: 10px;
+    }
+  }
+
+  .login {
+    height: 40px;
+    width: 340px;
+    padding-top: 10px;
+    display: flex;  
+    &__frame {
+      width: 640px;
+      height: 200px;
+      &__btn {
+        display: block;
+        width: 340px;
+        height: 40px;
+        border: 2px solid #3CCACE;
+        background-color: #3CCACE;;
+        border-radius: 5px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 20px;
+        padding-top: 10px;
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }

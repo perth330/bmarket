@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+  .header {
+    height: 150px;
+    background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+    &__icon {
+      display: block;
+      margin: 0 auto;
+      padding: 50px;
+    }  
+  }
+
+  .layout{
+    display: flex;
+    flex: 1;
+    &__center{
+      flex: 1;
+      font-size: 15px;
+      &__content {
+        width: 345px;
+        height: 750px;
+        margin: 0 auto;
+      }
+    }
+    &__left {
+      width: 400px;
+      background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+    }
+    &__right {
+      width: 400px;
+      background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+    }
+  }
+  
+  .footer {
+    height: 150px;
+    background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+    &__icon {
+      display: block;
+      margin: 0 auto;
+      padding: 50px;
+    }
+  }
+
+  .login__no__account {
+    width: 640px;
+    height: 150px;
+    border: 1px solid #ebe7e7be;
+    p {
+      display: block;
+      width: 270px;
+      margin: 0 auto;
+      padding: 20px 0 10px 0;
+    }
+    .sign__up__btn {
+      display: block;
+      width: 340px;
+      height: 40px;
+      border: 2px solid #3CCACE;
+      background-color: #3CCACE;;
+      border-radius: 5px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 20px;
+      padding-top: 10px;
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+
+  .login__frame {
+    width: 640px;
+    height: 200px;
+    &__btn {
+      display: block;
+      width: 340px;
+      height: 40px;
+      border: 2px solid #3CCACE;
+      background-color: #3CCACE;;
+      border-radius: 5px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 20px;
+      padding-top: 10px;
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+
+  .form {
+    height: 40px;
+    width: 340px;
+    padding-top: 25px;
+    display: flex;
+    margin: 0 auto;
+    &__defalt {
+      width: 340px;
+      height: 40px;
+      border: 2px solid #ebe7e7be;
+      border-radius: 5px;
+      margin:30px 0;
+      padding-left: 10px;
+    }
+  }

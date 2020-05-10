@@ -1,0 +1,90 @@
+%body
+  .header
+    = link_to '' do 
+      = image_tag src="logo.png", width:"200px",height:"50px", class:"header__icon"
+      -# とりあえずimage_tag使ってる
+  .layout
+    .layout__left
+    .layout__center 
+      %h1 会員登録
+      .center__content
+        %form(action="")
+          .wrapper
+            -# ここから
+            .sign__label
+              %label.sign__label__head
+                ニックネーム
+              %span.sign__label__required
+                必須
+            .form
+              %input.form__defalt{type: "text",placeholder: "（例）フリマ太郎"}
+              -# ここで１塊
+            .sign__label
+              %label.sign__label__head
+                メールアドレス
+              %span.sign__label__required
+                必須
+            .form
+              %input.form__defalt{type: "email",placeholder: "PC・携帯どちらでも可"}
+              -# ここは%form_withで書く予定
+            .sign__label
+              %label.sign__label__head
+                パスワード
+              %span.sign__label__required
+                必須
+            .form
+              %input.form__defalt{type: "password",placeholder: "7文字以上の半角英数字"}
+              -# タグ要確認
+            .sign__label
+              %label.sign__label__head
+                パスワード（確認）
+              %span.sign__label__required
+                必須
+            .form
+              %input.form__defalt{type:"password",placeholder: "再度入力"}
+              -# タグ要確認
+            .sign__label
+              %label.sign__label__head
+                お名前（全角）
+              %span.sign__label__required
+                必須
+            .form
+              %input.form__half{type: "text",placeholder: "（例）山田"}
+              %input.form__half{type: "text",placeholder: "（例）太郎"}
+            .sign__label
+              %label.sign__label__head
+                お名前カナ（全角）
+              %span.sign__label__required
+                必須
+            .form
+              %input.form__half{type: "text",placeholder: "（例）ヤマダ"}
+              %input.form__half{type: "text",placeholder: "（例）タロウ"}
+            .sign__label
+              %label.sign__label__head
+                生年月日
+              %span.sign__label__required
+                必須
+
+            .select
+              %select.select__defalt
+                %option 1950
+                %option 1951
+                -# ここのoptionはとりあえず
+              %span.select__name 年
+              %select.select__half
+                %option 1
+                %option 2
+              %span.select__name月
+              %select.select__half
+                %option 1
+                %option 2
+              %span.select__name 日
+            .login
+              .login__frame
+                = link_to "#", class: "login__frame__btn" do
+                  登録する
+
+    .layout__right
+  .footer
+    = link_to '#' do 
+      = image_tag src="logo-white.png", width:"200px",height:"50px", class:"footer__icon"
