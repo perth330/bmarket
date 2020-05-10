@@ -1,0 +1,25 @@
+.header
+  .headerBox 
+    .topBox
+      %h1.rightIcon
+        = link_to image_tag("material/logo/logo.png",class: "rightIcon__furima"),"#"
+      .searchBox
+        %form.mainForm
+          .mainForm__inputBox
+            %input.mainForm__inputBox__text{placeholder: "キーワードから探す",type: "text"}
+            %button{type:"submit"}
+              .mainForm__inputBox__searchBox__icon
+                = image_tag "material/icon/icon-search 1.png",class: "searchIcon"
+    .boxUnder 
+      .boxUnder__left
+        .boxUnder__left__category
+        = link_to "#", class: "boxUnder__left__category" do
+          カテゴリー
+        .boxUnder__left__brand
+        = link_to "#", class: "boxUnder__left__brand" do
+          ブランド
+      .boxUnder__right
+        = link_to "#", class: "boxUnder__right__login" do
+          ログイン
+        = link_to "#", class: "boxUnder__right__registration" do
+          新規登録
