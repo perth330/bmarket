@@ -1,0 +1,21 @@
+*{
+  box-sizing: border-box;
+  a{
+    text-decoration: none;
+    color: black;
+  }
+}
+
+@mixin menuTab{
+  width: 50%;
+  height: 74px;
+  background-color: #f8f8f8;
+  border-top: 2px solid;
+  border-color: #f8f8f8;
+  line-height: 74px;
+  text-align: center;
+  &.active{
+    background-color: #ffffff;
+    border-color: #3CCACE;
+  }
+}
