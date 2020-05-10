@@ -1,0 +1,54 @@
+%section.pickupCategory
+  %h1.pickupCategory__title
+    ピックアップカテゴリー
+  %h2.pickupCategory__post
+    = link_to "新規投稿商品","#",class: "listBtn-green"
+  .categoryLists
+    .categoryLists__list
+      = link_to "#", class: "listBtn" do
+        %figure.listImages
+          = image_tag "material/pict/koinu.jpeg",class: "new-image"
+        .productBody
+          %h3.productBody__name
+            まるお
+          %ul.productBody__menu
+            %li
+              1000,000
+              円
+            %li
+              %i.fa.fa-star.starIcon
+                0
+          %p.productBody__taxIn（税込）
+
+          
+          -# 下記は２・３個目の仮置き表示です。
+    .categoryLists__list
+      = link_to "#", class: "listBtn" do
+        %figure.listImages
+          = image_tag "material/pict/koinu.jpeg",class: "new-image"
+        .productBody
+          %h3.productBody__name
+            まるお
+          %ul.productBody__menu
+            %li
+              1000,000
+              円
+            %li
+              %i.fa.fa-star.starIcon
+                0
+          %p.productBody__taxIn（税込）
+    .categoryLists__list
+      = link_to "#", class: "listBtn" do
+        %figure.listImages
+          = image_tag "material/pict/koinu.jpeg",class: "new-image"
+        .productBody
+          %h3.productBody__name
+            まるお
+          %ul.productBody__menu
+            %li
+              1000,000
+              円
+            %li
+              %i.fa.fa-star.starIcon
+                0
+          %p.productBody__taxIn（税込）
