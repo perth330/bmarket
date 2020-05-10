@@ -1,0 +1,25 @@
+.rightContent{
+  &__user{
+    position: relative;
+    img{
+      display: inline-block;
+      width: 700px;
+      height: 200px;
+    }
+  }
+  
+  &__upperMenu{
+    width: 700px;
+    height: 254px;
+    background-color: #ffffff;
+    position: relative;
+  }
+  
+  &__bottomMenu{
+    margin-top: 40px;
+    width: 700px;
+    height: 382px;
+    background-color: #ffffff;
+    position: relative;
+  }
+}

@@ -1,0 +1,25 @@
+.bottomMenu{
+  &__title{
+    height: 72px;
+    font-size: 16px;
+    line-height: 72px;
+    padding: 0 16px;
+  }
+  &__menuTabs{
+    display: flex;
+    &__tab{
+      @include menuTab();
+    }
+  }
+  
+  &__tabMenu{
+    &__announce{
+      display: none;
+      position: absolute;
+      top: 147px;
+      &.active{
+        display: block;
+      }
+    }
+  }
+}
