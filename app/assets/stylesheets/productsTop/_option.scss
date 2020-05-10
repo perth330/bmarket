@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+.appBtn:hover,
+.googleBtn:hover {
+  opacity: 0.5;
+}
+
+.appBtn {
+  width: 150px;
+  margin-top: 13px;
+}
+
+.googleBtn {
+  width: 150px;
+  margin-top: 13px;
+}
+
+li {
+  list-style: none;
+}
+
+// -# pageTop
+// -# topics topics
+// -# introduction 紹介
+// -# catch キャッチフレーズ
+// -# guide 案内
+// -# spotLight 注目情報
+// -# goodsList 商品リスト
+// -# pickup 選び出す
