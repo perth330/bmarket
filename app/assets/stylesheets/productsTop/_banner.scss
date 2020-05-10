@@ -1,0 +1,22 @@
+.banner {
+  background-color: gray;
+  padding: 100px 40px;
+  position: relative;
+  background-image: image-url("material/pict/bg-appBanner-pict.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bannerInner {
+  text-align: center;
+  color: white;
+  &__title {
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+  &__text {
+    font-size: 35px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  }
+}
