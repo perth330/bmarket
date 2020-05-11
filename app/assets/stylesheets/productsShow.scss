@@ -36,6 +36,11 @@
       &__main{
         object-fit: cover;
         height: 346px;
+        width: 560px;
+        img{
+          height: 346px;
+          width: 560px;
+        }
       }
       &__sub{
         display: flex;
@@ -46,16 +51,28 @@
           width: 25%;
           margin: 0 10px 0 0;
           object-fit: cover;
+          img{
+            height: 87px;
+            width: 140px;
+          }
         }
         &__center{
           width: 25%;
           margin: 0 10px 0 0;
           object-fit: cover;
+          img{
+            height: 87px;
+            width: 140px;
+          }
         }
         &__right{
           width: 25%;
           margin: 0 10px 0 0;
           object-fit: cover;
+          img{
+            height: 87px;
+            width: 140px;
+          }
         }
       }
     }
