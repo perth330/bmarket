@@ -4,8 +4,8 @@ body {
   flex-direction: column;
 }
 
-  .header {
-    height: 150px;
+  .usersNewHeader  {
+    height: 100px;
     background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
     img{
       display: block;
@@ -29,9 +29,9 @@ body {
       flex: 1;
       font-size: 15px;
       .center__content {
-        width: 345px;
+        width: 360px;
         height: 750px;
-        margin: auto;
+        margin:0 10px;
       }
     }
     &__left {
@@ -128,7 +128,7 @@ body {
     }
   }
 
-  .footer {
+  .usersNewfooter {
     height: 150px;
     background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
     img{
