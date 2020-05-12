@@ -1,4 +1,4 @@
-body {
+.usersNew {
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@ body {
       .center__content {
         width: 360px;
         height: 750px;
-        margin:0 10px;
+        margin:0 auto;
       }
     }
     &__left {
@@ -42,6 +42,9 @@ body {
       width: 400px;
       background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
     }
+  }
+  .usersNewWrapper{
+    padding-left: 10px;
   }
 
   .sign__label {
@@ -62,7 +65,7 @@ body {
   }
 
 
-  .form {
+  .usersNewform {
     height: 50px;
     width: 340px;
     padding-top: 10px;
@@ -106,7 +109,7 @@ body {
     }
   }
 
-  .login {
+  .usersNewLogin {
     height: 180px;
     width: 345px;
     padding-top: 10px;
@@ -131,10 +134,13 @@ body {
   .usersNewfooter {
     height: 150px;
     background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     img{
-      display: block;
-      margin: 0 auto;
-      padding: 50px;
+
+      margin: ０ auto;
+      padding: 0px;
       width: 200px;
     }
   }
