@@ -1,4 +1,4 @@
-%body
+.usersNew
   .usersNewHeader 
     = link_to '' do 
       = image_tag asset_path("material/logo/logo.png")
@@ -9,56 +9,56 @@
       %h1 会員登録
       .center__content
         %form(action="")
-          .wrapper
+          .usersNewWrapper
             -# ここから
             .sign__label
               %label.sign__label__head
                 ニックネーム
               %span.sign__label__required
                 必須
-            .form
-              %input.form__defalt{type: "text",placeholder: "（例）フリマ太郎"}
+            .usersNewform
+              %input.usersNewform__defalt{type: "text",placeholder: "（例）フリマ太郎"}
               -# ここで１塊
             .sign__label
               %label.sign__label__head
                 メールアドレス
               %span.sign__label__required
                 必須
-            .form
-              %input.form__defalt{type: "email",placeholder: "PC・携帯どちらでも可"}
+            .usersNewform
+              %input.usersNewform__defalt{type: "email",placeholder: "PC・携帯どちらでも可"}
               -# ここは%form_withで書く予定
             .sign__label
               %label.sign__label__head
                 パスワード
               %span.sign__label__required
                 必須
-            .form
-              %input.form__defalt{type: "password",placeholder: "7文字以上の半角英数字"}
+            .usersNewform
+              %input.usersNewform__defalt{type: "password",placeholder: "7文字以上の半角英数字"}
               -# タグ要確認
             .sign__label
               %label.sign__label__head
                 パスワード（確認）
               %span.sign__label__required
                 必須
-            .form
-              %input.form__defalt{type:"password",placeholder: "再度入力"}
+            .usersNewform
+              %input.usersNewform__defalt{type:"password",placeholder: "再度入力"}
               -# タグ要確認
             .sign__label
               %label.sign__label__head
                 お名前（全角）
               %span.sign__label__required
                 必須
-            .form
-              %input.form__half{type: "text",placeholder: "（例）山田"}
-              %input.form__half{type: "text",placeholder: "（例）太郎"}
+            .usersNewform
+              %input.usersNewform__half{type: "text",placeholder: "（例）山田"}
+              %input.usersNewform__half{type: "text",placeholder: "（例）太郎"}
             .sign__label
               %label.sign__label__head
                 お名前カナ（全角）
               %span.sign__label__required
                 必須
-            .form
-              %input.form__half{type: "text",placeholder: "（例）ヤマダ"}
-              %input.form__half{type: "text",placeholder: "（例）タロウ"}
+            .usersNewform
+              %input.usersNewform__half{type: "text",placeholder: "（例）ヤマダ"}
+              %input.usersNewform__half{type: "text",placeholder: "（例）タロウ"}
             .sign__label
               %label.sign__label__head
                 生年月日
@@ -79,9 +79,9 @@
                 %option 1
                 %option 2
               %span.select__name 日
-            .login
-              .login__frame
-                = link_to "#", class: "login__frame__btn" do
+            .usersNewLogin
+              .usersNewLogin__frame
+                = link_to "#", class: "usersNewLogin__frame__btn" do
                   登録する
 
     .layout__right
