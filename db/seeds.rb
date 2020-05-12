@@ -9,13 +9,6 @@ Brand.create([
   {name:"ノーブランド"},{name: "ブランド１"},{name:"ブランド２"},{name:"ブランド３"}
 ])
 
-Product.create([
-  {name:"商品１", introduction: "商品説明１", condition: "3", delivery_cost: "3", from: "4", delivery_day: "2", price: "1000", size: "3", status: "取引中", user_id: "1", brand_id:"1", category_id: "20"},
-  {name:"商品２", introduction: "商品説明２", condition: "4", delivery_cost: "2", from: "5", delivery_day: "3", price: "2000", size: "1", status: "出品中", user_id: "1", brand_id:"2", category_id: "783"},
-  {name:"商品３", introduction: "商品説明３", condition: "5", delivery_cost: "3", from: "6", delivery_day: "4", price: "10000", size: "3", status: "出品中", user_id: "2", brand_id:"1", category_id: "235"},
-  {name:"商品４", introduction: "商品説明４", condition: "6", delivery_cost: "2", from: "7", delivery_day: "2", price: "200000", size: "3", status: "取引中", user_id: "2", brand_id:"3", category_id: "366"}
-])
-
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
 lady_1.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},{name: "Tシャツ/カットソー(七分/長袖)"},{name: "シャツ/ブラウス(半袖/袖なし)"},{name: "シャツ/ブラウス(七分/長袖)"},{name: "ポロシャツ"},{name: "キャミソール"},{name: "タンクトップ"},{name: "ホルターネック"},{name: "ニット/セーター"},{name: "チュニック"},{name: "カーディガン/ボレロ"},{name: "アンサンブル"},{name: "ベスト/ジレ"},{name: "パーカー"},{name: "トレーナー/スウェット"},{name: "ベアトップ/チューブトップ"},{name: "ジャージ"},{name: "その他"}])
@@ -342,3 +335,10 @@ others_8 = others.children.create(name: "事務/店舗用品")
 others_8.children.create([{name: "オフィス用品一般"},{name: "オフィス家具"},{name: "店舗用品"},{name: "OA機器"},{name: "ラッピング/包装"},{name: "その他"}])
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
+
+Product.create([
+  {name:"商品１", introduction: "商品説明１", condition: "3", delivery_cost: "2", from: "4", delivery_day: "1", price: "1000", size: "3", status: "取引中", user_id: "1", brand_id:"1", category_id: "20"},
+  {name:"商品２", introduction: "商品説明２", condition: "4", delivery_cost: "1", from: "5", delivery_day: "2", price: "2000", size: "1", status: "出品中", user_id: "1", brand_id:"2", category_id: "783"},
+  {name:"商品３", introduction: "商品説明３", condition: "5", delivery_cost: "2", from: "6", delivery_day: "3", price: "10000", size: "3", status: "出品中", user_id: "2", brand_id:"1", category_id: "235"},
+  {name:"商品４", introduction: "商品説明４", condition: "6", delivery_cost: "1", from: "7", delivery_day: "1", price: "200000", size: "3", status: "取引中", user_id: "2", brand_id:"3", category_id: "366"}
+])
