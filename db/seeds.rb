@@ -342,3 +342,13 @@ Product.create([
   {name:"商品３", introduction: "商品説明３", condition: "5", delivery_cost: "2", from: "6", delivery_day: "3", price: "10000", size: "3", status: "出品中", user_id: "2", brand_id:"1", category_id: "235"},
   {name:"商品４", introduction: "商品説明４", condition: "6", delivery_cost: "1", from: "7", delivery_day: "1", price: "200000", size: "3", status: "取引中", user_id: "2", brand_id:"3", category_id: "366"}
 ])
+
+Image.create([
+
+  {image_url: File.open("./public/uploads/image/image_url/1/nekochan.jpg"),
+  product_id: 1},{image_url: File.open("./public/uploads/image/image_url/2/icon_category.png"),
+  product_id: 2},{image_url: File.open("./public/uploads/image/image_url/3/icon-02.png"),
+  product_id: 3},{image_url: File.open("./public/uploads/image/image_url/4/nekochan.jpg"),
+    product_id: 4}
+]
+)
