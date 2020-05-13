@@ -23,10 +23,9 @@
 .categoryLists {
   width: 780px;
   margin: 26px auto;
-  display: flex;
-  justify-content: space-around;
   &__list {
-    width: 220px;
+    display: flex;
+    justify-content: space-between;
     margin: 0 auto;
   }
 }
