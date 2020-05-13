@@ -80,3 +80,5 @@ gem "ancestry"
 gem "payjp"
 gem 'font-awesome-rails'
 gem "active_hash"
+gem 'carrierwave'
+gem 'mini_magick'
