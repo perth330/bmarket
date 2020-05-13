@@ -8,21 +8,14 @@ class ProductsController < ApplicationController
   end
   
   def create
-    if params[:product][:brand_id] == "0"
-      @brand = Brand.create(brand_params)
-      @product = Product.create(product_create_params_with_brand)
-    else
-      @product = Product.create(product_create_params)
-    end
+    @brand = Brand.find_by(name: "#{brand_params}")
+    @brand = Brand.create(brand_params) if @brand == nil
+    @product = Product.create(product_create_params)
     redirect_to root_path
   end
   
   private
   def product_create_params
-    params.require(:product).permit(:name,:introduction,:size,:category_id,:brand_id,:condition,:delivery_cost,:from,:delivery_day,:price).merge(user_id:current_user.id,status:"出品中")
-  end
-  
-  def product_create_params_with_brand
     params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
   end
   

@@ -31,7 +31,6 @@
         %span.btn.free 任意
         =f.fields_for(@brand) do |i|
           =i.text_field :name,placeholder:"例）シャネル",class:"details__brand productsNewInput"
-        =f.hidden_field :brand_id,value:0,class:"details__brandId"
         %span.message 商品の状態
         %span.btn.need 必須
         =f.collection_select :condition,Condition.all,:id,:name,{prompt:"選択してください"},class:"details__condition productsNewInput"
