@@ -81,3 +81,5 @@ gem "payjp"
 gem 'font-awesome-rails'
 gem "active_hash"
 gem "jquery-rails"
+gem 'carrierwave'
+gem 'mini_magick'

@@ -1,0 +1,132 @@
+.purchaseLayout__header {
+  height: 150px;
+  background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+    img {
+    display: block;
+    margin: 0 auto;
+    padding: 50px;
+    width: 300px;
+  }  
+}
+
+.purchaseLayout{
+  display: flex;
+  flex: 1;
+  &__left {
+    width: 400px;
+    background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+  }
+  &__center{
+    flex: 1;
+    font-size: 15px;
+    height: 1000px;
+    &__content {
+      height: 100px;
+      margin: 0 auto;
+      border: 1px solid #ebe7e7be;
+    }
+    &__title {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      padding: 30px;
+    }
+  }
+}
+
+
+.buyContent {
+  padding: 32px 16px;
+  border-bottom: 1px solid #ebe7e7be;
+  width: 350px;
+  margin: 0 auto;
+  .buyItem__box {
+    display: flex;
+      &__image {
+        height: 90px;
+        width: 140px;
+        img {
+          height: 90px;
+          width: 90px;
+        }
+      }
+      &__detail{
+        margin-left: 10px;
+      }
+      &__name {
+        height: 70px;
+      }
+      &__price {
+        font-weight: bold;
+      }
+  }
+}
+
+.buyContent.buyItem {
+  .buyPrice__pay{
+    display: flex;
+    font-weight: bold;
+    font-size: 23px;
+    margin-bottom: 30px;
+  }
+  .data__buyPay  {
+    padding: 4px 0 5px 50px;
+  }
+  .user__point__accordion {
+    margin-bottom: 20px;
+  }
+  .accordion__child {
+    background-color: rgba($color: #ebe7e7be, $alpha: 0.5);
+    padding: 10px;
+    margin-bottom: 30px;
+  }
+  .input__defalut {
+    padding: 10px 64px;
+    text-align: center;
+    }
+  }
+
+
+
+.buyContent__user__info {
+  margin: 30px 10px;
+  border-bottom: 1px solid #ebe7e7be;
+  .clearfix {
+    display: flex;
+    .l__right {
+      text-decoration: none;
+      margin-left: 170px;
+      color: #3CCACE;
+    }
+  }
+
+  .buyContent__inner {
+    .btn__default {
+      font-size: 20px;
+      font-weight: bold;
+      background-color: #3CCACE;;
+      color: white;
+      border-radius: 10px;
+      width: 300px;
+    }
+  }
+}
+
+
+
+
+.purchaseLayout__right {
+  width: 400px;
+  background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+}
+
+.purchaseLayout__footer {
+  height: 150px;
+  background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+  img {
+    display: block;
+    margin: 0 auto;
+    padding: 50px;
+    width: 300px;
+  }
+}
