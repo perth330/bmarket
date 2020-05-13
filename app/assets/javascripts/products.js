@@ -1,21 +1,19 @@
+$(function() {
   $(".details__brand").on("change",function(){
-    let formData = new FormData(this);
+    let keyword = $(".details__brand").val();
     let url = "/brands/new"
     $.ajax({
       url: url,
-      type: "POST",
-      data: {
-        keyword: formData
-      },
+      type: "GET",
+      data: { keyword: keyword },
       dataType: 'json',
-      processData: false,
-      contentType: false
     })
     .done(function(brand){
-      if ( brand.length == 0 ){
-        $(".details__brandId").attr("value") = 0
+      if ( brand.id == null ){
+        $(".details__brandId").attr("value","0")
       } else {
-        $(".details__brandId").attr("value") = brand.id
+        $(".details__brandId").attr("value",brand.id)
       }
     })
   })
+})

@@ -6,7 +6,10 @@ User.create([
 ])
 
 Brand.create([
-  {name:"ノーブランド"},{name: "ブランド１"},{name:"ブランド２"},{name:"ブランド３"}
+  {name: "ノーブランド"},
+  {name: "ブランド１"},
+  {name: "ブランド２"},
+  {name: "ブランド３"}
 ])
 
 lady = Category.create(name: "レディース")

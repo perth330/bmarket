@@ -9,7 +9,10 @@ class BrandsController < ApplicationController
   end
   def new
     return nil if params[:keyword] == ""
-    @brand = Brand.where(['name LIKE ?', "%#{params[:keyword]}%"] ).limit(1)
+    @brand = Brand.find_by(name: "#{params[:keyword]}")
+    if @brand == nil
+      @brand = Brand.new
+    end
     respond_to do |format|
       format.html
       format.json

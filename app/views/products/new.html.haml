@@ -14,38 +14,38 @@
       .newForm__item.box
         %span.message 商品名
         %span.btn.need 必須
-        =f.text_field :name,placeholder: "商品名（必須 40文字まで)",class:"item__name produtsNewInput"
+        =f.text_field :name,placeholder: "商品名（必須 40文字まで)",class:"item__name productsNewInput"
         %span.message 商品の説明
         %span.btn.need 必須
-        =f.text_area :introduction,placeholder: "商品の説明（必須 1,000文字  以内）（色、素材、重さ、定価、注意点など）例）去年1万円で買いました。",class:"item__introduction produtsNewInput"
+        =f.text_area :introduction,placeholder: "商品の説明（必須 1,000文字  以内）（色、素材、重さ、定価、注意点など）例）去年1万円で買いました。",class:"item__introduction productsNewInput"
       .newForm__details.box
         %span.message 商品の詳細
         %span.message サイズ
         %span.btn.need 必須
-        =f.collection_select :size,Size.all,:id,:name,{prompt:"選択して"},class:"details__size produtsNewInput"
+        =f.collection_select :size,Size.all,:id,:name,{prompt:"選択して"},class:"details__size productsNewInput"
         %span.message カテゴリー
         %span.btn.need 必須
         .details__categoryCell
-          =f.collection_select :category_id,@categories,:id,:name,{prompt:"選択してください"},class:"categoryCell__all produtsNewInput"
+          =f.collection_select :category_id,@categories,:id,:name,{prompt:"選択してください"},class:"categoryCell__all productsNewInput"
         %span.message ブランド
         %span.btn.free 任意
         =f.fields_for(@brand) do |i|
-          =i.text_field :name,placeholder:"例）シャネル",class:"details__brand produtsNewInput"
-        =f.hidden_field :brand_id,value:1,class:"details__brandId"
+          =i.text_field :name,placeholder:"例）シャネル",class:"details__brand productsNewInput"
+        =f.hidden_field :brand_id,value:0,class:"details__brandId"
         %span.message 商品の状態
         %span.btn.need 必須
-        =f.collection_select :condition,Condition.all,:id,:name,{prompt:"選択してください"},class:"details__condition produtsNewInput"
+        =f.collection_select :condition,Condition.all,:id,:name,{prompt:"選択してください"},class:"details__condition productsNewInput"
       .newForm__post.box
         %p.message 配送について
         %span.message 配送量の負担
         %span.btn.need 必須
-        =f.collection_select :delivery_cost,Delivery_cost.all,:id,:name,{prompt:"選択してください"},{class:"post__deliveryCost produtsNewInput"}
+        =f.collection_select :delivery_cost,Delivery_cost.all,:id,:name,{prompt:"選択してください"},{class:"post__deliveryCost productsNewInput"}
         %span.message 発送元の地域
         %span.btn.need 必須
-        =f.collection_select :from,Prefecture.all,:id,:name,{prompt:"選択してください"},class:"post__from produtsNewInput"
+        =f.collection_select :from,Prefecture.all,:id,:name,{prompt:"選択してください"},class:"post__from productsNewInput"
         %soan.message 発送までの日数
         %span.btn.need 必須
-        =f.collection_select :delivery_day,Delivery_day.all,:id,:name,{prompt:"選択してください"},class:"post__deliveryDay produtsNewInput"
+        =f.collection_select :delivery_day,Delivery_day.all,:id,:name,{prompt:"選択してください"},class:"post__deliveryDay productsNewInput"
       .newForm__price.box
         %p.message 価格（¥300〜9,999,999）
         .price__box
