@@ -1,0 +1,80 @@
+.purchaseIndex
+  %header.purchaseLayout__header
+    = link_to '#' do 
+      = image_tag asset_path("material/logo/logo.png")
+  .purchaseLayout
+    .purchaseLayout__left
+    .purchaseLayout__center 
+      .purchaseLayout__center__content
+        %h2.purchaseLayout__center__title 
+          購入内容の確認
+      %section.buyContent
+        .buyContent__inner
+          .buyItem__box
+            %h3.buyItem__box__image
+              = image_tag asset_path("material/pict/nekochan.jpg")
+            .buyItem__box__detail
+              %p.buyItem__box__name
+                子猫（アメリカンショートヘア）
+              %p.buyItem__box__price
+                %span 980円
+                %span (税込)送料込み
+      %section.buyContent.buyItem
+        .buyContent__inner
+          %form(action="")
+            %ul.buyPrice__table
+              %li.buyPrice__pay
+                .buyPrice__cell__label
+                  支払い金額
+                .buyPrice__cell
+                  %span.data__buyPay 986円
+            %ul.buy__accordion
+              %li.accordion__parent
+                .user__point__accordion
+                  %input{type: "checkbox",class: "#"}
+                  %label ポイントを使用(所持ポイント:P)
+                %ul.accordion__child
+                  %li.form-group
+                    .radio__default
+                      %label(for="")
+                        %input{type: "radio"}
+                        %input{type: "hidden"} 
+                          すべてのポイントを使う
+                    .radio__default
+                      %label(for="")
+                        %input{type: "radio"}
+                        %input{type: "hidden"} 
+                          一部のポイントを使う
+                    %input.input__defalut{type: "number",placeholder: "使うポイントを入力"}
+                    %input{type: "hidden"}
+              %section.buyContent__user__info
+                .buyContent__inner
+                  .clearfix
+                    %h3.l__left 
+                      支払い方法
+                  %p.buyUser__info__text
+                    クレジットカード
+                    %br/
+                    クレジット番号
+                    %br/
+                    有効期限
+              %section.buyContent__user__info
+                .buyContent__inner
+                  .clearfix
+                    %h3.l__left 
+                      配送先
+                    = link_to "#" , class: "l__right" do 
+                      変更する
+                  %p.buyUser__info__text
+                    郵便番号
+                    %br/
+                    住所
+                    %br/
+                    氏名
+              %section.buyContent__user__info
+                .buyContent__inner
+                  %button{type: "submit",class: "btn__default"} 購入する
+    .purchaseLayout__right
+  %footer.purchaseLayout__footer
+    = link_to '#' do 
+      = image_tag asset_path("material/logo/logo.png")
