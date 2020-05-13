@@ -1,58 +1,65 @@
-.new__container
-  .new__form__container
-    .new__image__container
-      %p.message 商品出品画像（必須）
-      %p.message 最大5枚までアップロード出来ます
-      .post__drop__box__container
-        .label-content
-          %label{for: "item_images_attributes_0_src", class: "label-box"}
-            %pre.label-box__text-visible クリックしてファイルをアップロード
-        
-    .new__item__container
-      %p.message 商品名（必須）
-      %input.name-box{placeholder: "商品名（必須 40文字まで)", type: "text"}
-      %p.message 商品の説明（必須）
-      %textarea.description-box{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）去年1万円で買いました。"}
-      
-    .new__details__container
-      %p.message 商品の詳細
-      %p.message サイズ（任意)
-      %input.select-box{placeholder:  "（例）S, M, L,・・・", type: "text"}
-      %p.message カテゴリー（必須)
-      .sell-category-box
-        %select{class: 'sell__item-category'}
-      %p.message ブランド（必須）
-      %select{class: 'sell__item-category'}
-      %p.message 商品の状態（必須）
-      %select{class: 'sell__item-category'}
-
-    .new__post__container
-      %p.message 配送について
-      %p.message 配送量の負担（必須）
-      %select{class: 'select-box'}
-      %p.message 発送元の地域（必須）
-      %select{class: 'select-box'}
-      %p.message 発送までの日数（必須）
-      %select{class: 'select-box'}
-
-    .new__price__container
-      %p.message 価格（¥300〜9,999,999）
-      .price-box
-        .message 販売価格（必須）
-        .price
-          %span ¥
-          %input.price-box{placeholder: "0"}
-
-    .new__submit__container
-      .button
-        .finish
-          = link_to "#" do
-            出品する
-      .back
-        = link_to root_path do
-          もどる
-
-    .new__attention__container
+.productsNew
+  .productsNew__container
+    = form_with(model:@product,local:true,class:"container__newForm") do |f|
+      .newForm__image.box
+        %span.message 商品出品画像
+        %span.btn.need 必須
+        %p.message 最大5枚までアップロード出来ます
+        .image__uploadBox
+          .uploadBox
+            =f.label :image, class:"uploadBox__box" do
+              -# = icon('fas','image',"uploadBox__box__icon")
+              = f.file_field :image,class:"uploadBox__box__hidden"
+              クリックしてファイルをアップロード
+      .newForm__item.box
+        %span.message 商品名
+        %span.btn.need 必須
+        =f.text_field :name,placeholder: "商品名（必須 40文字まで)",class:"item__name produtsNewInput"
+        %span.message 商品の説明
+        %span.btn.need 必須
+        =f.text_area :introduction,placeholder: "商品の説明（必須 1,000文字  以内）（色、素材、重さ、定価、注意点など）例）去年1万円で買いました。",class:"item__introduction produtsNewInput"
+      .newForm__details.box
+        %span.message 商品の詳細
+        %span.message サイズ
+        %span.btn.need 必須
+        =f.collection_select :size,Size.all,:id,:name,{prompt:"選択して"},class:"details__size produtsNewInput"
+        %span.message カテゴリー
+        %span.btn.need 必須
+        .details__categoryCell
+          =f.collection_select :category_id,@categories,:id,:name,{prompt:"選択してください"},class:"categoryCell__all produtsNewInput"
+        %span.message ブランド
+        %span.btn.free 任意
+        =f.fields_for(@brand) do |i|
+          =i.text_field :name,placeholder:"例）シャネル",class:"details__brand produtsNewInput"
+        =f.hidden_field :brand_id,value:1,class:"details__brandId"
+        %span.message 商品の状態
+        %span.btn.need 必須
+        =f.collection_select :condition,Condition.all,:id,:name,{prompt:"選択してください"},class:"details__condition produtsNewInput"
+      .newForm__post.box
+        %p.message 配送について
+        %span.message 配送量の負担
+        %span.btn.need 必須
+        =f.collection_select :delivery_cost,Delivery_cost.all,:id,:name,{prompt:"選択してください"},{class:"post__deliveryCost produtsNewInput"}
+        %span.message 発送元の地域
+        %span.btn.need 必須
+        =f.collection_select :from,Prefecture.all,:id,:name,{prompt:"選択してください"},class:"post__from produtsNewInput"
+        %soan.message 発送までの日数
+        %span.btn.need 必須
+        =f.collection_select :delivery_day,Delivery_day.all,:id,:name,{prompt:"選択してください"},class:"post__deliveryDay produtsNewInput"
+      .newForm__price.box
+        %p.message 価格（¥300〜9,999,999）
+        .price__box
+          %span.message 販売価格
+          %span.btn.need 必須
+          .price__box__form
+            %span ¥
+            =f.text_field :price,placeholder: "0",class:"form__price input price"
+      .newForm__submit
+        =f.submit "出品する"
+    .container__back
+      = link_to root_path do
+        もどる
+    .container__attention
       %p.message 禁止されている行為および出品物を必ずご確認ください。
-      %p.message 偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。
+      %p.message 偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰され る可能性があります。
       %p.message また、出品をもちまして加盟店規約に同意したことになります。
