@@ -19,23 +19,23 @@
         %span.btn.need 必須
         =f.text_area :introduction,placeholder: "商品の説明（必須 1,000文字  以内）（色、素材、重さ、定価、注意点など）例）去年1万円で買いました。",class:"item__introduction productsNewInput"
       .newForm__details.box
-        %span.message 商品の詳細
-        %span.message サイズ
-        %span.btn.need 必須
-        =f.collection_select :size,Size.all,:id,:name,{prompt:"選択して"},class:"details__size productsNewInput"
+        %p.message--gray 商品の詳細
         %span.message カテゴリー
         %span.btn.need 必須
         .details__categoryCell
-          =f.collection_select :category_id,@categories,:id,:name,{prompt:"選択してください"},class:"categoryCell__all productsNewInput"
+          =f.collection_select :category_id,@categories,:id,:name,{prompt:"選択してください"},class:"categoryCell__parent productsNewInput"
+        %span.message サイズ
+        %span.btn.need 必須
+        =f.collection_select :size,Size.all,:id,:name,{prompt:"選択してください"},class:"details__size productsNewInput"
         %span.message ブランド
         %span.btn.free 任意
         =f.fields_for(@brand) do |i|
           =i.text_field :name,placeholder:"例）シャネル",class:"details__brand productsNewInput"
-        %span.message 商品の状態
+        %span.message--gray 商品の状態
         %span.btn.need 必須
         =f.collection_select :condition,Condition.all,:id,:name,{prompt:"選択してください"},class:"details__condition productsNewInput"
       .newForm__post.box
-        %p.message 配送について
+        %p.message--gray 配送について
         %span.message 配送量の負担
         %span.btn.need 必須
         =f.collection_select :delivery_cost,Delivery_cost.all,:id,:name,{prompt:"選択してください"},{class:"post__deliveryCost productsNewInput"}
@@ -46,18 +46,19 @@
         %span.btn.need 必須
         =f.collection_select :delivery_day,Delivery_day.all,:id,:name,{prompt:"選択してください"},class:"post__deliveryDay productsNewInput"
       .newForm__price.box
-        %p.message 価格（¥300〜9,999,999）
+        %p.message--gray 価格（¥300〜9,999,999）
         .price__box
-          %span.message 販売価格
-          %span.btn.need 必須
-          .price__box__form
+          .price__box__left
+            %span.message 販売価格
+            %span.btn.need 必須
+          .price__box__right
             %span ¥
             =f.text_field :price,placeholder: "0",class:"form__price input price"
-      .newForm__submit
-        =f.submit "出品する"
-    .container__back
-      = link_to root_path do
-        もどる
+      .newForm__submit.box
+        =f.submit "出品する",class:"newForm__submit__submit"
+        = link_to root_path do
+          .newForm__submit__back
+            もどる
     .container__attention
       %p.message 禁止されている行為および出品物を必ずご確認ください。
       %p.message 偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰され る可能性があります。

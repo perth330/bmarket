@@ -1,17 +1,34 @@
 .newForm{
   &__item{
-
   }
   &__details{
-
+    // margin: ;
   }
   &__post{
 
   }
   &__price{
-
+    .price__box{
+      display: flex;
+      justify-content: space-between;
+    }
   }
   &__submit{
-    
+    text-align: center;
+    align-items: center;
+    &__submit{
+      display: inline-block;
+      height: 46px;
+      line-height: 46px;
+      width: 310px;
+      color: #ffffff;
+      background-color: #ea352d;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 17px;
+    }
+    &__back{
+      
+    }
   }
 }

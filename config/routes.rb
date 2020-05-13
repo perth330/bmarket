@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :credits
   resources :products
   resources :brands
+  resources :categories
 end

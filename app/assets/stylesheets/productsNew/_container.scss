@@ -1,12 +1,14 @@
 .container{
   &__newForm{
-    
-  }
-  &__back{
-    
+    span{
+      line-height: 35px;
+    }
   }
   &__attention{
-    
+    text-align: center;
+    p{
+      font-size: 13px;
+    }
   }
   
 }

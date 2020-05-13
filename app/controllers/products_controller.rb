@@ -3,13 +3,17 @@ class ProductsController < ApplicationController
   end
   def new
     @product = Product.new
-    @categories = Category.all
+    @categories = Category.roots
     @brand = Brand.new
   end
   
   def create
-    @brand = Brand.find_by(name: "#{brand_params}")
-    @brand = Brand.create(brand_params) if @brand == nil
+    if brand_params == ""
+      @brand = Brand.find_by(name: "#{brand_params}")
+      @brand = Brand.create(brand_params) if @brand == nil
+    else
+      @brand = Brand.find(1)
+    end
     @product = Product.create(product_create_params)
     redirect_to root_path
   end
