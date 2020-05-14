@@ -9,7 +9,7 @@
         = devise_error_messages!
         .login__no__account
           %p アカウントをお持ちでない方はこちら
-          = link_to "#", class: "sign__up__btn" do
+          = link_to new_user_registration_path, class: "sign__up__btn" do
             新規登録
         .login__frame
           .login__frame__form
