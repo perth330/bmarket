@@ -78,7 +78,7 @@ $(function() {
   // 画像用のinputを生成する関数
   function buildFileField(index){
     const html = `
-    <label data-index="${index}" class="uploadBox__box" for="product_images_attributes_0_src"><input class="uploadBox__box__hidden" type="file" name="product[images_attributes][${index}][src]" id="product_images_attributes_${index}_src">
+    <label data-index="${index}" class="uploadBox__box" for="product_images_attributes_${index}_image_url"><input class="uploadBox__box__hidden" type="file" name="product[images_attributes][${index}][image_url]" id="product_images_attributes_${index}_image_url">
     <div class="uploadBox__box__text">
     <i class="fa fa-camera uploadBox__box__text--message"></i>
     <p class="uploadBox__box__text--message hidden">ドラッグアンドドロップ</p>
@@ -96,26 +96,32 @@ $(function() {
   
   
   $(document).on("change",'.uploadBox__box__hidden',function(e) {
-    // fileIndexの先頭の数字を使ってinputを作る
-    if ($(".uploadBox__box__imageRemove").length == 0){
-      $(".uploadBox__box").append(`<div class="uploadBox__box__imageRemove">削除</div>`)
+    const targetIndex = $(this).parent().data('index');
+    const file = e.target.files[0];
+    const blobUrl = window.URL.createObjectURL(file);
+    if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
+      img.setAttribute('src', blobUrl);
+    } else {
+      $(this).parent().append(previewImage(targetIndex,blobUrl))
+      $(this).parent().append(`<div class="uploadBox__box__imageRemove">削除</div>`)
+      $(".uploadBox__box__text--message").addClass("hidden");
+      $('.uploadBox').append(buildFileField($(".uploadBox__box__hidden").length));
     }
-    $(".uploadBox__box").append(previewImage($(".uploadBox__box__hidden").length - 1,$(".uploadBox__box__hidden").val()))
-    $(".uploadBox__box__text--message").addClass("hidden");
-    $('.uploadBox').append(buildFileField($(".uploadBox__box__hidden").length));
+    
   });
   $(document).on("click",".uploadBox__box__imageRemove",function() {
     $(this).parent().remove();
     $(".uploadBox__box").each(function(i){
       $(this).attr("data-index",i)
     })
-    // 画像入力欄が0個にならないようにしておく
     if ($('.uploadBox__box').length == 0) {
       $('.uploadBox').append(buildFileField(fileIndex[0]));
       $(".uploadBox__box__text--message").removeClass("hidden");
     }
   });
 });
+
+
 
 
 

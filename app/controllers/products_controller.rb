@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
 
   private
   def product_create_params
-    params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price,images_attributes: [:src]).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
+    params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price,images_attributes: [:image_url]).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
   end
   
   def brand_params

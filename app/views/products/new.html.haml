@@ -10,12 +10,14 @@
           %p.message--light 最大5枚までアップロード出来ます
           .uploadBox
             =f.fields_for :images do |i|
-              =i.label :src, "data-index":"#{i.index}",class:"uploadBox__box" do
-                = i.file_field :src,class:"uploadBox__box__hidden"
+              =i.label :image_url, "data-index":"#{i.index}",class:"uploadBox__box" do
+                = i.file_field :image_url,class:"uploadBox__box__hidden"
                 .uploadBox__box__text
                   %i.fa.fa-camera.uploadBox__box__text--message
                   %p.uploadBox__box__text--message ドラッグアンドドロップ
                   %p.uploadBox__box__text--message またはクリックしてファイルをアップロード
+                .uploadBox__box__imageRemove
+                  削除
       .container
         .container__item
           %span.message 商品名
