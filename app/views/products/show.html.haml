@@ -1,10 +1,11 @@
 .productDtail
   .productShowContent
     
-    -if user_signed_in? && current_user.id == product.user_id
+    -if user_signed_in? && current_user.id == @product.user_id
       .productEditLink
         .productEditLink__btn
-          = link_to "自分の出品ページをみる"
+          = link_to "#" do
+            自分の出品ページをみる
     .productBox
       .productBox__name
         = @product.name
@@ -105,13 +106,11 @@
             =link_to "#" do
               %i.fa.fa-flag
               不適切な商品の通報
-    .productPurchase
-      - if not user_signed_in?
+    -if not user_signed_in? && current_user.id == @product.user_id
+      .productPurchase
         = link_to new_purchase_path do
           購入する
-      -  else 
-        = link_to new_purchase_path do
-          購入する
+
     .commentBox
       %ul
       .commentBox__box
