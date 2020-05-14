@@ -22,6 +22,10 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
   
+  def show
+    @product = Product.find(params[:id])
+  end
+
   private
   def product_create_params
     params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
@@ -29,10 +33,6 @@ class ProductsController < ApplicationController
   
   def brand_params
     params[:product].require(:brand).permit(:name)
-  end
-end
-  def show
-    @product = Product.find(params[:id])
   end
 end
 
