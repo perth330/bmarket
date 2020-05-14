@@ -349,6 +349,6 @@ Image.create([
   product_id: 1},{image_url: File.open("./public/uploads/image/image_url/2/icon_category.png"),
   product_id: 2},{image_url: File.open("./public/uploads/image/image_url/3/icon-02.png"),
   product_id: 3},{image_url: File.open("./public/uploads/image/image_url/4/nekochan.jpg"),
-    product_id: 4}
+  product_id: 4}
 ]
 )
