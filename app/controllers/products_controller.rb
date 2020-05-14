@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
     @product = Product.new
     @categories = Category.roots
     @brand = Brand.new
+    @image = Image.new
   end
   
   def create
