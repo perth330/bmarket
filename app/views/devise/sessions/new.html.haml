@@ -1,8 +1,24 @@
-= form_with scope: resource, as: resource_name, url: session_path(resource_name), local: true do |f|
-  = devise_error_messages!
-  .form-group
-    = f.email_field :email, autofocus: true, placeholder: "メールアドレス", class: "form-control"
-  .form-group
-    = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "form-control"
-  .actions
-    = f.submit "サインインする", class: "btn btn-primary w-100"
+.usersLogin
+  .usersLoginHeader
+    = link_to '#' do 
+      = image_tag asset_path("material/logo/logo.png")
+  .layout
+    .layout__left
+    .layout__center 
+      = form_with scope: resource, as: resource_name, url: session_path(resource_name), local: true do |f|
+        = devise_error_messages!
+        .login__no__account
+          %p アカウントをお持ちでない方はこちら
+          = link_to new_user_registration_path, class: "sign__up__btn" do
+            新規登録
+        .login__frame
+          .login__frame__form
+            = f.email_field :email, autofocus: true, placeholder: "メールアドレス", class: "login__frame__form__defalt"
+          .login__frame__form
+            = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "login__frame__form__defalt"
+        .login__frame__under
+          = f.submit "ログイン", class: "login__frame__under__btn"
+    .layout__right
+  .usersLonginFooter
+    = link_to '#' do 
+      = image_tag asset_path("material/logo/logo-white.png")
