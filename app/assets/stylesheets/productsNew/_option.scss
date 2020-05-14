@@ -1,0 +1,67 @@
+*{
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: bolder;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+input{
+  -webkit-appearance: none;
+  border: 1px solid;
+  border-color: #ccc;
+  font-weight: normal;
+  line-height: 40px;
+}
+textarea{
+  -webkit-appearance: none;
+  border: 1px solid;
+  border-color: #ccc;
+  font-weight: normal;
+  line-height: 40px;
+}
+select{
+  -webkit-appearance: none;
+  border: 1px solid;
+  border-color: #ccc;
+  font-weight: normal;
+  line-height: 40px;
+}
+.message{
+  line-height: 24px;
+  &--light{
+    font-weight: normal;
+  }
+  &--gray{
+    color: gray;
+    line-height: 14px;
+  }
+}
+.btn{
+  border-radius: 2px;
+  font-size: 12px;
+  height: 20px;
+  width: 30px;
+  padding: 5px 5px;
+  color: #ffffff;
+  &.free{
+    background-color: gray;
+    border-radius: 5px;
+  }
+  &.need{
+    background-color: red;
+    border-radius: 5px;
+    
+  }
+}
+.productsNewInput{
+  width: 100%;
+  margin-top: 16px;
+  padding: 0 16px;
+  border-radius: 4px;
+  &.price{
+    width: 285px;
+    text-align: right;
+  }
+}
