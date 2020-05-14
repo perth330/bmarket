@@ -89,11 +89,18 @@ $(function() {
     return html;
   }
   
+  function previewImage(index,url){
+    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px" class="uploadBox__box__preview">`;
+    return html;
+  }
+  
+  
   $(document).on("change",'.uploadBox__box__hidden',function(e) {
     // fileIndexの先頭の数字を使ってinputを作る
-    if ($(".upload__box__imageRemove").length == 0){
+    if ($(".uploadBox__box__imageRemove").length == 0){
       $(".uploadBox__box").append(`<div class="uploadBox__box__imageRemove">削除</div>`)
     }
+    $(".uploadBox__box").append(previewImage($(".uploadBox__box__hidden").length - 1,$(".uploadBox__box__hidden").val()))
     $(".uploadBox__box__text--message").addClass("hidden");
     $('.uploadBox').append(buildFileField($(".uploadBox__box__hidden").length));
   });
