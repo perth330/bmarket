@@ -35,7 +35,7 @@
           %br/
           = f.text_field :city, autofocus: true,class: "inputAdd",placeholder: ""
         .field
-          = f.label "町村"
+          = f.label "町村区郡"
           %span.require 必須
           %br/
           = f.text_field :town, autofocus: true,class: "inputAdd",placeholder: ""
@@ -46,12 +46,12 @@
           = f.text_field :town_number, autofocus: true,class: "inputAdd",placeholder: ""
         .field
           = f.label "マンション名"
-          %span.any 任意
+          %span.any （任意）
           %br/
           = f.text_field :building, autofocus: true,class: "inputAdd",placeholder: ""
         .field
           = f.label "連絡先"
-          %span.any 任意
+          %span.any （任意）
           %br/
           = f.text_field :tel, autofocus: true,class: "inputAdd",placeholder: "数字のみ"
       .addressBtn
