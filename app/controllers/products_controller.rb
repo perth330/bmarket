@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
     @categoryProducts = Product.includes(:images).limit(3).order("id DESC")
     @categoryBrand = Product.includes(:images).limit(3).order("RAND()")
   end
+
   def new
     @product = Product.new
     @categories = Category.roots
@@ -29,3 +30,8 @@ class ProductsController < ApplicationController
     params[:product].require(:brand).permit(:name)
   end
 end
+  def show
+    @product = Product.find(params[:id])
+  end
+end
+

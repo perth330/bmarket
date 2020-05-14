@@ -1,131 +1,132 @@
 .productDtail
   .productShowContent
-    .topContent
-      .productBox
-        .productBox__name
-          商品
-        .productBox__body
-          %ul.productBox__body
-            %li.productBox__body__image
-              .productBox__body__image__main
-                = image_tag asset_path("material/pict/nekochan.jpg")
-              %ul.productBox__body__image__sub
-                %li.productBox__body__image__sub__left
-                  = image_tag asset_path("material/pict/nekochan.jpg")
-                %li.productBox__body__image__sub__center
-                  = image_tag asset_path("material/pict/nekochan.jpg")
-                %li.productBox__body__image__sub__right
-                  = image_tag asset_path("material/pict/nekochan.jpg")
-        .productBox__price
-          .productBox__price__included
-            ￥20000
-          .productBox__price__detail
-            .productBox__price__detail__tax
-              (税込)
-            .productBox__price__detail__postage
-              送料込み
-        .productBox__detail
-          親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
-        .productBox__table
-          %tr 
-          .productBox__table__line
-            %th
-            .productBox__table__line__left
-              出品者
-            %td
-            .productBox__table__line__right
-              hoge
-          %tr
-          .productBox__table__line
-            %th
-            .productBox__table__line__left
-              カテゴリー 
-            %td
-            .productBox__table__line__right
-              = link_to "#" do
-                .productBox__table__line__right__top
-                  あ
-                .productBox__table__line__right__middle
-                  い
-                .productBox__table__line__right__under
-                  う
-          %tr
-          .productBox__table__line
-            %th
-            .productBox__table__line__left
-              ブランド
-            %td
-            .productBox__table__line__right
-              エルメス
-          %tr
-          .productBox__table__line
-            %th
-            .productBox__table__line__left
-              商品のサイズ
-            %td
-            .productBox__table__line__right
-          %tr
-          .productBox__table__line
-            %th
-            .productBox__table__line__left
-              商品の状態
-            %td
-            .productBox__table__line__right
-              新品/未使用
-          %tr
-          .productBox__table__line
-            %th
-            .productBox__table__line__left
-              配送料の負担
-            %td
-            .productBox__table__line__right
-              着払い（購入者負担）
-          %tr
-          .productBox__table__line
-            %th
-            .productBox__table__line__left
-              発送元の地域
-            %td
-            .productBox__table__line__right
-              = link_to "#" do
-                大阪府
-          %tr
-          .productBox__table__line
-            %th
-            .productBox__table__line__left
-              発送日の目安
-            %td
-            .productBox__table__line__right
-              1~2日で発送
-
-
-        .productBox__option
-          %ul
-            %li#likeBtn.optionalBtn.likeBtn
-              %i.fa.fa-star
-              お気に入り 0
-          %ul.optional
-            %li.optionalBtn
-              =link_to "#" do
-                %i.fa.fa-flag
-                不適切な商品の通報
-
-      .commentBox
+    
+    -if user_signed_in? && current_user.id == product.user_id
+      .productEditLink
+        .productEditLink__btn
+          = link_to "自分の出品ページをみる"
+    .productBox
+      .productBox__name
+        = @product.name
+      .productBox__body
+        %ul.productBox__body
+          %li.productBox__body__image
+            .productBox__body__image__main
+              = image_tag (@product.images[0].image_url.url)
+            %ul.productBox__body__image__sub
+              %li.productBox__body__image__sub__left
+                = image_tag (@product.images[0].image_url.url)
+              %li.productBox__body__image__sub__center
+                = image_tag (@product.images[0].image_url.url)
+              %li.productBox__body__image__sub__right
+                = image_tag (@product.images[0].image_url.url)
+      .productBox__price
+        .productBox__price__included
+          = @product.price
+        .productBox__price__detail
+          .productBox__price__detail__tax
+            (税込)
+          .productBox__price__detail__postage
+            = @product.delivery_day
+      .productBox__detail
+        = @product.introduction
+      .productBox__table
+        %tr 
+        .productBox__table__line
+          %th
+          .productBox__table__line__left
+            出品者
+          %td
+          .productBox__table__line__right
+            = @product.user.nickname
+        %tr
+        .productBox__table__line
+          %th
+          .productBox__table__line__left
+            カテゴリー 
+          %td
+          .productBox__table__line__right
+            = link_to @product.category.name
+        %tr
+        .productBox__table__line
+          %th
+          .productBox__table__line__left
+            ブランド
+          %td
+          .productBox__table__line__right
+            = @product.brand.name
+        %tr
+        .productBox__table__line
+          %th
+          .productBox__table__line__left
+            商品のサイズ
+          %td
+          .productBox__table__line__right
+            = @product.size
+        %tr
+        .productBox__table__line
+          %th
+          .productBox__table__line__left
+            商品の状態
+          %td
+          .productBox__table__line__right
+            = @product.condition
+        %tr
+        .productBox__table__line
+          %th
+          .productBox__table__line__left
+            配送料の負担
+          %td
+          .productBox__table__line__right
+            = @product.delivery_cost
+        %tr
+        .productBox__table__line
+          %th
+          .productBox__table__line__left
+            発送元の地域
+          %td
+          .productBox__table__line__right
+            = link_to @product.from
+        %tr
+        .productBox__table__line
+          %th
+          .productBox__table__line__left
+            発送日の目安
+          %td
+          .productBox__table__line__right
+            = @product.delivery_day
+      .productBox__option
         %ul
-        .commentBox__box
-          .commentBox__box__form
-            = form_with url: products_path do |f|
-              = f.text_field :product, class: "commentBox__box__form__text"
-          .commentBox__box__notice
-            相手のことを考え丁寧なコメントを心がけましょう。
-            %br
-              不快な言葉遣いなどは利用制限や退会処分となる事があります。
-          =link_to "#" do
-            .commentBox__box__btn
-              %i.fa.fa-comment
-                コメントする
-
-    %ul.links
+          %li#likeBtn.optionalBtn.likeBtn
+            %i.fa.fa-star
+            お気に入り 0
+        %ul.optional
+          %li.optionalBtn
+            =link_to "#" do
+              %i.fa.fa-flag
+              不適切な商品の通報
+    .productPurchase
+      - if not user_signed_in?
+        = link_to new_purchase_path do
+          購入する
+      -  else 
+        = link_to new_purchase_path do
+          購入する
+    .commentBox
+      %ul
+      .commentBox__box
+        .commentBox__box__form
+          = form_with url: products_path do |f|
+            = f.text_field :product, class: "commentBox__box__form__text"
+        .commentBox__box__notice
+          相手のことを考え丁寧なコメントを心がけましょう。
+          %br
+            不快な言葉遣いなどは利用制限や退会処分となる事があります。
+        =link_to "#" do
+          .commentBox__box__btn
+            %i.fa.fa-comment
+              コメントする
+    .productFrontAndBackLinks
       %li
         =link_to "#" do
           %i.fa.fa-angle-left
@@ -134,8 +135,7 @@
         =link_to "#" do
           %span 後ろの商品
           %i.fa.fa-angle-right
-
-          
+        
     .relatedProducts
       =link_to "#" do
         ベビー・キッズをもっと見る
