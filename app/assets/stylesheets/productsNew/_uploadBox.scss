@@ -1,23 +1,43 @@
 .uploadBox{
-  position: relative;
   align-items: center;
+  display: flex;
+  justify-content: space-between;
   &__box{
     margin-top:12px ;
     display: inline-block;
     width: 100%;
+    margin: 16px 10px;
     height: 150px;
     background-color:#f8f8f8;
+    cursor: pointer;
+    position: relative;
+    border: dashed 1px;
+    border-color: #ccc;
     &__hidden{
       display: none;
     }
-  }
-  &__text{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
+    &__text{
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+      &--message.hidden{
+        display: none;
+      }
+    }
+    &__imageRemove{
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      color: red;
+      font-weight: normal;
+    }
   }
 }

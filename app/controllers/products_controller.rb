@@ -4,11 +4,15 @@ class ProductsController < ApplicationController
     @categoryBrand = Product.includes(:images).limit(3).order("RAND()")
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
   def new
     @product = Product.new
     @categories = Category.roots
     @brand = Brand.new
-    @image = Image.new
+    @product.images.new
   end
   
   def create
@@ -24,15 +28,11 @@ class ProductsController < ApplicationController
   
   private
   def product_create_params
-    params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
+    params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price,images_attributes: [:src]).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
   end
   
   def brand_params
     params[:product].require(:brand).permit(:name)
-  end
-end
-  def show
-    @product = Product.find(params[:id])
   end
 end
 
