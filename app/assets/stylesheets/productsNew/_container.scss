@@ -1,0 +1,40 @@
+.container{
+  padding: 24px 40px;
+  border: 1px solid;
+  border-color: #f8f8f8;
+  &__item{
+    padding: 16px 0;
+    .price__box{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__submit{
+    padding: 16px 0;
+    text-align: center;
+    align-items: center;
+    &__go{
+      &--btn{
+        display: inline-block;
+        height: 46px;
+        line-height: 46px;
+        width: 310px;
+        color: #ffffff;
+        background-color:#3CCACE;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 17px;
+        cursor: pointer;
+      }
+    }
+    &__back{
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+  &__attention{
+    font-size: 13px;
+    text-align: center;
+  }
+}
+

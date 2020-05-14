@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :credits
   resources :products
+  resources :brands
+  resources :categories
   resources :purchase
 end
