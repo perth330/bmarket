@@ -107,7 +107,6 @@ $(function() {
       $(".uploadBox__box__text--message").addClass("hidden");
       $('.uploadBox').append(buildFileField($(".uploadBox__box__hidden").length));
     }
-    
   });
   $(document).on("click",".uploadBox__box__imageRemove",function() {
     $(this).parent().remove();
