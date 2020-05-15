@@ -8,52 +8,61 @@
     = form_with model: @address do |f|
       .addressForm
         .field
-          = f.label "お名前"
-          %span.require 必須
-          %br/
-          = f.text_field :family_name, autofocus: true,class: "inputAddHarf",placeholder: "(全角)"
-          = f.text_field :first_name, autofocus: true,class: "inputAddHarf",placeholder: "(全角)"
+          .fieldTop
+            = f.label "お名前"
+            %span.require 必須
+          .fieldBottom
+            = f.text_field :family_name, autofocus: true,class: "inputAddHarf",placeholder: "(全角)"
+            = f.text_field :first_name, autofocus: true,class: "inputAddHarf",placeholder: "(全角)"
         .field
-          = f.label "お名前カナ"
-          %span.require 必須
-          %br/
-          = f.text_field :family_name_kana, autofocus: true,class: "inputAddHarf",placeholder: "(全角カナ)"
-          = f.text_field :first_name_kana, autofocus: true,class: "inputAddHarf",placeholder: "(全角カナ)"
+          .fieldTop
+            = f.label "お名前カナ"
+            %span.require 必須
+          .fieldBottom
+            = f.text_field :family_name_kana, autofocus: true,class: "inputAddHarf",placeholder: "(全角カナ)"
+            = f.text_field :first_name_kana, autofocus: true,class: "inputAddHarf",placeholder: "(全角カナ)"
         .field
-          = f.label "郵便番号"
-          %span.require 必須
-          %br/
-          = f.text_field :zipcode, autofocus: true,class: "inputAdd",placeholder: "半角の数字7文字のみ"
+          .fieldTop
+            = f.label "郵便番号"
+            %span.require 必須
+          .fieldBottom
+            = f.text_field :zipcode, autofocus: true,class: "inputAdd",placeholder: "半角の数字7文字のみ"
         .field
-          = f.label "都道府県"
-          %span.require 必須
-          %br/
-          = f.collection_select :prefecture, Prefecture.all, :id, :name, {}, {class: "select-box"}
+          .fieldTop
+            = f.label "都道府県"
+            %span.require 必須
+          .fieldBottom
+            = f.collection_select :prefecture, Prefecture.all, :id, :name, {}, {class: "select-box"}
         .field
-          = f.label "市"
-          %span.require 必須
-          %br/
-          = f.text_field :city, autofocus: true,class: "inputAdd",placeholder: ""
+          .fieldTop
+            = f.label "市"
+            %span.require 必須
+          .fieldBottom
+            = f.text_field :city, autofocus: true,class: "inputAdd",placeholder: ""
         .field
-          = f.label "町村区郡"
-          %span.require 必須
-          %br/
-          = f.text_field :town, autofocus: true,class: "inputAdd",placeholder: ""
+          .fieldTop
+            = f.label "町村区郡"
+            %span.require 必須
+          .fieldBottom
+            = f.text_field :town, autofocus: true,class: "inputAdd",placeholder: ""
         .field
-          = f.label "番地"
-          %span.require 必須
-          %br/
-          = f.text_field :town_number, autofocus: true,class: "inputAdd",placeholder: ""
+          .fieldTop
+            = f.label "番地"
+            %span.require 必須
+          .fieldBottom
+            = f.text_field :town_number, autofocus: true,class: "inputAdd",placeholder: ""
         .field
-          = f.label "マンション名"
-          %span.any （任意）
-          %br/
-          = f.text_field :building, autofocus: true,class: "inputAdd",placeholder: ""
+          .fieldTop
+            = f.label "マンション名"
+            %span.any （任意）
+          .fieldBottom
+            = f.text_field :building, autofocus: true,class: "inputAdd",placeholder: ""
         .field
-          = f.label "連絡先"
-          %span.any （任意）
-          %br/
-          = f.text_field :tel, autofocus: true,class: "inputAdd",placeholder: "数字のみ"
+          .fieldTop
+            = f.label "連絡先"
+            %span.any （任意）
+          .fieldBottom
+            = f.text_field :tel, autofocus: true,class: "inputAdd",placeholder: "数字のみ"
       .addressBtn
         .actions
           .actions__frame
