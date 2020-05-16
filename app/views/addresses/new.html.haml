@@ -1,3 +1,4 @@
+= render "addresses/flashAction"
 .newAddressHeader 
   = link_to root_path do 
     = image_tag asset_path("material/logo/logo.png")
@@ -5,7 +6,7 @@
   .nForm
     .name
       %h1 住所登録
-    = form_with model: @address do |f|
+    = form_with model: @address, local: true do |f|
       .addressForm
         .field
           .fieldTop

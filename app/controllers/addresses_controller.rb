@@ -5,8 +5,13 @@ class AddressesController < ApplicationController
   end
 
   def create
-    Address.create(address_params)
-    redirect_to root_path
+    @address = Address.new(address_params)
+    if @address.save
+      redirect_to user_path(current_user.id), notice: '登録完了しました。'
+    else
+      flash.now[:alert] = '未入力項目があります。'
+      render :new
+    end
   end
 
   private

@@ -1,3 +1,17 @@
+.flashAction {
+  color: white;
+  text-align: center;  
+
+  .notice {
+    background-color:  #3CCACE;
+  }
+
+  .alert {
+    background-color: rgb(233, 58, 58);
+  }
+}
+
+
 .newAddressHeader  {
   height: 100px;
   background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
