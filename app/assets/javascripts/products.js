@@ -75,7 +75,6 @@ $(function() {
     })
   })
   
-  // 画像用のinputを生成する関数
   function buildFileField(index){
     const html = `
     <label data-index="${index}" class="uploadBox__box" for="product_images_attributes_${index}_image_url"><input class="uploadBox__box__hidden" type="file" name="product[images_attributes][${index}][image_url]" id="product_images_attributes_${index}_image_url">
@@ -111,9 +110,10 @@ $(function() {
     $(this).parent().remove();
     $(".uploadBox__box").each(function(i){
       $(this).attr("data-index",i)
+      $(this).attr("for","product_images_attributes_" + i + "_image_url")
     })
     if ($('.uploadBox__box').length == 0) {
-      $('.uploadBox').append(buildFileField(fileIndex[0]));
+      $('.uploadBox').append(buildFileField("0"));
       $(".uploadBox__box__text--message").removeClass("hidden");
     }
   });
