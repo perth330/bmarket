@@ -15,6 +15,7 @@ ja:
         price: 価格
         size: サイズ
         category_id: カテゴリー
+        category: カテゴリー
         images: 画像
       image:
         image_url: 画像

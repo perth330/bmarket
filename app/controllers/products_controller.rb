@@ -26,7 +26,6 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path
     else
-      @categories = Category.roots
       @brand = Brand.new
       @product.images.new
       render "new"

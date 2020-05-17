@@ -16,9 +16,6 @@ class Product < ApplicationRecord
   validates :price, numericality: { greater_than: 299, less_than: 1000000 }
   validates :size, presence: false
   validates :status, presence: true
-  validates :user_id, presence: true
-  validates :brand_id, presence: true
-  validates :category_id, presence: true
   validates :images, presence: true
 
   # - has_many :comments, dependent: :destroy
