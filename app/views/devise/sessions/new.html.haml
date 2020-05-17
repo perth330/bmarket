@@ -1,12 +1,12 @@
+= render 'layouts/sighIn_up_logout-flash'
 .usersLogin
   .usersLoginHeader
-    = link_to '#' do 
+    = link_to root_path do 
       = image_tag asset_path("material/logo/logo.png")
   .layout
     .layout__left
     .layout__center 
       = form_with scope: resource, as: resource_name, url: session_path(resource_name), local: true do |f|
-        = devise_error_messages!
         .login__no__account
           %p アカウントをお持ちでない方はこちら
           = link_to new_user_registration_path, class: "sign__up__btn" do
