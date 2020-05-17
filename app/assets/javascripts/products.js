@@ -112,6 +112,9 @@ $(function() {
       $(this).attr("data-index",i)
       $(this).attr("for","product_images_attributes_" + i + "_image_url")
     })
+    if ($('.uploadBox__box').length == 1) {
+      $(".uploadBox__box__text--message").removeClass("hidden");
+    }
     if ($('.uploadBox__box').length == 0) {
       $('.uploadBox').append(buildFileField("0"));
       $(".uploadBox__box__text--message").removeClass("hidden");
