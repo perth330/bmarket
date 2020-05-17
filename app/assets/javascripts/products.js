@@ -81,8 +81,7 @@ $(function() {
     <label data-index="${index}" class="uploadBox__box" for="product_images_attributes_${index}_image_url"><input class="uploadBox__box__hidden" type="file" name="product[images_attributes][${index}][image_url]" id="product_images_attributes_${index}_image_url">
     <div class="uploadBox__box__text">
     <i class="fa fa-camera uploadBox__box__text--message"></i>
-    <p class="uploadBox__box__text--message hidden">ドラッグアンドドロップ</p>
-    <p class="uploadBox__box__text--message hidden">またはクリックしてファイルをアップロード</p>
+    <p class="uploadBox__box__text--message hidden">クリックしてファイルをアップロード</p>
     </div>
     <div class="uploadBox__box__imageRemove">削除</div>
     </label>`;
