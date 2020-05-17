@@ -4,7 +4,7 @@
     -if user_signed_in? && current_user.id == @product.user_id
       .productEditLink
         .productEditLink__btn
-          = link_to "#" do
+          = link_to edit_product_path  do
             自分の出品ページをみる
     .productBox
       .productBox__name

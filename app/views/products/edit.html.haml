@@ -1,0 +1,92 @@
+= render "products/shared/header";
+.productsNew
+  .productsNew__container
+    = form_with(model:@product,local:true,class:"container__newForm") do |f|
+      - if @product.errors.any?
+        .alert.alert-warning
+          %ul
+            - @product.errors.full_messages.each do |message|
+              %li
+                = message
+      .container
+        .container__item
+          %span.message 商品出品画像
+          %span.btn.need 必須
+        .container__item
+          %p.message--light 最大5枚までアップロード出来ます
+          .uploadBox
+            =f.fields_for :images do |i|
+              =i.label :image_url, "data-index":"#{i.index}",class:"uploadBox__box" do
+                = i.file_field :image_url,class:"uploadBox__box__hidden"
+                .uploadBox__box__text
+                  %i.fa.fa-camera.uploadBox__box__text--message
+                  %p.uploadBox__box__text--message クリックしてファイルをアップロード
+                .uploadBox__box__imageRemove
+                  削除
+      .container
+        .container__item
+          %span.message 商品名
+          %span.btn.need 必須
+          =f.text_field :name,placeholder: "商品名（必須 40文字まで)",class:"item__name productsNewInput"
+        .container__item
+          %span.message 商品の説明
+          %span.btn.need 必須
+          =f.text_area :introduction,placeholder: "商品の説明（必須 1,000文字  以内）（色、素材、重さ、定価、注意点など）例）去年1万円で買いました。",class:"item__introduction productsNewInput"
+      .container
+        .container__item
+          %p.message--gray 商品の詳細
+        .container__item
+          %span.message カテゴリー
+          %span.btn.need 必須
+          .details__categoryCell
+            =f.collection_select :category_id,Category.roots,:id,:name,{prompt:"選択してください"},class:"categoryCell__parent productsNewInput"
+        .container__item
+          %span.message サイズ
+          %span.btn.free 任意
+          =f.collection_select :size,Size.all,:name,:name,{prompt:"選択してください"},class:"details__size productsNewInput"
+        .container__item
+          %span.message ブランド
+          %span.btn.free 任意
+          =f.fields_for(@brand) do |i|
+            =i.text_field :name,placeholder:"例）シャネル",class:"details__brand productsNewInput"
+        .container__item
+          %span.message 商品の状態
+          %span.btn.need 必須
+          =f.collection_select :condition,Condition.all,:name,:name,{prompt:"選択してください"},class:"details__condition productsNewInput"
+      .container
+        .container__item
+          %p.message--gray 配送について
+        .container__item
+          %span.message 配送量の負担
+          %span.btn.need 必須
+          =f.collection_select :delivery_cost,Delivery_cost.all,:name,:name,{prompt:"選択してください"},{class:"post__deliveryCost productsNewInput"}
+        .container__item
+          %span.message 発送元の地域
+          %span.btn.need 必須
+          =f.collection_select :from,Prefecture.all,:name,:name,{prompt:"選択してください"},class:"post__from productsNewInput"
+        .container__item
+          %span.message 発送までの日数
+          %span.btn.need 必須
+          =f.collection_select :delivery_day,Delivery_day.all,:name,:name,{prompt:"選択してください"},class:"post__deliveryDay productsNewInput"
+      .container
+        .container__item
+          %p.message--gray 価格（¥300〜999,999）
+        .container__item
+          .price__box
+            .price__box__left
+              %span.message 販売価格
+              %span.btn.need 必須
+            .price__box__right
+              %span ¥
+              =f.text_field :price,placeholder: "0",class:"form__price productsNewInput price"
+      .container
+        .container__submit
+          .container__submit__go
+            =f.submit "変更する",class:"container__submit__go--btn"
+          .container__submit__back
+            = link_to "もどる",root_path,class:"container__submit__back"
+        .container__attention
+          %p.attention 禁止されている行為および出品物を必ずご確認ください。
+          %p.attention 偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰され る可能性があります。
+          %p.attention また、出品をもちまして加盟店規約に同意したことになります。
+= render "products/shared/footer"
