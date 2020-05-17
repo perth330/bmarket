@@ -16,7 +16,8 @@ class ProductsController < ApplicationController
   end
   
   def create
-    if brand_params != ""
+  binding.pry
+    if brand_params{:name} != ""
       @brand = Brand.find_by(name: "#{brand_params}")
       @brand = Brand.create(brand_params) if @brand == nil
     else
