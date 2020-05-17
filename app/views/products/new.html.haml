@@ -2,6 +2,12 @@
 .productsNew
   .productsNew__container
     = form_with(model:@product,local:true,class:"container__newForm") do |f|
+      - if @product.errors.any?
+        .alert.alert-warning
+          %ul
+            - @product.errors.full_messages.each do |message|
+              %li
+                = message
       .container
         .container__item
           %span.message 商品出品画像
@@ -9,13 +15,14 @@
         .container__item
           %p.message--light 最大5枚までアップロード出来ます
           .uploadBox
-            =f.fields_for(@image) do |i|
-              =i.label :image, class:"uploadBox__box" do
-                = i.file_field :image,class:"uploadBox__box__hidden"
-            .uploadBox__text
-              %i.fa.fa-camera
-              %p ドラッグアンドドロップ
-              %p またはクリックしてファイルをアップロード
+            =f.fields_for :images do |i|
+              =i.label :image_url, "data-index":"#{i.index}",class:"uploadBox__box" do
+                = i.file_field :image_url,class:"uploadBox__box__hidden"
+                .uploadBox__box__text
+                  %i.fa.fa-camera.uploadBox__box__text--message
+                  %p.uploadBox__box__text--message クリックしてファイルをアップロード
+                .uploadBox__box__imageRemove
+                  削除
       .container
         .container__item
           %span.message 商品名
@@ -32,7 +39,7 @@
           %span.message カテゴリー
           %span.btn.need 必須
           .details__categoryCell
-            =f.collection_select :category_id,@categories,:id,:name,{prompt:"選択してください"},class:"categoryCell__parent productsNewInput"
+            =f.collection_select :category_id,Category.roots,:id,:name,{prompt:"選択してください"},class:"categoryCell__parent productsNewInput"
         .container__item
           %span.message サイズ
           %span.btn.free 任意

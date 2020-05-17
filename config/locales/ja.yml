@@ -1,4 +1,3 @@
----
 ja:
   activerecord:
     errors:
@@ -208,6 +207,10 @@ ja:
 
   ja:
   activerecord:
+    models:
+      product: 商品
+      category: カテゴリー
+      image: 画像
     attributes:
       user: 
         name: 名前
@@ -220,3 +223,18 @@ ja:
         password_confirmation: パスワード確認
         email: メールアドレス
         birthday: 生年月日
+      product:
+        name: 名前
+        introduction: 商品説明
+        condition: 商品の状態
+        delivery_cost: 配送料をどちらが負担するか
+        from: 発送地域
+        delivery_day: 発送までの日数
+        price: 価格
+        size: サイズ
+        category_id: カテゴリー
+        category: カテゴリー
+        images: 画像
+      image:
+        image_url: 画像
+
