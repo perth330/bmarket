@@ -2,6 +2,12 @@
 .productsNew
   .productsNew__container
     = form_with(model:@product,local:true,class:"container__newForm") do |f|
+      - if @product.errors.any?
+        .alert.alert-warning
+          %ul
+            - @product.errors.full_messages.each do |message|
+              %li
+                = message
       .container
         .container__item
           %span.message 商品出品画像

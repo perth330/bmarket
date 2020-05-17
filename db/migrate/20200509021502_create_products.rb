@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :from,null: false
       t.string :delivery_day,null: false
       t.integer :price,null: false, limit: 6
-      t.string :size,null: false
+      t.string :size
       t.string :status,null: false
       t.references :user,null: false, foreign_key: true
       t.references :brand,null: false, foreign_key: true
