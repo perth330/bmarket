@@ -1,3 +1,4 @@
+= render "products/shared/header";
 .productDtail
   .productShowContent
     -if user_signed_in? && current_user.id == @product.user_id
@@ -14,12 +15,9 @@
             .productBox__body__image__main
               = image_tag (@product.images[0].image_url.url)
             %ul.productBox__body__image__sub
-              %li.productBox__body__image__sub__left
-                = image_tag (@product.images[0].image_url.url)
-              %li.productBox__body__image__sub__center
-                = image_tag (@product.images[0].image_url.url)
-              %li.productBox__body__image__sub__right
-                = image_tag (@product.images[0].image_url.url)
+              - @product.images.each do |image|
+                %li.productBox__body__image__sub__left
+                  = image_tag image.image_url.url
       .productBox__price
         .productBox__price__included
           = @product.price
@@ -137,3 +135,5 @@
     .relatedProducts
       =link_to "#" do
         ベビー・キッズをもっと見る
+= render "products/shared/banner"
+= render "products/shared/footer"        
