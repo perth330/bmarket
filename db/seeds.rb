@@ -340,18 +340,8 @@ others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
 
 Product.create([
-  {name:"商品１", introduction: "商品説明１", condition: "3", delivery_cost: "2", from: "4", delivery_day: "1", price: "1000", size: "3", status: "取引中", user_id: "1", brand_id:"1", category_id: "20"},
-  {name:"商品２", introduction: "商品説明２", condition: "4", delivery_cost: "1", from: "5", delivery_day: "2", price: "2000", size: "1", status: "出品中", user_id: "1", brand_id:"2", category_id: "783"},
-  {name:"商品３", introduction: "商品説明３", condition: "5", delivery_cost: "2", from: "6", delivery_day: "3", price: "10000", size: "3", status: "出品中", user_id: "2", brand_id:"1", category_id: "235"},
-  {name:"商品４", introduction: "商品説明４", condition: "6", delivery_cost: "1", from: "7", delivery_day: "1", price: "200000", size: "3", status: "取引中", user_id: "2", brand_id:"3", category_id: "366"}
+  {name:"商品１", introduction: "商品説明１", condition: "新品、未使用", delivery_cost: "送料込み（出品者負担）", from: "北海道", delivery_day: "1〜2日で発送", price: "1000", size: "S", status: "取引中", user_id: "1", brand_id:"1", category_id: "20"},
+  {name:"商品２", introduction: "商品説明２", condition: "未使用に近い", delivery_cost: "着払い（購入者負担）", from: "大阪府", delivery_day: "4〜7日で発送", price: "2000", size: "", status: "出品中", user_id: "1", brand_id:"2", category_id: "783"},
+  {name:"商品３", introduction: "商品説明３", condition: "やや傷や汚れあり", delivery_cost: "送料込み（出品者負担）", from: "鳥取県", delivery_day: "1〜2日で発送", price: "10000", size: "M", status: "出品中", user_id: "2", brand_id:"1", category_id: "235"},
+  {name:"商品４", introduction: "商品説明４", condition: "全体的に状態が悪い", delivery_cost: "着払い（購入者負担）", from: "鹿児島県", delivery_day: "2〜3日で発送", price: "200000", size: "L", status: "取引中", user_id: "2", brand_id:"3", category_id: "366"}
 ])
-
-Image.create([
-
-  {image_url: File.open("./public/uploads/image/image_url/1/nekochan.jpg"),
-  product_id: 1},{image_url: File.open("./public/uploads/image/image_url/2/icon_category.png"),
-  product_id: 2},{image_url: File.open("./public/uploads/image/image_url/3/icon-02.png"),
-  product_id: 3},{image_url: File.open("./public/uploads/image/image_url/4/nekochan.jpg"),
-  product_id: 4}
-]
-)
