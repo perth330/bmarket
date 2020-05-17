@@ -1,0 +1,73 @@
+= render "addresses/flashAction"
+.newAddressHeader 
+  = link_to root_path do 
+    = image_tag asset_path("material/logo/logo.png")
+.newAddress
+  .nForm
+    .name
+      %h1 住所登録
+    = form_with model: @address, local: true do |f|
+      .addressForm
+        .field
+          .fieldTop
+            = f.label "お名前"
+            %span.require 必須
+          .fieldBottom
+            = f.text_field :family_name, autofocus: true,class: "inputAddHarf",placeholder: "(全角)"
+            = f.text_field :first_name, autofocus: true,class: "inputAddHarf",placeholder: "(全角)"
+        .field
+          .fieldTop
+            = f.label "お名前カナ"
+            %span.require 必須
+          .fieldBottom
+            = f.text_field :family_name_kana, autofocus: true,class: "inputAddHarf",placeholder: "(全角カナ)"
+            = f.text_field :first_name_kana, autofocus: true,class: "inputAddHarf",placeholder: "(全角カナ)"
+        .field
+          .fieldTop
+            = f.label "郵便番号"
+            %span.require 必須
+          .fieldBottom
+            = f.text_field :zipcode, autofocus: true,class: "inputAdd",placeholder: "半角の数字7文字のみ"
+        .field
+          .fieldTop
+            = f.label "都道府県"
+            %span.require 必須
+          .fieldBottom
+            = f.collection_select :prefecture, Prefecture.all, :id, :name, {}, {class: "select-box"}
+        .field
+          .fieldTop
+            = f.label "市"
+            %span.require 必須
+          .fieldBottom
+            = f.text_field :city, autofocus: true,class: "inputAdd",placeholder: ""
+        .field
+          .fieldTop
+            = f.label "町村区郡"
+            %span.require 必須
+          .fieldBottom
+            = f.text_field :town, autofocus: true,class: "inputAdd",placeholder: ""
+        .field
+          .fieldTop
+            = f.label "番地"
+            %span.require 必須
+          .fieldBottom
+            = f.text_field :town_number, autofocus: true,class: "inputAdd",placeholder: ""
+        .field
+          .fieldTop
+            = f.label "マンション名"
+            %span.any （任意）
+          .fieldBottom
+            = f.text_field :building, autofocus: true,class: "inputAdd",placeholder: ""
+        .field
+          .fieldTop
+            = f.label "連絡先"
+            %span.any （任意）
+          .fieldBottom
+            = f.text_field :tel, autofocus: true,class: "inputAdd",placeholder: "数字のみ"
+      .addressBtn
+        .actions
+          .actions__frame
+            = f.submit "登録",class: "actions__frame__btn"
+.newAddressFooter
+  = link_to root_path do 
+    = image_tag asset_path("material/logo/logo-white.png")

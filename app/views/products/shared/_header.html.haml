@@ -1,8 +1,9 @@
+= render 'layouts/sighIn_up_logout-flash'
 .header
   .headerBox 
     .topBox
       %h1.rightIcon
-        = link_to image_tag(asset_path("material/logo/logo.png"),class: "rightIcon__furima"),"#"
+        = link_to image_tag(asset_path("material/logo/logo.png"),class: "rightIcon__furima"),root_path
       .searchBox
         %form.mainForm
           .mainForm__inputBox
@@ -19,7 +20,11 @@
         = link_to "#", class: "boxUnder__left__brand" do
           ブランド
       .boxUnder__right
+      - if current_user.nil?
         = link_to new_user_session_path, class: "boxUnder__right__login" do
           ログイン
         = link_to new_user_registration_path, class: "boxUnder__right__registration" do
           新規登録
+      - else
+        = link_to user_path(current_user), class:"boxUnder__right__mypage" do
+          マイページ
