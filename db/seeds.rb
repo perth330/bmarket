@@ -1,16 +1,5 @@
 # coding: utf-8
 
-User.create([
-  {family_name: "名字１", first_name: "名前１", family_name_kana: "ミョウジ１", first_name_kana: "ナマエ１", nickname: "テストユーザー１", email: "test1@test.com", password: "test1pass", birthday: "1991-11-23"},
-  {family_name: "名字２", first_name: "名前２", family_name_kana: "ミョウジ２", first_name_kana: "ナマエ２", nickname: "テストユーザー２", email: "test2@test.com", password: "test2pass", birthday: "1985-3-7"}
-])
-
-Brand.create([
-  {name: "ノーブランド"},
-  {name: "ブランド１"},
-  {name: "ブランド２"},
-  {name: "ブランド３"}
-])
 
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
@@ -339,9 +328,3 @@ others_8.children.create([{name: "オフィス用品一般"},{name: "オフィ�
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
 
-Product.create([
-  {name:"商品１", introduction: "商品説明１", condition: "新品、未使用", delivery_cost: "送料込み（出品者負担）", from: "北海道", delivery_day: "1〜2日で発送", price: "1000", size: "S", status: "取引中", user_id: "1", brand_id:"1", category_id: "20"},
-  {name:"商品２", introduction: "商品説明２", condition: "未使用に近い", delivery_cost: "着払い（購入者負担）", from: "大阪府", delivery_day: "4〜7日で発送", price: "2000", size: "", status: "出品中", user_id: "1", brand_id:"2", category_id: "783"},
-  {name:"商品３", introduction: "商品説明３", condition: "やや傷や汚れあり", delivery_cost: "送料込み（出品者負担）", from: "鳥取県", delivery_day: "1〜2日で発送", price: "10000", size: "M", status: "出品中", user_id: "2", brand_id:"1", category_id: "235"},
-  {name:"商品４", introduction: "商品説明４", condition: "全体的に状態が悪い", delivery_cost: "着払い（購入者負担）", from: "鹿児島県", delivery_day: "2〜3日で発送", price: "200000", size: "L", status: "取引中", user_id: "2", brand_id:"3", category_id: "366"}
-])
