@@ -104,6 +104,10 @@ describe Product do
       expect(product.errors[:images]).to include("を入力してください")
     end
 
+    it "全項目入力ありで登録できること" do
+      product = build(:product)
+      expect(product).to be_valid
+    end
   end
 
 
