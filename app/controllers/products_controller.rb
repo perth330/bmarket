@@ -40,9 +40,28 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    @category = Category.where(params[:category_id])
+    @categories = Category.where(params[:category_id])
     @brand = Brand.find(@product.brand_id)
-    @image = Image.find(params[:id])
+    # @image = Image.where(params[:id])
+
+    grandchild_category = @product.category
+    child_category = grandchild_category.parent
+
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
   end
   def update
     if brand_params{:name} != ""
@@ -53,8 +72,9 @@ class ProductsController < ApplicationController
     end
     product = Product.find(params[:id])
     categories = Category.roots
-    product.update(product_create_params)
+    product.update(product_update_params)
     brand = Brand.update(brand_params)
+    redirect_to root_path
   end
 
 
@@ -64,6 +84,10 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price,images_attributes: [:image_url]).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
   end
   
+  def product_update_params
+    params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price,images_attributes: [:image_url,:id]).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
+  end
+
   def brand_params
     params[:product].require(:brand).permit(:name)
   end
@@ -71,5 +95,9 @@ class ProductsController < ApplicationController
   def move_to_root
     redirect_to new_user_session_path unless user_signed_in?
   end
+  
+  
+
+
 end
 

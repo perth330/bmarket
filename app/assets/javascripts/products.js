@@ -75,12 +75,14 @@ $(function() {
     })
   })
   
+  // 画像用のinputを生成する関数
   function buildFileField(index){
     const html = `
     <label data-index="${index}" class="uploadBox__box" for="product_images_attributes_${index}_image_url"><input class="uploadBox__box__hidden" type="file" name="product[images_attributes][${index}][image_url]" id="product_images_attributes_${index}_image_url">
     <div class="uploadBox__box__text">
     <i class="fa fa-camera uploadBox__box__text--message"></i>
-    <p class="uploadBox__box__text--message hidden">クリックしてファイルをアップロード</p>
+    <p class="uploadBox__box__text--message hidden">ドラッグアンドドロップ</p>
+    <p class="uploadBox__box__text--message hidden">またはクリックしてファイルをアップロード</p>
     </div>
     <div class="uploadBox__box__imageRemove">削除</div>
     </label>`;
@@ -110,13 +112,9 @@ $(function() {
     $(this).parent().remove();
     $(".uploadBox__box").each(function(i){
       $(this).attr("data-index",i)
-      $(this).attr("for","product_images_attributes_" + i + "_image_url")
     })
-    if ($('.uploadBox__box').length == 1) {
-      $(".uploadBox__box__text--message").removeClass("hidden");
-    }
     if ($('.uploadBox__box').length == 0) {
-      $('.uploadBox').append(buildFileField("0"));
+      $('.uploadBox').append(buildFileField(fileIndex[0]));
       $(".uploadBox__box__text--message").removeClass("hidden");
     }
   });

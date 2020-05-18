@@ -104,8 +104,8 @@
               %i.fa.fa-flag
               不適切な商品の通報
     -if not user_signed_in? && current_user.id == @product.user_id
-      .productPurchase
-        = link_to new_purchase_path do
+      = link_to new_purchase_path do
+        .productPurchase
           購入する
 
     .commentBox
