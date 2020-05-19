@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
   # has_many :comments
   # has_many :credits
-  # has_many :dealings
+  # has_many :purchases
   has_many :addresses
   has_many :products
 end

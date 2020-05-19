@@ -2,9 +2,9 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def new
-    @product = Product.find(params[:id])
-    @credit = Credit.new
-    @dealing = Dealing.new
+    @product = Product.find(params[:product_id])
+    @credits = Credit.where(user_id:current_user.id)
+    @purchase = purchase.new
   end
 
   def create
