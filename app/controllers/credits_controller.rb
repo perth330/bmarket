@@ -7,7 +7,7 @@ class CreditsController < ApplicationController
     redirect_to "users/#{current_user.id}" if card.present?
   end
 
- # indexアクションはここでは省略
+# indexアクションはここでは省略
 
   def create #PayjpとCardのデータベースを作成
     Payjp.api_key = '秘密鍵'
@@ -36,6 +36,4 @@ class CreditsController < ApplicationController
   def set_card
     @credit = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present?
   end
-end
-
 end
