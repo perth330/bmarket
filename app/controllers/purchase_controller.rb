@@ -4,7 +4,7 @@ class PurchaseController < ApplicationController
   def new
     @product = Product.find(params[:product_id])
     @credits = Credit.where(user_id:current_user.id)
-    @purchase = purchase.new
+    @purchase = Purchase.new
   end
 
   def create
