@@ -34,7 +34,7 @@ $(function() {
         if ($(".categoryCell__child").length == 0){
           addCategoryCell("child")
         } else {
-          $(".childSelect").remove()
+          $(".categoryCell__child>option:not([value=''])").remove();
         }
         categories.forEach(function(category) {
           addCategory(category,"child")
@@ -47,7 +47,6 @@ $(function() {
       }
     })
   })
-  
   $(document).on("change",".categoryCell__child", function() {
     let parent_id = $(this).val()
     $.ajax({
@@ -61,7 +60,7 @@ $(function() {
         if ($(".categoryCell__grandChild").length == 0){
           addCategoryCell("grandChild")
         } else {
-          $(".grandChildSelect").remove()
+          $(".categoryCell__grandChild>option:not([value=''])").remove()
         }
         categories.forEach(function(category) {
           addCategory(category,"grandChild")
@@ -74,6 +73,7 @@ $(function() {
       }
     })
   })
+  
   
   // 画像用のinputを生成する関数
   function buildFileField(index){
@@ -116,7 +116,7 @@ $(function() {
       $('.uploadBox').append(buildFileField($(".uploadBox__box__hidden").length));
     }
   });
-
+  
   $(document).on("click",".uploadBox__box__imageRemove",function() {
     $(this).parent().remove();
     $(".uploadBox__box").each(function(i){

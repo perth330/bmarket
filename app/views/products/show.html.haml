@@ -43,8 +43,13 @@
           .productBox__table__line__left
             カテゴリー 
           %td
-          .productBox__table__line__right
-            = link_to @product.category.name
+          %ul.productBox__table__line__right
+            %li
+            = @product.category.name
+            %li
+            = @product.category.parent.name
+            %li
+            = @product.category.parent.parent.name
         %tr
         .productBox__table__line
           %th

@@ -36,6 +36,8 @@ class ProductsController < ApplicationController
   
   def show
     @product = Product.find(params[:id])
+    @categories = Category.where(params[:root_id])
+
   end
 
   def edit
@@ -86,12 +88,12 @@ class ProductsController < ApplicationController
   end
   
   def product_update_params
-    params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price,images_attributes: [:image_url,:id,:_destroy, :id]).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
+    params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price,images_attributes: [:image_url,:_destroy, :id]).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
   end
 
-  def image_update_params
-    params.require(:product).permit(:image_url,:product_id).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
-  end
+  # def image_update_params
+  #   params.require(:product).permit(images_attributes: [:image_url,:_destroy,:id],:product_id)
+  # endd
     def brand_params
     params[:product].require(:brand).permit(:name)
   end

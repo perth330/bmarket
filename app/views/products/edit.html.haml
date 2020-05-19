@@ -14,17 +14,22 @@
           %span.btn.need 必須
         .container__item
           %p.message--light 最大5枚までアップロード出来ます
+
+
           .uploadBox
-            =f.fields_for :images do |i|
-              =i.label :image_url, "data-index":"#{i.index}",class:"uploadBox__box" do
-                = i.file_field :image_url,class:"uploadBox__box__hidden"
-                = image_tag "#{i.object.image_url}",size: "114x116",class:"uploadBox__box__preview"
-                .uploadBox__box__text
-                  %i.fa.fa-camera.uploadBox__box__text--message
-                  %p.uploadBox__box__text--message クリックしてファイルをアップロード
-                .uploadBox__box__imageRemove
-                  削除
-              =i.check_box :_destroy,"data-index":"#{i.index}",class:"hidden-destroy"
+            - if @product.persisted?
+              =f.fields_for :images do |i|
+                =i.label :image_url, "data-index":"#{i.index}",class:"uploadBox__box" do
+                  = i.file_field :image_url,class:"uploadBox__box__hidden"
+                  = image_tag "#{i.object.image_url}",size: "114x116",class:"uploadBox__box__preview"
+                  .uploadBox__box__text
+                    %i.fa.fa-camera.uploadBox__box__text--message
+                    %p.uploadBox__box__text--message クリックしてファイルをアップロード
+                  .uploadBox__box__imageRemove
+                    削除
+            - if @product.persisted?
+              =f.fields_for :images do |i|
+                =i.check_box :_destroy,"data-index":"#{i.index}",class:"hidden-destroy"
       .container
         .container__item
           %span.message 商品名
