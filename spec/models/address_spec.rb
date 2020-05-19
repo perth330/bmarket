@@ -65,5 +65,11 @@ describe Address do
       address.valid?
       expect(address.errors[:town_number]).to include("を入力してください")
     end
+
+    it "user_idがないと登録出来ない" do
+      address = build(:address, user_id: "")
+      address.valid?
+      expect(address.errors[:user]).to include("を入力してください")
+    end
   end
 end
