@@ -10,6 +10,8 @@ FactoryBot.define do
     town                  {"中央区難波"}
     town_number           {"5-1-60"}
     zipcode               {"5420076"}
+
+    association :user, factory: :user
   
   end
 
