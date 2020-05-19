@@ -3,8 +3,7 @@
     %h2 クレジットカード情報入力
   .content__creditCard
     .content__creditCard__inner
-      = form_with model:@credit, html: { name: "inputForm" } do |f| -# createアクションのパスを指定
-        - if
+      = form_with model:@credit, html: { name: "inputForm" } do |f|
         = f.label :カード番号, class: 'label'
         %span 必須
         = f.text_field :card_number, type: 'text', class: 'input-number', placeholder: '半角数字のみ', maxlength: "16"

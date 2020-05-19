@@ -1,4 +1,5 @@
 $(function() {
+  
   function addCategoryCell(family) {
     let html = `
     <select class="categoryCell__${family} productsNewInput" name="product[category_id]" id="product_category"><option value>選択してください</option>
@@ -34,7 +35,7 @@ $(function() {
         if ($(".categoryCell__child").length == 0){
           addCategoryCell("child")
         } else {
-          $(".childSelect").remove()
+          $(".categoryCell__child>option:not([value=''])").remove();
         }
         categories.forEach(function(category) {
           addCategory(category,"child")
@@ -61,7 +62,7 @@ $(function() {
         if ($(".categoryCell__grandChild").length == 0){
           addCategoryCell("grandChild")
         } else {
-          $(".grandChildSelect").remove()
+          $(".categoryCell__grandChild>option:not([value=''])").remove()
         }
         categories.forEach(function(category) {
           addCategory(category,"grandChild")
@@ -120,6 +121,7 @@ $(function() {
       $(".uploadBox__box__text--message").removeClass("hidden");
     }
   });
+  
 });
 
 

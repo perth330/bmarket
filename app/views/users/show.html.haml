@@ -1,4 +1,5 @@
 = render "addresses/flashAction"
+= render "products/shared/header";
 %main.contents.clearfix
 
   .contents__leftContent
@@ -47,12 +48,12 @@
             お知らせはありません
   .contents__floatIcon
     .contents__floatIcon__face
-      = link_to "#" do
+      = link_to "/products/new" do
         %p 出品
         =image_tag "material/icon/icon_camera.png"
       .contents__floatIcon__face__ear
         .leftEar
         .rightEar
-
+= render "products/shared/footer"
 
 

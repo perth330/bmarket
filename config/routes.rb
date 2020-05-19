@@ -8,6 +8,5 @@ Rails.application.routes.draw do
   end
   resources :brands
   resources :categories
-  resources :purchase
   resources :addresses
 end

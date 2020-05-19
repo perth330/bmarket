@@ -3,8 +3,8 @@ class CreditsController < ApplicationController
   before_action :set_card
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
-    @credit = Credit.where(user_id: current_user.id).first
-    redirect_to "users/#{current_user.id}" if card.present?
+    @credit = Credit.new
+    # redirect_to "users/#{current_user.id}" if card.present?
   end
 
 # indexアクションはここでは省略
