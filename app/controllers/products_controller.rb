@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    @categories = Category.where(params[:category_id])
+    @categories = Category.where(params[:root_id])
     @brand = Brand.find(@product.brand_id)
     # @image = Image.where(params[:id])
 
@@ -74,6 +74,7 @@ class ProductsController < ApplicationController
     categories = Category.roots
     product.update(product_update_params)
     brand = Brand.update(brand_params)
+    # product.images.update(image_update_params)
     redirect_to root_path
   end
 
@@ -85,10 +86,13 @@ class ProductsController < ApplicationController
   end
   
   def product_update_params
-    params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price,images_attributes: [:image_url,:id]).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
+    params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price,images_attributes: [:image_url,:id,:_destroy, :id]).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
   end
 
-  def brand_params
+  def image_update_params
+    params.require(:product).permit(:image_url,:product_id).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
+  end
+    def brand_params
     params[:product].require(:brand).permit(:name)
   end
 

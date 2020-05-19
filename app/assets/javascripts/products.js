@@ -94,6 +94,14 @@ $(function() {
     return html;
   }
   
+
+
+  let fileIndex = [1,2,3,4,5];
+  // 既に使われているindexを除外
+  lastIndex = $('.uploadBox__box:last').data('index');
+  fileIndex.splice(0, lastIndex);
+
+  $('.hidden-destroy').hide();
   
   $(document).on("change",'.uploadBox__box__hidden',function(e) {
     const targetIndex = $(this).parent().data('index');
@@ -108,6 +116,7 @@ $(function() {
       $('.uploadBox').append(buildFileField($(".uploadBox__box__hidden").length));
     }
   });
+
   $(document).on("click",".uploadBox__box__imageRemove",function() {
     $(this).parent().remove();
     $(".uploadBox__box").each(function(i){
