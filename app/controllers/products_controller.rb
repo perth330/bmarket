@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :move_to_root, except: [:index, :show]
+  before_action :set_product, except: [:index, :new, :create]
 
   def index
     @categoryProducts = Product.includes(:images).limit(3).order("id DESC")
@@ -76,11 +77,13 @@ class ProductsController < ApplicationController
     categories = Category.roots
     product.update(product_update_params)
     brand = Brand.update(brand_params)
-    # product.images.update(image_update_params)
+    product.images.update(image_update_params)
     redirect_to root_path
   end
 
-
+def set_product
+  @product = Product.find(params[:id])
+end
 
   private
   def product_create_params
@@ -88,12 +91,12 @@ class ProductsController < ApplicationController
   end
   
   def product_update_params
-    params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price,images_attributes: [:image_url,:_destroy, :id]).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
+    params.require(:product).permit(:name,:introduction,:size,:category_id,:condition,:delivery_cost,:from,:delivery_day,:price,images_attributes: [:image_url,:_destroy,:id]).merge(user_id:current_user.id,status:"出品中",brand_id:@brand.id)
   end
 
-  # def image_update_params
-  #   params.require(:product).permit(images_attributes: [:image_url,:_destroy,:id],:product_id)
-  # endd
+  def image_update_params
+    params.require(:product).permit(:images_url,:_destroy,:product_id)
+  end
     def brand_params
     params[:product].require(:brand).permit(:name)
   end

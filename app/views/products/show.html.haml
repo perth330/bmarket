@@ -43,13 +43,12 @@
           .productBox__table__line__left
             カテゴリー 
           %td
-          %ul.productBox__table__line__right
-            %li
-            = @product.category.name
-            %li
-            = @product.category.parent.name
-            %li
+          .productBox__table__line__right
             = @product.category.parent.parent.name
+            ⇒
+            = @product.category.parent.name
+            ⇒
+            = @product.category.name 
         %tr
         .productBox__table__line
           %th
