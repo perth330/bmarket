@@ -44,12 +44,22 @@
             カテゴリー 
           %td
           .productBox__table__line__right
-            = @product.category.parent.parent.name
-            ⇒
-            = @product.category.parent.name
-            ⇒
-            = @product.category.name 
-        %tr
+        -#     -if Category.find(@product.category_id).ancestors?
+        -#       - if Category.find(@product.category_id).childrens?
+        -#         -# 子カテの場合の表記
+        -#       - else
+        -#         -# 孫カテの場合の表記
+        -#     - else
+        -#       -# 親カテの場合の表記
+
+        -#       = @product.category.name.
+        -#     -else 
+        -#       = @product.category.parent.parent.name
+        -#       ⇒
+        -#       = @product.category.parent.name
+        -#       ⇒
+        -#       = @product.category.name 
+        -# %tr
         .productBox__table__line
           %th
           .productBox__table__line__left

@@ -127,12 +127,14 @@ $(function() {
       $(".uploadBox__box__text--message").removeClass("hidden");
     }
   });
-  $('.uploadBox').on('click', '.uploadBox__box__imageRemove"', function() {
+  $('.uploadBox').on('click', '.uploadBox__box__imageRemove', function() {
     const targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
-    if (hiddenCheck) hiddenCheck.prop('checked', true);
+    if (hiddenCheck) {
+      hiddenCheck.prop('checked', true);
+    }
 
     $(this).parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
