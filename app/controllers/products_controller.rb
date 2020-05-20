@@ -2,8 +2,8 @@ class ProductsController < ApplicationController
   before_action :move_to_root, except: [:index, :show]
 
   def index
-    @categoryProducts = Product.includes(:images).limit(3).order("id DESC")
-    @categoryBrand = Product.includes(:images).limit(3).order("RAND()")
+    @categoryProducts = Product.includes(:images).where(status: 0).limit(3).order("id DESC")
+    @categoryBrand = Product.includes(:images).where(status: 0).limit(3).order("RAND()")
   end
   
   def show
@@ -51,4 +51,3 @@ class ProductsController < ApplicationController
     redirect_to new_user_session_path unless user_signed_in?
   end
 end
-
