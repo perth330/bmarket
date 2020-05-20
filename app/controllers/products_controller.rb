@@ -29,7 +29,6 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       @brand = Brand.new
-      @product.images.new
       render "new"
     end
   end
