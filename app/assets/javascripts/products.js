@@ -100,7 +100,6 @@ $(function() {
   // 既に使われているindexを除外
   lastIndex = $('.uploadBox__box:last').data('index');
   fileIndex.splice(0, lastIndex);
-
   $('.hidden-destroy').hide();
   
   $(document).on("change",'.uploadBox__box__hidden',function(e) {
