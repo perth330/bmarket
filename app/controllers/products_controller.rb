@@ -55,7 +55,13 @@ class ProductsController < ApplicationController
     product.images.update(image_update_params)
     redirect_to root_path
   end
-  
+
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to root_path
+  end
+
   def set_product
     @product = Product.find(params[:id])
   end
