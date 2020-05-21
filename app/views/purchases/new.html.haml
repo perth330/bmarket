@@ -1,0 +1,82 @@
+.purchaseIndex
+  %header.purchaseLayout__header
+    = link_to root_path do 
+      = image_tag asset_path("material/logo/logo.png")
+  .purchaseLayout
+    .purchaseLayout__left
+    .purchaseLayout__center 
+      .purchaseLayout__center__content
+        %h2.purchaseLayout__center__title 
+          購入内容の確認
+      = form_with(model:[@product,@purchase], url:product_purchases_path,local:true) do |f|
+        %section.buyContent
+          .buyContent__inner
+            .buyItem__box
+              %h3.buyItem__box__image
+                = image_tag (@product.images[0].image_url.url)
+              .buyItem__box__detail
+                %p.buyItem__box__name
+                  = @product.name
+                %p.buyItem__box__price
+                  = @product.price
+                  %span 円
+                  %span (税込)
+                  - if @product.delivery_cost = "送料込み（出品者負担）"
+                    　送料込み
+                  - else
+                    　着払い
+        %section.buyContent.buyItem
+          .buyContent__inner
+            %ul.buyPrice__table
+              %li.buyPrice__pay
+                .buyPrice__cell__label
+                  支払い金額
+                .buyPrice__cell
+                  = @product.price
+                  %span.data__buyPay 円
+            %ul.buy__accordion
+              %li.accordion__parent
+                .user__point__accordion
+                  %input{type: "checkbox",class: "#"}
+                  %label ポイントを使用(所持ポイント:P)
+                %ul.accordion__child
+                  %li.form-group
+                    .radio__default
+                      %label(for="")
+                        %input{type: "radio"}
+                        %input{type: "hidden"} 
+                          すべてのポイントを使う
+                    .radio__default
+                      %label(for="")
+                        %input{type: "radio"}
+                        %input{type: "hidden"} 
+                          一部のポイントを使う
+                    %input.input__defalut{type: "number",placeholder: "使うポイントを入力"}
+                    %input{type: "hidden"}
+              %section.buyContent__user__info
+                .buyContent__inner
+                  .clearfix
+                    %h3.l__left 
+                      支払い方法
+                  %p.buyUser__info__text
+                    クレジットカード
+                    %br/
+                    = "**** **** **** " + @credit.last4
+                    %br/
+                    - exp_month = @credit.exp_month.to_s
+                    - exp_year = @credit.exp_year.to_s.slice(2,3)
+                    = "有効期限#{exp_month}/#{exp_year}"
+              %section.buyContent__user__info
+                .buyContent__inner
+                  .clearfix
+                    %h3.l__left 
+                      配送先
+                  %p.buyUser__info__text
+                  = render partial:"purchases/address",collection:@addresses,locals:{f:f}
+              %section.buyContent__user__info
+                .buyContent__inner
+                  %button{type: "submit",class: "btn__default"} 購入する
+    .purchaseLayout__right
+  %footer.purchaseLayout__footer
+    = link_to root_path do 
+      = image_tag asset_path("material/logo/logo.png")

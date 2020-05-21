@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
+  has_one :purchase
 
   validates_associated :images
 
@@ -18,8 +19,8 @@ class Product < ApplicationRecord
   validates :status, presence: true
   validates :images, presence: true
 
-  # - has_many :comments, dependent: :destroy
-  # - has_one :purchase, dependent: :destroy
-  # - has_many :products_tags
-  # - has_many :tags,  through:  :products_tags
+  # has_many :comments, dependent: :destroy
+  has_one :purchase, dependent: :destroy
+  # has_many :products_tags
+  # has_many :tags,  through:  :products_tags
 end

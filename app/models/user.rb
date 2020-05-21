@@ -22,8 +22,8 @@ class User < ApplicationRecord
   end
 
   # has_many :comments
-  has_one :credits
-  # has_many :purchases
+  has_one :credit
+  has_many :purchases
   has_many :addresses
   has_many :products
 end
