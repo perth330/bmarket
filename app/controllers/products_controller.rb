@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
 
   def edit
     @categories = Category.where(params[:root_id])
-    @brand = Brand.find(@product.brand_id)
+    @brand = Brand.find(@product.brand)
 
     grandchild_category = @product.category
     child_category = grandchild_category.parent
