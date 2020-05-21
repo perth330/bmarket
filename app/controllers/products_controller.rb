@@ -51,7 +51,6 @@ class ProductsController < ApplicationController
     else
       @brand = Brand.find(1)
     end
-    product = Product.find(params[:id])
     categories = Category.roots
     product.update(product_update_params)
     brand = Brand.update(brand_params)
