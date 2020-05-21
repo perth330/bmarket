@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
   def destroy
     product = Product.find(params[:id])
     product.destroy
-    redirect_to root_path
+    redirect_to root_path,notice: "商品の削除が完了しました。"
   end
 
   def set_product
