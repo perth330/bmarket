@@ -15,9 +15,6 @@
         .container__item
           %p.message--light 最大5枚までアップロード出来ます
           .uploadBox
-            -if @product.persisted?
-              -@product.images.each_with_index do |image, i|
-                = image_tag image.image_url.url, data: { index: i }, size: "114x116",class:"uploadBox__box"
             =f.fields_for :images do |i|
               =i.label :image_url, "data-index":"#{i.index}",class:"uploadBox__box" do
                 = i.file_field :image_url,class:"uploadBox__box__hidden"
