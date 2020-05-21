@@ -7,10 +7,6 @@ class ProductsController < ApplicationController
     @categoryBrand = Product.includes(:images).where(status: 0).limit(3).order("RAND()")
   end
   
-  def show
-    @product = Product.find(params[:id])
-  end
-  
   def new
     @product = Product.new
     @categories = Category.roots
@@ -35,16 +31,11 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @product = Product.find(params[:id])
-    @categories = Category.where(params[:root_id])
-
   end
 
   def edit
-    @product = Product.find(params[:id])
     @categories = Category.where(params[:root_id])
     @brand = Brand.find(@product.brand_id)
-    # @image = Image.where(params[:id])
 
     grandchild_category = @product.category
     child_category = grandchild_category.parent
