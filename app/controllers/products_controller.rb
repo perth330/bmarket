@@ -3,8 +3,8 @@ class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create]
 
   def index
-    @categoryProducts = Product.includes(:images).limit(3).order("id DESC")
-    @categoryBrand = Product.includes(:images).limit(3).order("RAND()")
+    @categoryProducts = Product.includes(:images).where(status: 0).limit(3).order("id DESC")
+    @categoryBrand = Product.includes(:images).where(status: 0).limit(3).order("RAND()")
   end
   
   def show
@@ -30,7 +30,6 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       @brand = Brand.new
-      @product.images.new
       render "new"
     end
   end
@@ -105,4 +104,3 @@ class ProductsController < ApplicationController
     redirect_to new_user_session_path unless user_signed_in?
   end
 end
-

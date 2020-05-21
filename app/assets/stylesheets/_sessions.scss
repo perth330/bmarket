@@ -43,7 +43,7 @@
   .login__no__account {
     width: 640px;
     height: 150px;
-    border: 1px solid #ebe7e7be;
+    margin: 0 auto;
     p {
       display: block;
       width: 270px;
@@ -68,6 +68,7 @@
 
 
   .login__frame {
+    margin: 0 auto;
     width: 640px;
     height: 200px;
     &__btn {
@@ -87,6 +88,7 @@
   }
 
   .login__frame__under{
+    margin: 0 auto;
     width: 640px;
     height: 150px;
     display: flex;
