@@ -107,6 +107,7 @@ $(function() {
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
+      console.log(targetIndex)
       img.setAttribute('src', blobUrl);
     } else {
       $(this).parent().append(previewImage(targetIndex,blobUrl))
@@ -132,11 +133,13 @@ $(function() {
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) {
+      console.log($(hiddenCheck))
       hiddenCheck.prop('checked', true);
     }
-
     $(this).parent().remove();
-    $(`img[data-index="${targetIndex}"]`).remove();
+    console.log($(this))
+    console.log($(this).parent())
+    // $(`img[data-index="${targetIndex}"]`).remove();
     $(".uploadBox__box__preview").remove();
     // 画像入力欄が0個にならないようにしておく
     if ($('.uploadBox__box').length == 0) $('.uploadBox').append(buildFileField(fileIndex[0]));

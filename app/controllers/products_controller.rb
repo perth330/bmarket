@@ -44,11 +44,15 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @categories = Category.where(params[:root_id])
     @brand = Brand.find(@product.brand_id)
-    # @image = Image.where(params[:id])
+    @product.images.new
+
 
     grandchild_category = @product.category
     child_category = grandchild_category.parent
 
+    @category_parent_array = Category.where(ancestry:null)
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
+    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
 
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
