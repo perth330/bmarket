@@ -23,6 +23,7 @@
                   %p.uploadBox__box__text--message クリックしてファイルをアップロード
                 .uploadBox__box__imageRemove
                   削除
+              =i.check_box :_destroy,"data-index":"#{i.index}",class:"hidden-destroy"
       .container
         .container__item
           %span.message 商品名

@@ -5,6 +5,8 @@ class Product < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
+  enum status: { "出品中": 0, "売却済": 1 }
+
   validates_associated :images
 
   validates :name, presence: true
