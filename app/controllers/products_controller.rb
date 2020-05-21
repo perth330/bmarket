@@ -19,12 +19,9 @@ class ProductsController < ApplicationController
   end
   
   def create
-    if brand_params{:name} != ""
-      @brand = Brand.find_by(name: "#{brand_params}")
-      @brand = Brand.create(brand_params) if @brand == nil
-    else
-      @brand = Brand.find(1)
-    end
+    brand_name = brand_params{:name}
+    brand = Brand.find_by(name: "#{brand_name}")
+    @brand = Brand.create(brand_params) if brand == nil
     @product = Product.new(product_create_params)
     if @product.save
       redirect_to root_path
@@ -50,10 +47,6 @@ class ProductsController < ApplicationController
     grandchild_category = @product.category
     child_category = grandchild_category.parent
 
-    @category_parent_array = Category.where(ancestry:null)
-    @category_children_array = Category.where(ancestry: child_category.ancestry)
-    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
-
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -70,16 +63,12 @@ class ProductsController < ApplicationController
     end
   end
   def update
-    if brand_params{:name} != ""
-      @brand = Brand.find_by(name: "#{brand_params}")
-      @brand = Brand.create(brand_params) if @brand == nil
-    else
-      @brand = Brand.find(1)
-    end
+    brand_name = brand_params{:name}
+    brand = Brand.find_by(name: "#{brand_name}")
+    @brand = Brand.create(brand_params) if brand == nil
     product = Product.find(params[:id])
     categories = Category.roots
     product.update(product_update_params)
-    brand = Brand.update(brand_params)
     product.images.update(image_update_params)
     redirect_to root_path
   end
@@ -100,7 +89,7 @@ end
   def image_update_params
     params.require(:product).permit(:images_url,:_destroy,:product_id)
   end
-    def brand_params
+  def brand_params
     params[:product].require(:brand).permit(:name)
   end
 
