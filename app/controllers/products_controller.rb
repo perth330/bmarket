@@ -80,10 +80,10 @@ class ProductsController < ApplicationController
     product.images.update(image_update_params)
     redirect_to root_path
   end
-
-def set_product
-  @product = Product.find(params[:id])
-end
+  
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
   private
   def product_create_params
@@ -104,9 +104,5 @@ end
   def move_to_root
     redirect_to new_user_session_path unless user_signed_in?
   end
-  
-  
-
-
 end
 

@@ -29,16 +29,6 @@
                   削除
               -if @product.persisted?
                 =i.check_box :_destroy,"data-index":"#{i.index}",class:"hidden-destroy"
-            
-              -# -if @product.persisted?
-              -#   = i.label :image_url, "data-index":"#{@product.images.count}",class:"uploadBox__box" do
-              -#     = i.file_field :image_url, name: "product[images_attributes][#{@product.images.count}][image_url]",class:"uploadBox__box__hidden"
-              -#       .uploadBox__box__text
-              -#         %i.fa.fa-camera.uploadBox__box__text--message
-              -#         %p.uploadBox__box__text--message クリックしてファイルをアップロード
-              -#       .uploadBox__box__imageRemove
-              -#         削除
-
       .container
         .container__item
           %span.message 商品名
