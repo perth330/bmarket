@@ -28,7 +28,6 @@
                     = image_tag "#{@product.images[i.index].image_url}","data-index":"#{i.index}",class:"uploadBox__box__preview"
                 .uploadBox__box__imageRemove
                   削除
-
       .container
         .container__item
           %span.message 商品名
@@ -100,6 +99,8 @@
         .container__submit
           .container__submit__go
             =f.submit "変更する",class:"container__submit__go--btn"
+          .container__submit__delete
+            = link_to "削除",product_path(@product),method: :delete, class:"container__submit__delete--btn"
           .container__submit__back
             = link_to "もどる",root_path,class:"container__submit__back"
         .container__attention
