@@ -57,8 +57,7 @@ class ProductsController < ApplicationController
   end
   
   def destroy
-    if 
-      @product.user_id == current_user.id && @product.destroy
+    if @product.user_id == current_user.id && @product.destroy
       redirect_to root_path, notice:"商品の削除が完了しました。"
     else
       redirect_to root_path, notice:"商品の削除が失敗しました。"
