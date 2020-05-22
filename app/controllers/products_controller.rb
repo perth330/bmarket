@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :move_to_root, except: [:index, :show]
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, only: [:show, :edit,:destroy]
 
   def index
     @categoryProducts = Product.includes(:images).where(status: 0).limit(3).order("id DESC")
@@ -53,9 +53,17 @@ class ProductsController < ApplicationController
     product.update(product_update_params)
     brand = Brand.update(brand_params)
     product.images.update(image_update_params)
-    redirect_to root_path
+    redirect_to root_path, notice:"商品の変更が完了しました。"
   end
   
+  def destroy
+    if @product.user_id == current_user.id && @product.destroy
+      redirect_to root_path, notice:"商品の削除が完了しました。"
+    else
+      redirect_to root_path, notice:"商品の削除が失敗しました。"
+    end
+  end
+
   def set_product
     @product = Product.find(params[:id])
   end
