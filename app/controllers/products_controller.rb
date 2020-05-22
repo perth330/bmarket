@@ -45,9 +45,8 @@ class ProductsController < ApplicationController
     @categories = Category.where(params[:root_id])
     @brand = Brand.find(@product.brand_id)
     @product.images.new
-    
-    
   end
+
   def update
     brand = Brand.find_by(brand_params)
     if brand == nil
