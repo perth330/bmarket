@@ -125,16 +125,15 @@ $(function() {
       $(".uploadBox__box__text--message").removeClass("hidden");
     }
     $(".uploadBox__image").each(function(i, imagebox){
-      $(imagebox).$("label").attr("for","product_images_attributes_"+i+"_image_url")
-      $(imagebox).$("label").attr("id","product_images_attributes_"+i+"_image_url")
-      $(imagebox).$(".uploadBox__box__hidden").attr("name","product[images_attributes]["+i+"][image_url]")
-      $(imagebox).$(".uploadBox__box__hidden").attr("id","product_images_attributes_"+i+"_image_url")
-      $(imagebox).$(".uploadBox__box__preview").data("index",i)
+      $(imagebox).data("index",i)
+      $(imagebox>"label").attr("for","product_images_attributes_"+i+"_image_url")
+      $(imagebox>"label").attr("id","product_images_attributes_"+i+"_image_url")
+      $(imagebox>".uploadBox__box__hidden").attr("name","product[images_attributes]["+i+"][image_url]")
+      $(imagebox>".uploadBox__box__hidden").attr("id","product_images_attributes_"+i+"_image_url")
+      $(imagebox>".uploadBox__box__preview").data("index",i)
     })
 });
 });
-
-
 
 
 
