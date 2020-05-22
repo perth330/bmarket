@@ -1,5 +1,14 @@
-= link_to new_product_path, class: "displayBtn" do
-  .displayBtn__box
-    .displayBtn__box__text
-      出品する
-    = image_tag asset_path("material/icon/icon_camera.png"), class: "displayBtn__box__img"
+.floatIcon
+  .catIcon
+    .catIcon__beard
+      .catIcon__topBeard
+      .catIcon__centerBeard
+      .catIcon__bottomBeard
+    .catIcon__face
+      = link_to new_product_path do
+        .catIcon__face__ear
+          .leftEar
+          .rightEar
+        .catIcon__links
+          %p 出品
+          =image_tag "material/icon/icon_camera.png"
