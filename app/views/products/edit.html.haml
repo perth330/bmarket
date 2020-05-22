@@ -44,17 +44,20 @@
           %span.message カテゴリー
           %span.btn.need 必須
           .details__categoryCell
-            - if @product.category.root?
-              =f.collection_select :category_id,Category.roots,:id,:name,{include_blank:"選択してください",selected:@product.category.id},class:"categoryCell__parent productsNewInput"
-              =f.collection_select :category_id,@product.category.children,:id,:name,{include_blank:"選択してください"},class:"categoryCell__child productsNewInput"
-            - elsif @product.category.children?
-              =f.collection_select :category_id,Category.roots,:id,:name,{include_blank:"選択してください",selected:@product.category.parent.id},class:"categoryCell__parent productsNewInput"
-              =f.collection_select :category_id,@product.category.siblings,:id,:name,{include_blank:"選択してください",selected: @product.category.id},class:"categoryCell__child productsNewInput"
-              =f.collection_select :category_id,@product.category.children,:id,:name,{include_blank:"選択してください"},class:"categoryCell__grandChild productsNewInput"
+            -if @product.category
+              - if @product.category.root?
+                =f.collection_select :category_id,Category.roots,:id,:name,{include_blank:"選択してください",selected:@product.category.id},class:"categoryCell__parent productsNewInput"
+                =f.collection_select :category_id,@product.category.children,:id,:name,{include_blank:"選択してください"},class:"categoryCell__child productsNewInput"
+              - elsif @product.category.children?
+                =f.collection_select :category_id,Category.roots,:id,:name,{include_blank:"選択してください",selected:@product.category.parent.id},class:"categoryCell__parent productsNewInput"
+                =f.collection_select :category_id,@product.category.siblings,:id,:name,{include_blank:"選択してください",selected: @product.category.id},class:"categoryCell__child productsNewInput"
+                =f.collection_select :category_id,@product.category.children,:id,:name,{include_blank:"選択してください"},class:"categoryCell__grandChild productsNewInput"
+              -else
+                =f.collection_select :category_id,Category.roots,:id,:name,{include_blank:"選択してください",selected:@product.category.root.id},class:"categoryCell__parent productsNewInput"
+                =f.collection_select :category_id,@product.category.parent.siblings,:id,:name,{include_blank:"選択してください",selected: @product.category.parent.id},class:"categoryCell__child productsNewInput"
+                =f.collection_select :category_id,@product.category.siblings,:id,:name,{include_blank:"選択してください",selected: @product.category.id},class:"categoryCell__grandChild productsNewInput"
             -else
-              =f.collection_select :category_id,Category.roots,:id,:name,{include_blank:"選択してください",selected:@product.category.root.id},class:"categoryCell__parent productsNewInput"
-              =f.collection_select :category_id,@product.category.parent.siblings,:id,:name,{include_blank:"選択してください",selected: @product.category.parent.id},class:"categoryCell__child productsNewInput"
-              =f.collection_select :category_id,@product.category.siblings,:id,:name,{include_blank:"選択してください",selected: @product.category.id},class:"categoryCell__grandChild productsNewInput"
+              =f.collection_select :category_id,Category.roots,:id,:name,{prompt:"選択してください"},class:"categoryCell__parent productsNewInput"
 
         .container__item
           %span.message サイズ

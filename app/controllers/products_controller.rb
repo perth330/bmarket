@@ -34,6 +34,8 @@ class ProductsController < ApplicationController
   end
   
   def edit
+    @product = Product.find(params[:id])
+    redirect_to product_path unless user_signed_in? && current_user.id == @product.user_id
     @categories = Category.where(params[:root_id])
     @brand = Brand.find(@product.brand_id)
     @product.images.new
@@ -46,9 +48,9 @@ class ProductsController < ApplicationController
     else
       @brand = brand
     end
-    product = Product.find(params[:id])
+    @product = Product.find(params[:id])
     categories = Category.roots
-    if product.update(product_create_params)
+    if @product.update(product_create_params)
       redirect_to root_path
     else
       @brand = Brand.new
