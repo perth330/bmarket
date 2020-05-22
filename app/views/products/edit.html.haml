@@ -14,18 +14,20 @@
           %span.btn.need 必須
         .container__item
           %p.message--light 最大5枚までアップロード出来ます
-          .uploadBox
+          .container__item__imageBox
             =f.fields_for :images do |i|
-              =i.label :image_url, "data-index":"#{i.index}",class:"uploadBox__box" do
-                = i.file_field :image_url,class:"uploadBox__box__hidden"
-                = image_tag "#{i.object.image_url}",size: "114x116",class:"uploadBox__box__preview"
-                .uploadBox__box__text
-                  %i.fa.fa-camera.uploadBox__box__text--message
-                  %p.uploadBox__box__text--message クリックしてファイルをアップロード
+              - if @product.images[i.index].persisted?
+                =i.check_box :_destroy,"data-index":"#{i.index}",class:"hidden-destroy"
+              .uploadBox__image{"data-index":"#{i.index}"}
+                =i.label :image_url, "data-index":"#{i.index}",class:"uploadBox__box" do
+                  = i.file_field :image_url,class:"uploadBox__box__hidden"
+                  .uploadBox__box__text
+                    %i.fa.fa-camera.uploadBox__box__text--message
+                    %p.uploadBox__box__text--message クリックしてファイルをアップロード
+                  - if @product.images[i.index].persisted?
+                    = image_tag "#{@product.images[i.index].image_url}","data-index":"#{i.index}",class:"uploadBox__box__preview"
                 .uploadBox__box__imageRemove
                   削除
-              -if @product.persisted?
-                =i.check_box :_destroy,"data-index":"#{i.index}",class:"hidden-destroy"
       .container
         .container__item
           %span.message 商品名
@@ -42,14 +44,25 @@
           %span.message カテゴリー
           %span.btn.need 必須
           .details__categoryCell
-            =f.collection_select :category_id,Category.roots,:id,:name,{selected:@product.category.parent.parent.id},class:"categoryCell__parent productsNewInput"
-            =f.collection_select :category_id,@category_children,:id,:name,{prompt:"選択してください",selected: @product.category.parent.id},class:"categoryCell__child productsNewInput"
-            =f.collection_select :category_id,@category_grandchildren,:id,:name,{prompt:"選択してください",selected: @product.category.id},class:"categoryCell__grandChild productsNewInput"
+            -if @product.category
+              - if @product.category.root?
+                =f.collection_select :category_id,Category.roots,:id,:name,{include_blank:"選択してください",selected:@product.category.id},class:"categoryCell__parent productsNewInput"
+                =f.collection_select :category_id,@product.category.children,:id,:name,{include_blank:"選択してください"},class:"categoryCell__child productsNewInput"
+              - elsif @product.category.children?
+                =f.collection_select :category_id,Category.roots,:id,:name,{include_blank:"選択してください",selected:@product.category.parent.id},class:"categoryCell__parent productsNewInput"
+                =f.collection_select :category_id,@product.category.siblings,:id,:name,{include_blank:"選択してください",selected: @product.category.id},class:"categoryCell__child productsNewInput"
+                =f.collection_select :category_id,@product.category.children,:id,:name,{include_blank:"選択してください"},class:"categoryCell__grandChild productsNewInput"
+              -else
+                =f.collection_select :category_id,Category.roots,:id,:name,{include_blank:"選択してください",selected:@product.category.root.id},class:"categoryCell__parent productsNewInput"
+                =f.collection_select :category_id,@product.category.parent.siblings,:id,:name,{include_blank:"選択してください",selected: @product.category.parent.id},class:"categoryCell__child productsNewInput"
+                =f.collection_select :category_id,@product.category.siblings,:id,:name,{include_blank:"選択してください",selected: @product.category.id},class:"categoryCell__grandChild productsNewInput"
+            -else
+              =f.collection_select :category_id,Category.roots,:id,:name,{prompt:"選択してください"},class:"categoryCell__parent productsNewInput"
 
         .container__item
           %span.message サイズ
           %span.btn.free 任意
-          =f.collection_select :size,Size.all,:name,:name,{prompt:"選択してください"},class:"details__size productsNewInput"
+          =f.collection_select :size,Size.all,:name,:name,{include_blank:"選択してください"},class:"details__size productsNewInput"
         .container__item
           %span.message ブランド
           %span.btn.free 任意
@@ -58,22 +71,22 @@
         .container__item
           %span.message 商品の状態
           %span.btn.need 必須
-          =f.collection_select :condition,Condition.all,:name,:name,{prompt:"選択してください"},class:"details__condition productsNewInput"
+          =f.collection_select :condition,Condition.all,:name,:name,{include_blank:"選択してください"},class:"details__condition productsNewInput"
       .container
         .container__item
           %p.message--gray 配送について
         .container__item
           %span.message 配送量の負担
           %span.btn.need 必須
-          =f.collection_select :delivery_cost,Delivery_cost.all,:name,:name,{prompt:"選択してください"},{class:"post__deliveryCost productsNewInput"}
+          =f.collection_select :delivery_cost,Delivery_cost.all,:name,:name,{include_blank:"選択してください"},{class:"post__deliveryCost productsNewInput"}
         .container__item
           %span.message 発送元の地域
           %span.btn.need 必須
-          =f.collection_select :from,Prefecture.all,:name,:name,{prompt:"選択してください"},class:"post__from productsNewInput"
+          =f.collection_select :from,Prefecture.all,:name,:name,{include_blank:"選択してください"},class:"post__from productsNewInput"
         .container__item
           %span.message 発送までの日数
           %span.btn.need 必須
-          =f.collection_select :delivery_day,Delivery_day.all,:name,:name,{prompt:"選択してください"},class:"post__deliveryDay productsNewInput"
+          =f.collection_select :delivery_day,Delivery_day.all,:name,:name,{include_blank:"選択してください"},class:"post__deliveryDay productsNewInput"
       .container
         .container__item
           %p.message--gray 価格（¥300〜999,999）

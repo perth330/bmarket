@@ -8,6 +8,13 @@
       display: flex;
       justify-content: space-between;
     }
+    &__imageBox{
+      display: flex;
+      justify-content: space-between;
+      .hidden-destroy{
+        display: none;
+      }
+    }
   }
   &__submit{
     padding: 16px 0;
