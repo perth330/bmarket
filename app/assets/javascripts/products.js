@@ -47,6 +47,7 @@ $(function() {
       }
     })
   })
+
   $(document).on("change",".categoryCell__child", function() {
     let parent_id = $(this).val()
     $.ajax({
@@ -116,29 +117,6 @@ $(function() {
       $(hiddenCheck).prop('checked', true);
     }
     $(this).parent().remove();
-    // $(".uploadBox__image").each(function(i){
-    //   $(this).attr("data-index",i)
-    // })
-    // $(".uploadBox__box").each(function(i){
-    //   $(this).attr("data-index",i)
-    //   $(this).attr("for","product_images_attributes_" + i + "_image_url")
-    // })
-    // $(".uploadBox__box__hidden").each(function(i){
-    //   $(this).attr("data-index",i)
-    //   $(this).attr("id","product_images_attributes_" + i + "_image_url")
-    //   $(this).attr("name","product_images_attributes_" + i + "_image_url")
-    //   $(this).attr("for","product_images_attributes_" + i + "_image_url")
-    // })
-    // $(".uploadBox__box__preview").each(function(i){
-    //   $(this).attr("data-index",i)
-    // })
-    // if ($('.uploadBox__image').length == 1) {
-    //   $(".uploadBox__box__text--message").removeClass("hidden");
-    // }
-    // if ($('.uploadBox__image').length == 0) {
-    //   $('.uploadBox__image').append(buildFileField("0"));
-    //   $(".uploadBox__box__text--message").removeClass("hidden");
-    // }
   });
 });
 
