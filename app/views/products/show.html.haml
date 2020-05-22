@@ -124,6 +124,10 @@
         = link_to new_address_path(current_user) do
           .productPurchase
             住所登録画面へ
+    -if not user_signed_in? && current_user.id == @product.user_id
+      .productPurchase
+        = link_to "/products/#{@product.id}/purchases/new" do
+          購入する
 
     .commentBox
       %ul

@@ -1,0 +1,25 @@
+.creditHeader 
+  = render "products/shared/header"
+.creditMain
+  .creditSide
+    = render "users/user_menu_bar"
+  .creditShow
+    .menu
+      %h1 支払い方法
+    .index
+      %h2 クレジットカード一覧
+    .card
+      .card__box
+        .card__box__icon
+          = image_tag ("VISA.png")
+        .card__box__last4
+          = "**** **** ****  " + @credit_information.last4
+        .card__box__date
+          - exp_month = @credit_information.exp_month.to_s
+          - exp_year = @credit_information.exp_year.to_s.slice(2,3)
+          = exp_month + ' / ' + exp_year
+      .card__delete
+        = form_tag(credit_path(current_user.id), method: :delete) do
+          %input{ type: "hidden"}
+          %button.card__delete__btn 削除
+

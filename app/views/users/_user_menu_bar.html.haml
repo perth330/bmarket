@@ -43,12 +43,10 @@
     %li.mypageNav__list__item
       = link_to "お届け先住所変更",new_address_path,class:"item__link"
     %li.mypageNav__list__item
-      = link_to "支払い方法","#",class:"item__link"
+      = link_to "支払い方法",credit_path,class:"item__link"
     %li.mypageNav__list__item
       = link_to "メール/パスワード","#",class:"item__link"
     %li.mypageNav__list__item
       = link_to "本人情報","#",class:"item__link"
-    %li.mypageNav__list__item
-      = link_to "クレジットカード登録",new_credit_path,class:"item__link"
     %li.mypageNav__list__item
       = link_to "ログアウト",destroy_user_session_path,method: :delete,class:"item__link"

@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   root 'products#index'
   resources :users
   resources :credits
-  resources :products
+  resources :products do
+    resources :purchases
+  end
   resources :brands
   resources :categories
-  resources :purchase
   resources :addresses
 end

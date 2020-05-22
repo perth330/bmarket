@@ -1,3 +1,84 @@
-// Place all the styles related to the credits controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.creditMain {
+  display: flex;
+  background-color: #f8f8f8;
+  padding-top: 40px;
+
+  .creditSide {
+    padding-left: 180px;
+  }
+
+  .creditShow {
+    margin: 0 auto;
+    width: 700px;
+    height: 440px;
+    background-color: white;
+
+    .menu {
+      height: 110px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid;
+      border-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+      h1 {
+        font-size: 30px;
+        font-weight: bold;
+      }
+    }
+
+    .index {
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid;
+      border-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+      h2 {
+        font-size: 20px;
+      }
+    }
+
+    .card {
+      height: 250px;
+      display: flex;
+      &__box {
+        width: 62%;
+        padding-left: 140px;
+        &__icon {
+          height: 100px;
+          margin-top: 30px;
+          img {
+            width: 115px;
+            height: 70px;
+          }
+        }
+        &__last4 {
+          height: 50px;
+        }
+        &__date {
+          height: 50px;
+          margin-bottom: 20px;
+          padding-left: 40px;
+        }
+      }
+      &__delete {
+        width: 38%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__btn {
+          height: 40px;
+          width: 65px;
+          border-radius: 3px;
+          color: white;
+          background-color: rgb(240, 51, 51);
+          font-size: large;
+        }
+      }
+    }
+  }
+}
+
+

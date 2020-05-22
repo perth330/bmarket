@@ -38,7 +38,7 @@ Things you may want to cover:
 - has_many :addresses
 - has_many :comments
 - has_many :credits
-- has_many :dealings
+- has_many :purchases
 - has_many :products
 
 ## creditsテーブル
@@ -79,7 +79,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## dealingsテーブル
+## purchasesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |seller|references|null: false, foreign_key: { to_table: :users } |
@@ -112,7 +112,7 @@ Things you may want to cover:
 - belongs_to :category
 - has_many :comments, dependent: :destroy
 - has_many :images, dependent: :destroy
-- has_one :dealing, dependent: :destroy
+- has_one :purchase, dependent: :destroy
 - has_many :products_tags
 - has_many :tags,  through:  :products_tags
 
