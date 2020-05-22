@@ -90,7 +90,7 @@
           .container__submit__go
             =f.submit "変更する",class:"container__submit__go--btn"
           .container__submit__delete
-            = button_to "削除",product_path(@product),method: :delete, class:"container__submit__delete--btn"
+            = link_to "削除",product_path(@product),method: :delete, class:"container__submit__delete--btn"
           .container__submit__back
             = link_to "もどる",root_path,class:"container__submit__back"
         .container__attention
