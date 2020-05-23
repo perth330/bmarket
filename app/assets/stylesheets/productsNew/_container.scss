@@ -8,6 +8,13 @@
       display: flex;
       justify-content: space-between;
     }
+    &__imageBox{
+      display: flex;
+      justify-content: space-between;
+      .hidden-destroy{
+        display: none;
+      }
+    }
   }
   &__submit{
     padding: 16px 0;
@@ -21,6 +28,21 @@
         width: 310px;
         color: #ffffff;
         background-color:#3CCACE;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 17px;
+        cursor: pointer;
+      }
+    }
+    &__delete{
+      margin-top: 10px;
+      &--btn{
+        display: inline-block;
+        height: 46px;
+        line-height: 46px;
+        width: 200px;
+        color: #ffffff;
+        background-color:lightgrey;
         border-radius: 4px;
         font-weight: bold;
         font-size: 17px;
