@@ -76,15 +76,19 @@ $(function() {
     })
   })
   
+  // 画像用のinputを生成する関数
   function buildFileField(index){
     const html = `
-    <label data-index="${index}" class="uploadBox__box" for="product_images_attributes_${index}_image_url"><input class="uploadBox__box__hidden" type="file" name="product[images_attributes][${index}][image_url]" id="product_images_attributes_${index}_image_url">
+    <div class="uploadBox__image" data-index="${index}">
+    <label data-index="${index}" class="uploadBox__box" for="product_images_attributes_${index}_image_url">
+    <input class="uploadBox__box__hidden" type="file" name="product[images_attributes][${index}][image_url]" id="product_images_attributes_${index}_image_url">
     <div class="uploadBox__box__text">
     <i class="fa fa-camera uploadBox__box__text--message"></i>
     <p class="uploadBox__box__text--message hidden">クリックしてファイルをアップロード</p>
     </div>
+    </label>
     <div class="uploadBox__box__imageRemove">削除</div>
-    </label>`;
+    </div>`;
     return html;
   }
   
@@ -92,7 +96,6 @@ $(function() {
     const html = `<img data-index="${index}" src="${url}" width="100px" height="100px" class="uploadBox__box__preview">`;
     return html;
   }
-  
   
   $(document).on("change",'.uploadBox__box__hidden',function(e) {
     const targetIndex = $(this).parent().data('index');
@@ -104,27 +107,33 @@ $(function() {
       $(this).parent().append(previewImage(targetIndex,blobUrl))
       $(this).parent().append(`<div class="uploadBox__box__imageRemove">削除</div>`)
       $(".uploadBox__box__text--message").addClass("hidden");
-      $('.uploadBox').append(buildFileField($(".uploadBox__box__hidden").length));
-    }
-  });
-  $(document).on("click",".uploadBox__box__imageRemove",function() {
-    $(this).parent().remove();
-    $(".uploadBox__box").each(function(i){
-      $(this).attr("data-index",i)
-      $(this).attr("for","product_images_attributes_" + i + "_image_url")
-    })
-    if ($('.uploadBox__box').length == 1) {
-      $(".uploadBox__box__text--message").removeClass("hidden");
-    }
-    if ($('.uploadBox__box').length == 0) {
-      $('.uploadBox').append(buildFileField("0"));
-      $(".uploadBox__box__text--message").removeClass("hidden");
+      $('.uploadBox__image').parent().append(buildFileField($(".uploadBox__box__hidden").length));
     }
   });
   
+  $(document).on('click', '.uploadBox__box__imageRemove', function() {
+    const targetIndex = $(this).parent().data('index');
+    let hiddenCheck = $(".hidden-destroy:eq("+targetIndex+")")
+    if ($(hiddenCheck)) {
+      $(hiddenCheck).prop('checked', true);
+    }
+    $(this).parent().remove();
+    if ($('.uploadBox__image').length == 1) {
+      $(".uploadBox__box__text--message").removeClass("hidden");
+    }
+    if ($('.uploadBox__image').length == 0) {
+      $('.uploadBox__image').append(buildFileField("0"));
+      $(".uploadBox__box__text--message").removeClass("hidden");
+    }
+    $(".uploadBox__image").each(function(i, imagebox){
+      $(imagebox).data("index",i)
+      $(imagebox>"label").attr("for","product_images_attributes_"+i+"_image_url")
+      $(imagebox>"label").attr("id","product_images_attributes_"+i+"_image_url")
+      $(imagebox>".uploadBox__box__hidden").attr("name","product[images_attributes]["+i+"][image_url]")
+      $(imagebox>".uploadBox__box__hidden").attr("id","product_images_attributes_"+i+"_image_url")
+      $(imagebox>".uploadBox__box__preview").data("index",i)
+    })
 });
-
-
 
 
 

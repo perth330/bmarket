@@ -16,18 +16,14 @@ class PurchasesController < ApplicationController
 
   def new
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
-    # @product = Product.find(params[:product_id])
-    # customer = Payjp::Customer.retrieve(current_user.credit.customer_id)
-    # @credit = customer.cards.retrieve(current_user.credit.card_id)
+
+
     @purchase = Purchase.new
     @addresses = current_user.addresses
   end
 
   def create
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
-    # @product = Product.find(params[:product_id])
-    # customer = Payjp::Customer.retrieve(current_user.credit.customer_id)
-    # credit = customer.cards.retrieve(current_user.credit.card_id)
     token = Payjp::Charge.create(
       amount: @product.price,
       customer: @customer.id,
