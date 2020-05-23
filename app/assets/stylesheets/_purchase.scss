@@ -1,25 +1,25 @@
 .purchaseLayout__header {
   height: 150px;
-  background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
-    img {
+  background-color: rgba($color: #ebe7e7be, $alpha: 1);
+  img {
     display: block;
     margin: 0 auto;
     padding: 50px;
     width: 300px;
-  }  
+  }
 }
 
-.purchaseLayout{
+.purchaseLayout {
   display: flex;
   flex: 1;
   &__left {
     width: 400px;
-    background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+    background-color: rgba($color: #ebe7e7be, $alpha: 1);
   }
-  &__center{
+  &__center {
     flex: 1;
     font-size: 15px;
-    height: 1000px;
+    height: 100%;
     &__content {
       height: 100px;
       margin: 0 auto;
@@ -34,7 +34,6 @@
   }
 }
 
-
 .buyContent {
   padding: 32px 16px;
   border-bottom: 1px solid #ebe7e7be;
@@ -42,34 +41,34 @@
   margin: 0 auto;
   .buyItem__box {
     display: flex;
-      &__image {
+    &__image {
+      height: 90px;
+      width: 140px;
+      img {
         height: 90px;
-        width: 140px;
-        img {
-          height: 90px;
-          width: 90px;
-        }
+        width: 90px;
       }
-      &__detail{
-        margin-left: 10px;
-      }
-      &__name {
-        height: 70px;
-      }
-      &__price {
-        font-weight: bold;
-      }
+    }
+    &__detail {
+      margin-left: 10px;
+    }
+    &__name {
+      height: 70px;
+    }
+    &__price {
+      font-weight: bold;
+    }
   }
 }
 
 .buyContent.buyItem {
-  .buyPrice__pay{
+  .buyPrice__pay {
     display: flex;
     font-weight: bold;
     font-size: 23px;
     margin-bottom: 30px;
   }
-  .data__buyPay  {
+  .data__buyPay {
     padding: 4px 0 5px 50px;
   }
   .user__point__accordion {
@@ -83,20 +82,21 @@
   .input__defalut {
     padding: 10px 64px;
     text-align: center;
-    }
   }
-
-
+}
 
 .buyContent__user__info {
   margin: 30px 10px;
-  border-bottom: 1px solid #ebe7e7be;
+  // border-bottom: 1px solid #ebe7e7be;
   .clearfix {
     display: flex;
+    .l__left {
+      font-weight: bold;
+    }
     .l__right {
       text-decoration: none;
       margin-left: 170px;
-      color: #3CCACE;
+      color: #3ccace;
     }
   }
 
@@ -104,7 +104,7 @@
     .btn__default {
       font-size: 20px;
       font-weight: bold;
-      background-color: #3CCACE;;
+      background-color: #3ccace;
       color: white;
       border-radius: 10px;
       width: 300px;
@@ -112,21 +112,23 @@
   }
 }
 
-
-
-
 .purchaseLayout__right {
   width: 400px;
-  background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+  background-color: rgba($color: #ebe7e7be, $alpha: 1);
 }
 
 .purchaseLayout__footer {
   height: 150px;
-  background-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+  background-color: rgba($color: #ebe7e7be, $alpha: 1);
   img {
     display: block;
     margin: 0 auto;
     padding: 50px;
     width: 300px;
   }
+}
+
+.addressBox {
+  border-bottom: 1px solid #ebe7e7be;
+  margin-bottom: 20px;
 }

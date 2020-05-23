@@ -1,0 +1,134 @@
+.purchaseShow {
+  .purchaseShow__header {
+    height: 150px;
+    background-color: rgba($color: #ebe7e7be, $alpha: 1);
+    img {
+      display: block;
+      margin: 0 auto;
+      padding: 50px;
+      width: 300px;
+    }
+  }
+  .purchaseShowLayout {
+    display: flex;
+    flex: 1;
+    &__left {
+      width: 400px;
+      background-color: rgba($color: #ebe7e7be, $alpha: 1);
+    }
+    &__center {
+      flex: 1;
+      font-size: 20px;
+      height: 700px;
+      &__content {
+        height: 100px;
+        margin: 0 auto;
+        border: 1px solid #ebe7e7be;
+      }
+      &__title {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        padding: 30px;
+        color: red;
+      }
+    }
+  }
+  .purchaseShow__buyContent {
+    padding: 32px 16px;
+    width: 350px;
+    margin: 0 auto;
+    .buyItem__box {
+      display: flex;
+      &__image {
+        height: 90px;
+        width: 140px;
+        img {
+          height: 90px;
+          width: 90px;
+        }
+      }
+      &__detail {
+        margin-left: 10px;
+      }
+      &__name {
+        height: 70px;
+      }
+      &__price {
+        font-weight: bold;
+      }
+    }
+  }
+  .purchaseShow__buyContent.buyItem {
+    .buyPrice__pay {
+      display: flex;
+      font-weight: bold;
+      font-size: 23px;
+      margin-bottom: 30px;
+    }
+    .data__buyPay {
+      padding: 4px 0 5px 50px;
+    }
+    .user__point__accordion {
+      margin-bottom: 20px;
+    }
+    .accordion__child {
+      background-color: rgba($color: #ebe7e7be, $alpha: 0.5);
+      padding: 10px;
+      margin-bottom: 30px;
+    }
+    .input__defalut {
+      padding: 10px 64px;
+      text-align: center;
+    }
+  }
+  .purchaseShow__buyContent__userInfo {
+    margin: 30px 10px;
+    border-bottom: 1px solid #ebe7e7be;
+    .clearfix {
+      display: flex;
+      .l__right {
+        text-decoration: none;
+        margin-left: 170px;
+        color: #3ccace;
+      }
+    }
+    .buyContent__inner {
+      .btn__default {
+        font-size: 20px;
+        font-weight: bold;
+        background-color: #3ccace;
+        color: white;
+        border-radius: 10px;
+        width: 300px;
+      }
+    }
+  }
+  .purchaseShow__backSubmit {
+    display: flex;
+    .container__submit__back {
+      font-size: 15px;
+      font-weight: bold;
+      background-color: #3ccace;
+      color: white;
+      border-radius: 10px;
+      width: 200px;
+      text-align: center;
+      margin: 5px;
+    }
+  }
+  .purchaseShow__Layout__right {
+    width: 400px;
+    background-color: rgba($color: #ebe7e7be, $alpha: 1);
+  }
+  .purchaseShow__footer {
+    height: 150px;
+    background-color: rgba($color: #ebe7e7be, $alpha: 1);
+    img {
+      display: block;
+      margin: 0 auto;
+      padding: 50px;
+      width: 300px;
+    }
+  }
+}
