@@ -31,8 +31,12 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @addresses = Address.where(user_id:current_user.id)
-    @credit = Credit.where(user_id:crennt_user.id)
+    if user_signed_in?
+      @addresses = Address.where(user_id:current_user.id)
+      @credit = Credit.where(user_id:current_user.id)
+    else
+    end
+
   end
   
   def edit

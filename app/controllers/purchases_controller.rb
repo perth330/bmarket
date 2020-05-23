@@ -2,7 +2,7 @@ class PurchasesController < ApplicationController
   require 'payjp'
 
   def new
-    Payjp.api_key = '秘密鍵'
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     @product = Product.find(params[:product_id])
     customer = Payjp::Customer.retrieve(current_user.credit.customer_id)
     @credit = customer.cards.retrieve(current_user.credit.card_id)
@@ -11,7 +11,7 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    Payjp.api_key = '秘密鍵'
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     @product = Product.find(params[:product_id])
     customer = Payjp::Customer.retrieve(current_user.credit.customer_id)
     credit = customer.cards.retrieve(current_user.credit.card_id)
