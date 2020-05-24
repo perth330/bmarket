@@ -1,0 +1,54 @@
+.purchaseShow
+  %header.purchaseShow__header
+    = link_to "#" do
+      = image_tag asset_path("material/logo/logo.png")
+  .purchaseShowLayout
+    .purchaseShowLayout__left
+    .purchaseShowLayout__center
+      .purchaseShowLayout__center__content
+        %h2.purchaseShowLayout__center__title
+          購入が完了しました
+      %section.purchaseShow__buyContent
+        .buyContent__inner
+          .buyItem__box
+            %h3.buyItem__box__image
+              = image_tag asset_path(@product.images[0].image_url.url)
+            .buyItem__box__detail
+              %p.buyItem__box__name
+                = @product.name
+              %p.buyItem__box__price
+                %span
+                  = @product.price
+                %span 円(税込)
+      %section.purchaseShow__buyContent.buyItem
+        .buyContent__inner
+          %form
+            %ul.buyPrice__table
+              %li.buyPrice__pay
+                .buyPrice__cell__label
+                  支払い金額
+                .buyPrice__cell
+                  %span.data__buyPay 
+                    = "#{@product.price}円"
+            %ul.buy__accordion
+              %li.accordion__parent
+              %section.purchaseShow__buyContent__userInfo
+                .buyContent__inner
+                  .clearfix
+                    %h3.l__left
+                      支払い方法
+                  %p.buyUser__info__text
+                    クレジットカード
+                    %br/
+                    クレジット番号
+                    = "**** **** **** " + @credit.last4
+                    %br/
+              .purchaseShow__backSubmit
+                .container__submit__back
+                  = link_to "トップページに戻る",root_path,class:"container__submit__back"
+                .container__submit__back
+                  = link_to "マイページに戻る",user_path,class:"container__submit__back"
+    .purchaseShow__Layout__right
+  %footer.purchaseShow__footer
+    = link_to "#" do
+      = image_tag asset_path("material/logo/logo.png")

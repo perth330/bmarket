@@ -1,0 +1,10 @@
+.addressBox
+  = f.radio_button :address_id, address.id,checked: true
+  %p 郵便番号
+  = address.zipcode
+  %p 住所
+  = "#{Prefecture.find(address.prefecture).name}#{address.city}#{address.town}#{address.town_number}#{address.building}"
+
+  %br/
+  %p 氏名
+  = "#{address.family_name} #{address.first_name}"

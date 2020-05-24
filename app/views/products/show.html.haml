@@ -115,10 +115,26 @@
             =link_to "#" do
               %i.fa.fa-flag
               不適切な商品の通報
-    -if not user_signed_in? && current_user.id == @product.user_id
-      = link_to new_purchase_path do
-        .productPurchase
-          購入する
+    -if user_signed_in? && current_user.id == @product.user_id
+    -elsif user_signed_in?
+      -if @addresses.present? && @credit.present?
+        = link_to new_product_purchase_path(@product) do
+          .productPurchase
+            購入する
+      - elsif @addresses.blank? && @credit.blank?
+        = link_to user_path(current_user) ,data: { confirm: "住所の登録をお願いします。\nクレジットカードの登録をお願いします。"} do
+          .productPurchase
+            購入する
+      -elsif @addresses.blank?
+        = link_to new_address_path(current_user),data: { confirm: "住所の登録をお願いします。"} do
+          .productPurchase
+            購入する
+      -elsif @credit.blank?
+        = link_to new_credit_path(current_user) ,data: { confirm: "クレジットカードの登録をお願いします。"} do
+          .productPurchase
+            購入する
+      -else
+    -else not user_signed_in?
 
     .commentBox
       %ul
@@ -148,4 +164,4 @@
       =link_to "#" do
         ベビー・キッズをもっと見る
 = render "products/shared/banner"
-= render "products/shared/footer"        
+= render "products/shared/footer"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_12_013751) do
+ActiveRecord::Schema.define(version: 2020_05_19_061117) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "family_name", null: false
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 2020_05_12_013751) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
+  create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_credits_on_user_id"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image_url", null: false
     t.bigint "product_id", null: false
@@ -72,6 +81,19 @@ ActiveRecord::Schema.define(version: 2020_05_12_013751) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.bigint "product_id"
+    t.bigint "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_purchases_on_address_id"
+    t.index ["buyer_id"], name: "index_purchases_on_buyer_id"
+    t.index ["product_id"], name: "index_purchases_on_product_id"
+    t.index ["seller_id"], name: "index_purchases_on_seller_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "family_name", null: false
     t.string "first_name", null: false
@@ -91,8 +113,13 @@ ActiveRecord::Schema.define(version: 2020_05_12_013751) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "credits", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
+  add_foreign_key "purchases", "addresses"
+  add_foreign_key "purchases", "products"
+  add_foreign_key "purchases", "users", column: "buyer_id"
+  add_foreign_key "purchases", "users", column: "seller_id"
 end

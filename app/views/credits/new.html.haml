@@ -1,64 +1,36 @@
-.contents
-  .contents__leftContent
-    = render "users/user_menu_bar"
-
-  .contents__rightContent
-    .rightContetnt__title
-      クレジットカード情報入力
-    .sessionContainer
-      %h2.sessionContainer__title 支払い方法
-      = form_with url: credits_path, name: "charge-form", id: 'charge-form', method: :post, html:{class: 'sessionContainer__box'} do |f|
-        .sessionContainer__formGroup
-          %label{for: "nickname"}
-            カード番号
-            %span.form__require 必須
-          = f.text_field "number", class: "input__default", placeholder: "半角数字のみ", type: "text", id: "card_number", maxlength: "16"
-          .sessionContainer__formGroup__sub
-            %i.fa.fa-cc-visa
-            %i.fa.fa-cc-mastercard
-            %i.fa.fa-cc-jcb
-            %i.fa.fa-cc-discover
-            %i.fa.fa-cc-amex
-        .sessionContainer__formGroup
-          %label{for: "nickname"}
-            有効期限
-            %span.form__require 必須
-          .sessionContainer__formGroup__sub
-            %select.select__wap#exp_month{name: "exp_month", type: "text"}
-              %option{value: ""} --
-              %option{value: "01"} 01
-              %option{value: "02"} 02
-              %option{value: "03"} 03
-              %option{value: "04"} 04
-              %option{value: "05"} 05
-              %option{value: "06"} 06
-              %option{value: "07"} 07
-              %option{value: "08"} 08
-              %option{value: "09"} 09
-              %option{value: "10"} 10
-              %option{value: "11"} 11
-              %option{value: "12"} 12
-            %i.fa.fa-chevron-down.select_arrow
-            %p 月
-            %select.select__wap#exp_year{name: "exp_year", type: "text"}
-              %option{value: ""} --
-              %option{value: "2019"} 19
-              %option{value: "2020"} 20
-              %option{value: "2021"} 21
-              %option{value: "2022"} 22
-              %option{value: "2023"} 23
-              %option{value: "2024"} 24
-              %option{value: "2025"} 25
-            %i.fa.fa-chevron-down.select_arrow
-            %p 年
-          .sessionContainer__formGroup
-            %label{for: "nickname"}
-              セキュリティーコード
-              %span.form__require 必須
-            = f.text_field "cvc", class: "input__default cvc", placeholder: "カード背面4桁もしくは3桁の番号", type: "text"
-            .sessionContainer__formGroup__link
-              = link_to root_path do
-                %i.fa.fa-question-circle
-                %p セキュリティーコードとは
-            .sessionContainer__formGroup#card_token
-              = f.submit "次へ進む", class: "btn_default btn_mail", id: "token_submit"
+.creditsNew
+  .creditsNewHeader
+    = link_to root_path do
+      = image_tag asset_path("material/logo/logo.png")
+  .layout
+    .layout__left
+    .layout__center
+      .creditsNew__title
+        %h2.creditsInformation_input クレジットカード情報入力
+      .center__content
+        .creditsNew
+          .content__creditCard
+            .content__creditCard__inner
+              = form_with model:@credit, html: { name: "inputForm" } do |f|
+                .creditsNew__form
+                  = f.label :カード番号, class: "creditsNew__label"
+                  %span.creditsNew__required 必須
+                  = f.text_field :card_number, type: "text", class: "creditsNew__form__defalt", placeholder: "半角数字のみ", maxlength: "16"
+                .creditsNew__form
+                  = f.label :有効期限, class: "creditsNew__label"
+                  %span.creditsNew__required 必須
+                  %br
+                    = f.select :exp_month, [["01",1],["02",2],["03",3],["04", 4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: "creditsNew__form__half"
+                    %span.creditsNew__expire__text 月
+                    = f.select :exp_year, [["19",2019],["20",2020],["21", 2021],["22",2022],["23",2023],["24",2024],["25",2025], ["26",2026],["27",2027],["28",2028],["29",2029]],{} ,  class: "creditsNew__form__half"
+                    %span.creditsNew__expire__text 年
+                .creditsNew__form
+                  = f.label :セキュリティコード, class: "creditsNew__label"
+                  %span.creditsNew__required 必須
+                  = f.text_field :cvc, type: "text", class: "creditsNew__form__defalt", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4"
+                .creditsNew__form
+                  = f.submit "追加する", class: "creditsNew__form__btn",  id: "token_submit"
+    .layout__right
+  .creditsNewfooter
+    = link_to root_path do
+      = image_tag asset_path("material/logo/logo-white.png")

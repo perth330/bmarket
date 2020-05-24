@@ -1,4 +1,5 @@
 $(function() {
+  
   function addCategoryCell(family) {
     let html = `
     <select class="categoryCell__${family} productsNewInput" name="product[category_id]" id="product_category"><option value>選択してください</option>
@@ -132,7 +133,6 @@ $(function() {
       $(imagebox>".uploadBox__box__hidden").attr("id","product_images_attributes_"+i+"_image_url")
       $(imagebox>".uploadBox__box__preview").data("index",i)
     })
-});
 });
 
 

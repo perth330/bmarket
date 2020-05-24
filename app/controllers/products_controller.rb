@@ -31,6 +31,12 @@ class ProductsController < ApplicationController
   end
   
   def show
+    if user_signed_in?
+      @addresses = Address.where(user_id:current_user.id)
+      @credit = Credit.where(user_id:current_user.id)
+    else
+    end
+
   end
   
   def edit
@@ -82,5 +88,6 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
+  
 end
 
