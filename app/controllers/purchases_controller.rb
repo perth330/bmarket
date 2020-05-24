@@ -7,17 +7,10 @@ class PurchasesController < ApplicationController
 
 
   def show
-    # Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
-    # @product = Product.find(params[:product_id])
-    # customer = Payjp::Customer.retrieve(current_user.credit.customer_id)
-    # @credit = customer.cards.retrieve(current_user.credit.card_id)
-    # @addresses = current_user.addresses
   end
 
   def new
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
-
-
     @purchase = Purchase.new
     @addresses = current_user.addresses
   end
@@ -36,9 +29,7 @@ class PurchasesController < ApplicationController
 
     #bmarket DB保存
     @purchase = Purchase.new(create_purchase)
-    if @purchase.save
-      # purchase = Purchase.create(create_purchase)
-      @product.update(status:"売却済")
+    if @purchase.save && @product.update(status:"売却済")
       redirect_to product_purchase_path(@product,@purchase)
     else
       render "new"
