@@ -1,0 +1,13 @@
+.address__box
+  .address__box__show
+    %p 郵便番号
+    = address.zipcode
+    %p 住所
+    = "#{Prefecture.find(address.prefecture).name}#{address.city}#{address.town}#{address.town_number}#{address.building}"
+    %br/
+    %p 氏名
+    = "#{address.family_name} #{address.first_name}"
+  .address__box__delete
+    = form_tag(address_path(address.id), method: :delete) do
+      %input{ type: "hidden"}
+      %button.address__box__btn 削除

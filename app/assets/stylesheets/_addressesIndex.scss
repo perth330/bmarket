@@ -1,0 +1,89 @@
+.addressMain {
+  display: flex;
+  background-color: #f8f8f8;
+  padding-top: 40px;
+  
+  .addressSide {
+    padding-left: 180px;
+  }
+  
+  .addressesIndex {
+    margin: 0 auto;
+    width: 700px;
+    height: 440px;
+    background-color: white;
+    align-items: center;
+    
+    .menu {
+      height: 110px;
+      text-align: center;
+      border-bottom: 1px solid;
+      border-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+      h1 {
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 110px;
+      }
+    }
+    
+    .index {
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid;
+      border-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+      h2 {
+        font-size: 20px;
+      }
+    }
+    
+    .address {
+      height: 250px;
+      
+      &__box {
+        width: 100%;
+        padding-left: 140px;
+        display: flex;
+        border-bottom: 3px solid;
+        border-color: #ebe7e7be;
+        padding: 10px 0 10px 140;
+        &__show{
+          width: 68%;
+          p{
+            font-weight: bold;
+          }
+        }
+        &__delete {
+          width: 38%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        &__btn {
+          height: 40px;
+          width: 65px;
+          border-radius: 3px;
+          color: white;
+          background-color: rgb(240, 51, 51);
+          font-size: large;
+        }
+      }
+      &__add{
+        width: 300px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        background-color: #3CCACE;
+        margin: 40px auto;
+        border-radius: 3px;
+        cursor: pointer;
+        a{
+        color: white;
+        }
+      }
+    }
+    
+  }
+}
+
