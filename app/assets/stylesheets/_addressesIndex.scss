@@ -69,6 +69,9 @@
           font-size: large;
         }
       }
+      a{
+        color: white;
+      }
       &__add{
         width: 300px;
         height: 45px;
@@ -78,9 +81,6 @@
         margin: 40px auto;
         border-radius: 3px;
         cursor: pointer;
-        a{
-        color: white;
-        }
       }
     }
     

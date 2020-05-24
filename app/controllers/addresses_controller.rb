@@ -1,11 +1,11 @@
 class AddressesController < ApplicationController
   def index
     addresses = Address.where(user_id: current_user.id)
-    if addresses.blank?
-      redirect_to new_address_path
-    else
+    # if addresses.blank?
+    #   redirect_to new_address_path
+    # else
       @addresses = Address.where(user_id: current_user.id)
-    end
+    # end
   end
   
   def new
