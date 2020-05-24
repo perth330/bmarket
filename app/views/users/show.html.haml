@@ -46,14 +46,17 @@
         %ul.bottomMenu__tabMenu__announce
           %li.announce
             お知らせはありません
-  .contents__floatIcon
-    .contents__floatIcon__face
-      = link_to "/products/new" do
-        %p 出品
-        =image_tag "material/icon/icon_camera.png"
-      .contents__floatIcon__face__ear
-        .leftEar
-        .rightEar
-= render "products/shared/footer"
-
-
+  .floatIcon
+    .catIcon
+      .catIcon__beard
+        .catIcon__topBeard
+        .catIcon__centerBeard
+        .catIcon__bottomBeard
+      .catIcon__face
+        = link_to new_product_path do
+          .catIcon__face__ear
+            .leftEar
+            .rightEar
+          .catIcon__links
+            %p 出品
+            =image_tag "material/icon/icon_camera.png"
