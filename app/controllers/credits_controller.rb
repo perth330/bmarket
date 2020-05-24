@@ -9,11 +9,11 @@ class CreditsController < ApplicationController
   def create
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     token = Payjp::Token.create({
-      :card => {
-        :number => card_params[:card_number],
-        :cvc => card_params[:cvc],
-        :exp_month => card_params[:exp_month],
-        :exp_year => card_params[:exp_year],
+      card: {
+        number: card_params[:card_number],
+        cvc: card_params[:cvc],
+        exp_month: card_params[:exp_month],
+        exp_year: card_params[:exp_year],
       },
     },
                                 { 'X-Payjp-Direct-Token-Generate': "true" })
@@ -50,8 +50,7 @@ class CreditsController < ApplicationController
 
   def destroy #PayjpとCardデータベースを削除
     credit = Credit.find_by(user_id: current_user.id)
-    if credit.blank?
-    else
+    if credit.present?
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
       customer = Payjp::Customer.retrieve(credit.customer_id)
       customer.delete
