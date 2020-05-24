@@ -133,7 +133,7 @@ $(function() {
       $(imagebox>".uploadBox__box__hidden").attr("id","product_images_attributes_"+i+"_image_url")
       $(imagebox>".uploadBox__box__preview").data("index",i)
     })
-});
-
+  });
+})
 
 
