@@ -41,9 +41,9 @@
     %li.mypageNav__list__item
       = link_to "プロフィール","#",class:"item__link"
     %li.mypageNav__list__item
-      = link_to "お届け先住所変更",new_address_path,class:"item__link"
+      = link_to "お届け先住所登録",addresses_path,class:"item__link"
     %li.mypageNav__list__item
-      = link_to "支払い方法",credit_path,class:"item__link"
+      = link_to "支払い方法",credit_path(current_user),class:"item__link"
     %li.mypageNav__list__item
       = link_to "メール/パスワード","#",class:"item__link"
     %li.mypageNav__list__item

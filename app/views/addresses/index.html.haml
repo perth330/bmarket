@@ -1,0 +1,16 @@
+.addressHeader 
+  = render "products/shared/header"
+.addressMain
+  .addressSide
+    = render "users/user_menu_bar"
+  .addressesIndex
+    .menu
+      %h1 お届け先住所登録
+    .index
+      %h2 お届け先住所一覧
+    .address
+      = render @addresses
+      = link_to new_address_path do
+        .address__add
+          住所新規登録
+

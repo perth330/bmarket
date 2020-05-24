@@ -29,7 +29,7 @@ class PurchasesController < ApplicationController
 
     #bmarket DB保存
     @purchase = Purchase.new(create_purchase)
-    if @purchase.save && @product.update(status:"売却済")
+    if @purchase.save && @product.update(status:"売却済") && @product.user_id != current_user.id
       redirect_to product_purchase_path(@product,@purchase)
     else
       render "new"
