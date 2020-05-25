@@ -16,7 +16,7 @@ $(function(){
       return forAddress
     }
   }
-  $("#address_zipcode").on("keyup",function(e){
+  $(document).on("keyup","#address_zipcode",function(e){
     zipcode = $("#address_zipcode").val()
     if (zipcode.length == 7){
       url = "https://zipcloud.ibsnet.co.jp/api/search?callback=?"
@@ -28,8 +28,8 @@ $(function(){
           if (addresses.results == null ){
             alert("入力された郵便番号は存在しません。")
           } else {
+            $("#address_prefecture").val(addresses.results[0].prefcode)
             if (addresses.results.length == 1) {
-              $("#address_prefecture").val(addresses.results[0].prefcode)
               $("#address_city").val(addresses.results[0].address2)
               $("#address_town").val(addresses.results[0].address3)
             } else {
