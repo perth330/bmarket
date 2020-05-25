@@ -115,26 +115,29 @@
             =link_to "#" do
               %i.fa.fa-flag
               不適切な商品の通報
-    -if user_signed_in? && current_user.id == @product.user_id
-    -elsif user_signed_in?
-      -if @addresses.present? && @credit.present?
-        = link_to new_product_purchase_path(@product) do
-          .productPurchase
-            購入する
-      - elsif @addresses.blank? && @credit.blank?
-        = link_to user_path(current_user) ,data: { confirm: "住所の登録をお願いします。\nクレジットカードの登録をお願いします。"} do
-          .productPurchase
-            購入する
-      -elsif @addresses.blank?
-        = link_to new_address_path(current_user),data: { confirm: "住所の登録をお願いします。"} do
-          .productPurchase
-            購入する
-      -elsif @credit.blank?
-        = link_to new_credit_path(current_user) ,data: { confirm: "クレジットカードの登録をお願いします。"} do
-          .productPurchase
-            購入する
-      -else
-    -else not user_signed_in?
+    -if @product.status ==0
+      -if user_signed_in? && current_user.id == @product.user_id
+      -elsif user_signed_in?
+        -if @addresses.present? && @credit.present?
+          = link_to new_product_purchase_path(@product) do
+            .productPurchase
+              購入する
+        - elsif @addresses.blank? && @credit.blank?
+          = link_to user_path(current_user) ,data: { confirm: "住所の登録をお願いします。\nクレジットカードの登録をお願いします。"} do
+            .productPurchase
+              購入する
+        -elsif @addresses.blank?
+          = link_to new_address_path(current_user),data: { confirm: "住所の登録をお願いします。"} do
+            .productPurchase
+              購入する
+        -elsif @credit.blank?
+          = link_to new_credit_path(current_user) ,data: { confirm: "クレジットカードの登録をお願いします。"} do
+            .productPurchase
+              購入する
+        -else
+      -else not user_signed_in?
+    -else
+    
 
     .commentBox
       %ul
