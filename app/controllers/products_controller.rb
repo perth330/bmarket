@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
   def index
     @categoryProducts = Product.includes(:images).where(status: 0).limit(3).order("id DESC")
-    @categoryBrand = Product.includes(:images).where(status: 0).limit(3).order("RAND()")
+    @categoryBrand = Product.includes(:images).where(status: 0).limit(3).order(Arel.sql("RAND()"))
   end
   
   def new
