@@ -1,6 +1,6 @@
 class Address < ApplicationRecord
   # belongs_to_active_hash :prefecture
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :purchases
 
   validates :family_name, :first_name , :family_name_kana, :first_name_kana, :zipcode, :prefecture, :city, :town, :town_number,  presence: true
