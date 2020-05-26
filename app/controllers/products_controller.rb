@@ -32,7 +32,6 @@ class ProductsController < ApplicationController
   end
   
   def show
-    redirect_to root_path unless move_to_root_end_of_products.nil?
     @productEndes = Purchase.find_by(product_id:@product.id)
     if user_signed_in?
       @addresses = Address.where(user_id:current_user.id)
