@@ -108,8 +108,7 @@
       .productBox__option
         %ul
           %li#likeBtn.optionalBtn.likeBtn
-            %i.fa.fa-star
-            お気に入り 0
+            = render partial: 'favorites/favorite', locals: { product: @product, products: @products, favorites: @favorites, favorite: @favorite}
         %ul.optional
           %li.optionalBtn
             =link_to "#" do
@@ -165,6 +164,6 @@
         ベビー・キッズをもっと見る
 
 .favoriteZone
-  = render partial: 'favorites/favorite', locals: { product: @product, products: @products, favorites: @favorites, favorite: @favorite}
+  
 = render "products/shared/banner"
 = render "products/shared/footer"
