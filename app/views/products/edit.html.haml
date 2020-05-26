@@ -1,4 +1,5 @@
-= render "products/shared/header";
+- breadcrumb :productsedit
+= render "products/shared/header"
 .productsNew
   .productsNew__container
     = form_with(model:@product,local:true,class:"container__newForm") do |f|

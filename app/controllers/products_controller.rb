@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :move_to_root, except: [:index, :show]
   before_action :set_product, only: [:show, :edit, :destroy, :update]
+  before_action :move_to_root_end_of_products, only: [:show, :update]
 
   def index
     @categoryProducts = Product.includes(:images).where(status: 0).limit(3).order("id DESC")
@@ -48,6 +49,9 @@ class ProductsController < ApplicationController
   end
 
   def update
+    if  current_user.id == @product.user_id
+      return nil 
+    end
     brand = Brand.find_by(brand_params)
     if brand == nil
       @brand = Brand.create(brand_params)
@@ -90,5 +94,8 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
   
+  def move_to_root_end_of_products
+    @productEndes = Purchase.find_by(product_id:@product.id)
+  end
 end
 

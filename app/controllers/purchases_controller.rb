@@ -10,12 +10,15 @@ class PurchasesController < ApplicationController
   end
 
   def new
+    redirect_to root_path unless not current_user.id == @product.user_id
+    redirect_to root_path unless move_to_root_end_of_products.nil?
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     @purchase = Purchase.new
     @addresses = current_user.addresses
   end
 
   def create
+    return nil if @product.user_id == current_user.id || Purchase.find_by(product_id:@product.id) != nil
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     token = Payjp::Charge.create(
       amount: @product.price,
@@ -52,4 +55,10 @@ class PurchasesController < ApplicationController
   def set_credit
     @credit = @customer.cards.retrieve(current_user.credit.card_id)
   end
+
+  def move_to_root_end_of_products
+    @productEndes = Purchase.find_by(product_id:@product.id)
+  end
+
+
 end
