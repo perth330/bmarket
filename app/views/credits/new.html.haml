@@ -8,28 +8,27 @@
       .creditsNew__title
         %h2.creditsInformation_input クレジットカード情報入力
       .center__content
-        .creditsNew
-          .content__creditCard
-            .content__creditCard__inner
-              = form_with model:@credit, html: { name: "inputForm" } do |f|
-                .creditsNew__form
-                  = f.label :カード番号, class: "creditsNew__label"
-                  %span.creditsNew__required 必須
-                  = f.text_field :card_number, type: "text", class: "creditsNew__form__defalt", placeholder: "半角数字のみ", maxlength: "16"
-                .creditsNew__form
-                  = f.label :有効期限, class: "creditsNew__label"
-                  %span.creditsNew__required 必須
-                  %br
-                    = f.select :exp_month, [["01",1],["02",2],["03",3],["04", 4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: "creditsNew__form__half"
-                    %span.creditsNew__expire__text 月
-                    = f.select :exp_year, [["19",2019],["20",2020],["21", 2021],["22",2022],["23",2023],["24",2024],["25",2025], ["26",2026],["27",2027],["28",2028],["29",2029]],{} ,  class: "creditsNew__form__half"
-                    %span.creditsNew__expire__text 年
-                .creditsNew__form
-                  = f.label :セキュリティコード, class: "creditsNew__label"
-                  %span.creditsNew__required 必須
-                  = f.text_field :cvc, type: "text", class: "creditsNew__form__defalt", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4"
-                .creditsNew__form
-                  = f.submit "追加する", class: "creditsNew__form__btn",  id: "token_submit"
+        .content__creditCard
+          .content__creditCard__inner
+            = form_with model:@credit, html: { name: "inputForm" } do |f|
+              .creditsNew__form
+                = f.label :カード番号, class: "creditsNew__label"
+                %span.creditsNew__required 必須
+                = f.text_field :card_number, type: "text", class: "creditsNew__form__defalt", placeholder: "半角数字のみ", maxlength: "16"
+              .creditsNew__form
+                = f.label :有効期限, class: "creditsNew__label"
+                %span.creditsNew__required 必須
+                %br
+                  = f.select :exp_month, [["01",1],["02",2],["03",3],["04", 4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: "creditsNew__form__half"
+                  %span.creditsNew__expire__text 月
+                  = f.select :exp_year, [["19",2019],["20",2020],["21", 2021],["22",2022],["23",2023],["24",2024],["25",2025], ["26",2026],["27",2027],["28",2028],["29",2029]],{} ,  class: "creditsNew__form__half"
+                  %span.creditsNew__expire__text 年
+              .creditsNew__form
+                = f.label :セキュリティコード, class: "creditsNew__label"
+                %span.creditsNew__required 必須
+                = f.text_field :cvc, type: "text", class: "creditsNew__form__defalt", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4"
+              .creditsNew__form
+                = f.submit "追加する", class: "creditsNew__form__btn",  id: "token_submit"
     .layout__right
   .creditsNewfooter
     = link_to root_path do
