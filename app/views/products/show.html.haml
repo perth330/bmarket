@@ -138,21 +138,30 @@
         -else
       -else not user_signed_in?
     -else
-    
+
     .commentBox
-      %ul
-      .commentBox__box
-        .commentBox__box__form
-          = form_with url: products_path do |f|
-            = f.text_field :product, class: "commentBox__box__form__text"
-        .commentBox__box__notice
-          相手のことを考え丁寧なコメントを心がけましょう。
+      コメント一覧
+      - if @comments
+        - @comments.each do |comment|
+          .commentList
+            .commentList__listIcon
+              %i.fa.fa-user
+            .commentList__listContent
+              .commentList__listContent__name
+                = comment.user.nickname
+              .commentList__listContent__message
+                = comment.text
+              .commentList__listContent__date
+                = comment.updated_at.strftime("%Y-%m-%d %H:%M")
+      - if user_signed_in?
+        = form_with model:[@product, @comment], local: true do |f|
+          = f.text_area :text, placeholder: "コメントする", rows: "2",class: "textForm"
+          .noticeMsg
+            %p
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %br
-            不快な言葉遣いなどは利用制限や退会処分となる事があります。
-        =link_to "#" do
-          .commentBox__box__btn
-            %i.fa.fa-comment
-              コメントする
+          = f.submit "コメントする", class: "commentBtn"
     .productFrontAndBackLinks
       %li
         =link_to "#" do
