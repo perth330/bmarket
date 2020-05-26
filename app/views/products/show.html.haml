@@ -168,6 +168,6 @@
         ベビー・キッズをもっと見る
 
 .favoriteZone
-  =render "favorites/favorite"
+  = render partial: 'favorites/favorite', locals: { product: @product, products: @products, favorites: @favorites, favorite: @favorite}
 = render "products/shared/banner"
 = render "products/shared/footer"

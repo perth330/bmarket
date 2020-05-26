@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  before_action :set_item, only: [:create, :destroy]
 
   def create
     @favorite = Favorite.create(user_id: current_user.id, product_id: params[:product_id])

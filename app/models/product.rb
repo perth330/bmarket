@@ -6,8 +6,8 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   has_one :purchase
   has_many :favorites, dependent: :destroy
-  def like_user(user_id)
-    favorites.find_by(user_id: user_id)
+  def like_user(product,user)
+    Favorite.find_by(product_id:product,user_id: user)
    end
 
   enum status: { "出品中": 0, "売却済": 1 }
