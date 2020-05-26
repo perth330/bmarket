@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :credits
   resources :products do
     resources :purchases
+    resources :comments, only: [:create]
   end
   resources :brands
   resources :categories
