@@ -1,3 +1,7 @@
+- if request.referer&.include?(user_path(current_user))
+  - breadcrumb :productsnew_from_user
+- else
+  - breadcrumb :productsnew_from_top
 = render "products/shared/header";
 .productsNew
   .productsNew__container
