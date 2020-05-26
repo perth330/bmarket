@@ -18,6 +18,7 @@ class PurchasesController < ApplicationController
   end
 
   def create
+    return nil if @product.user_id == current_user.id || Purchase.find_by(product_id:@product.id) != nil
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     token = Payjp::Charge.create(
       amount: @product.price,
