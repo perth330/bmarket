@@ -7,10 +7,9 @@
         /= favorites.length
   - else
     .favoritePost
-      =link_to favorites_path(product), method: "POST", remote: true do
-        /= icon('fa', 'star',class: 'icon')
-        お気に入り
-        /= favorites.length
+      = form_with(model:favorite,local:true,url:"/favorites") do |f|
+        = f.hidden_field :product_id,value:product.id
+        = f.submit "お気に入り"
 
 -else
   .favoritePost
