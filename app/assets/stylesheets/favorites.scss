@@ -1,18 +1,30 @@
 .favoriteDelete {
-  .favD {
-    color: chocolate;
-    font-weight: bold;
+  &__box {
+    display: flex;
+    .favD {
+      color: chocolate;
+      font-weight: bold;
+    }
+    i {
+      color: chocolate;
+      margin-top: 2px;
+      margin-right: 10px;
+    }
   }
-  i {
-    color: chocolate;
-  }
+  
 }
 
 .favoritePost {
-  .favP {
-    color: black;
+  &__box {
+    display: flex;
+    .favP {
+      color: black;
+    }
+    i {
+      color: black;
+      margin-top: 2px;
+      margin-right: 10px;
+    }
   }
-  i {
-    color: black;
-  }
+  
 }
