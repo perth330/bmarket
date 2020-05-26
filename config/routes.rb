@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "products#index"
-  resources :users
+  resources :users 
   resources :credits
   resources :products do
     resources :purchases
@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :brands
   resources :categories
   resources :addresses
+  resources :infomations
 end

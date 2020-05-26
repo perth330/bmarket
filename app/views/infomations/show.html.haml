@@ -1,0 +1,23 @@
+.infomationHeader 
+  = render "products/shared/header"
+.infomationMain
+  .infomationSide
+    = render "users/user_menu_bar"
+  .infomationIndex
+    .index
+      %h2 売却済み
+    .infomation
+      - @products.each do |product|
+        = link_to product_path(product.id), class: "listBtn" do
+          %figure.listImages
+            = image_tag product.images.first.image_url.url ,alt: "image_url",class: "newImage"
+          .productBody
+            %h3.productBody__name
+              = product.name
+            %ul.productBody__menu
+              %li
+                = "#{product.price}円"
+              %li
+                %i.fa.fa-star.starIcon
+                  0
+            %p.productBody__taxIn（税込）

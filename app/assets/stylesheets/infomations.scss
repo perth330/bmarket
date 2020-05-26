@@ -1,0 +1,39 @@
+.infomationMain {
+  display: flex;
+  background-color: #f8f8f8;
+  padding-top: 40px;
+  
+  .infomationSide {
+    padding-left: 180px;
+  }
+  
+  .infomationIndex {
+    height: 100%;
+    margin: 0 auto;
+    width: 700px;
+    background-color: white;
+    align-items: center;
+    
+    .index {
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid;
+      border-color: rgba($color: #ebe7e7be, $alpha: 1.0);
+      h2 {
+        font-size: 20px;
+      }
+    }
+    
+    .infomation {
+      .listBtn {
+        margin: 6px;
+      }
+      .productBody {
+        color: black;
+      }
+    }
+  }
+}
+
