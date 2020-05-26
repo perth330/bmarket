@@ -1,0 +1,19 @@
+- if user_signed_in?
+  - if product.like_user(current_user.id)
+    .favoriteDelete
+      =link_to user_product_favorite_path(current_user, product, favorite), method: "DELETE", remote: true do
+        = icon('fa', 'star',class: 'icon')
+        お気に入り
+        = likes.count
+  - else
+    .favoritePost
+      =link_to user_product_favorites_path(current_user, product), method: "POST", remote: true do
+        = icon('fa', 'star',class: 'icon')
+        お気に入り
+        = likes.count
+
+-else
+  .favoritePost
+    = icon('fa', 'star',class: 'icon')
+    お気に入り
+    = likes.count

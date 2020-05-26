@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :credits
   resources :products do
     resources :purchases
+    resources :favorites, only: [:create, :destroy]
   end
   resources :brands
   resources :categories
