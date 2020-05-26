@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_061117) do
+ActiveRecord::Schema.define(version: 2020_05_25_135404) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "family_name", null: false
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 2020_05_19_061117) do
     t.index ["user_id"], name: "index_credits_on_user_id"
   end
 
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_favorites_on_product_id"
+    t.index ["user_id", "product_id"], name: "index_favorites_on_user_id_and_product_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image_url", null: false
     t.bigint "product_id", null: false
@@ -69,7 +79,7 @@ ActiveRecord::Schema.define(version: 2020_05_19_061117) do
     t.string "from", null: false
     t.string "delivery_day", null: false
     t.bigint "price", null: false
-    t.string "size"
+    t.string "size", null: false
     t.string "status", null: false
     t.bigint "user_id", null: false
     t.bigint "brand_id", null: false
@@ -82,16 +92,16 @@ ActiveRecord::Schema.define(version: 2020_05_19_061117) do
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "seller_id"
-    t.bigint "buyer_id"
+    t.bigint "seller_id_id"
+    t.bigint "buyer_id_id"
     t.bigint "product_id"
     t.bigint "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address_id"], name: "index_purchases_on_address_id"
-    t.index ["buyer_id"], name: "index_purchases_on_buyer_id"
+    t.index ["buyer_id_id"], name: "index_purchases_on_buyer_id_id"
     t.index ["product_id"], name: "index_purchases_on_product_id"
-    t.index ["seller_id"], name: "index_purchases_on_seller_id"
+    t.index ["seller_id_id"], name: "index_purchases_on_seller_id_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -114,12 +124,14 @@ ActiveRecord::Schema.define(version: 2020_05_19_061117) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "credits", "users"
+  add_foreign_key "favorites", "products"
+  add_foreign_key "favorites", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
   add_foreign_key "purchases", "addresses"
   add_foreign_key "purchases", "products"
-  add_foreign_key "purchases", "users", column: "buyer_id"
-  add_foreign_key "purchases", "users", column: "seller_id"
+  add_foreign_key "purchases", "users", column: "buyer_id_id"
+  add_foreign_key "purchases", "users", column: "seller_id_id"
 end
