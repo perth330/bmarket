@@ -31,6 +31,7 @@ class ProductsController < ApplicationController
   end
   
   def show
+    @favorite = Favorite.find_by(user_id: current_user.id, product_id: params[:product_id])
     if user_signed_in?
       @addresses = Address.where(user_id:current_user.id)
       @credit = Credit.where(user_id:current_user.id)
