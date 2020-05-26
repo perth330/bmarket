@@ -15,16 +15,14 @@
 }
 
 .favoritePost {
-  &__box {
-    display: flex;
-    .favP {
-      color: black;
-    }
+  display: flex;
     i {
       color: black;
       margin-top: 2px;
       margin-right: 10px;
     }
+  &__box {
+    border: none;
   }
   
 }
