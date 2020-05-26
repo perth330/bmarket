@@ -12,6 +12,10 @@ crumb :addressesnew do
   link "お届け先住所新規登録", new_address_path
   parent :mypage
 end
+crumb :favorites do
+  link "お気に入り一覧", favorites_path
+  parent :mypage
+end
 crumb :credit do
   link "支払い方法", credit_path(params[:id])
   parent :mypage
