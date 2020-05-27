@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   resources :brands
   resources :categories
   resources :addresses
-  resources :infomations
+  resources :infomations,only:[:index, :show]
 end
