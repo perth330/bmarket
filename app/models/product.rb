@@ -25,7 +25,7 @@ class Product < ApplicationRecord
   validates :status, presence: true
   validates :images, presence: true
 
-  # has_many :comments, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one :purchase, dependent: :destroy
   # has_many :products_tags
   # has_many :tags,  through:  :products_tags
