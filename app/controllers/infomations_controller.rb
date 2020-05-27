@@ -13,7 +13,7 @@ class InfomationsController < ApplicationController
   private
 
   def redirect_root
-    redirect_to root_path unless user_signed_in? && current_user.present?
+    redirect_to root_path unless user_signed_in?
   end
 
 end
