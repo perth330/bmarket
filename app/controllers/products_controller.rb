@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if  current_user.id == @product.user_id
+    if  current_user.id != @product.user_id
       return nil 
     end
     brand = Brand.find_by(brand_params)
