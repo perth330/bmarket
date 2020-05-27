@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     post "registrations_address", to: "users/registrations#create_address"
   end
   root "products#index"
-  resources :users
+  resources :users 
   resources :credits
   resources :products do
     resources :purchases
@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :brands
   resources :categories
   resources :addresses
+  resources :infomations,only:[:index, :show]
 end

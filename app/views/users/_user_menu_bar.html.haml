@@ -13,11 +13,11 @@
     %li.mypageNav__list__item
       = link_to "下書き一覧","#",class:"item__link"
     %li.mypageNav__list__item
-      = link_to "出品した商品 - 出品中","#",class:"item__link"
+      = link_to "出品した商品 - 出品中",  infomations_path,class:"item__link"
     %li.mypageNav__list__item
       = link_to "出品した商品 - 取引中","#",class:"item__link"
     %li.mypageNav__list__item
-      = link_to "出品した商品 - 売却済み","#",class:"item__link"
+      = link_to "出品した商品 - 売却済み",infomation_path(current_user),class:"item__link"
     %li.mypageNav__list__item
       = link_to "購入した商品 - 取引中","#",class:"item__link"
     %li.mypageNav__list__item
