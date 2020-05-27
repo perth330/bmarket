@@ -1,0 +1,15 @@
+.favoriteHeader 
+  - breadcrumb :favorites
+  = render "products/shared/header"
+.favoriteMain
+  .favoriteSide
+    = render "users/user_menu_bar"
+  .favoritesIndex
+    .menu
+      %h1 お気に入り
+    .index
+      %h2 お気に入り一覧
+    .favorite
+      = render partial:"favoriteIndex",collection:@favorites,as:"favorite"
+
+

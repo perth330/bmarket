@@ -21,9 +21,10 @@ class User < ApplicationRecord
     end
   end
 
-  # has_many :comments
+  has_many :comments
   has_one :credit
   has_many :purchases
   has_many :addresses
   has_many :products
+  has_many :favorites, dependent: :destroy
 end
