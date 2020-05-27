@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :credits
   resources :products do
     resources :purchases
+    collection do
+      get 'search'
+    end
   end
   resources :brands
   resources :categories

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :move_to_root, except: [:index, :show]
+  before_action :move_to_root, except: [:index, :show, :search]
   before_action :set_product, only: [:show, :edit, :destroy, :update]
   before_action :move_to_root_end_of_products, only: [:show, :update]
 
@@ -75,7 +75,9 @@ class ProductsController < ApplicationController
       redirect_to root_path, notice:"商品の削除が失敗しました。"
     end
   end
-
+  def search
+    @products = Product.search(params[:keyword])
+  end
   
   private
   def product_create_params
