@@ -27,6 +27,6 @@ class Product < ApplicationRecord
   # has_many :tags,  through:  :products_tags
   def self.search(search)
     return Product.all unless search
-    Product.where('text LIKE(?)', "%#{search}%")
+    Product.where('name LIKE(?)', "%#{search}%")
   end
 end

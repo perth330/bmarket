@@ -1,0 +1,26 @@
+= render "products/shared/header";
+.pickupCategory__title
+  検索結果
+.categoryLists
+  .categoryLists__list
+    -if @products.present?
+      - @products.each do |product|
+        = link_to product_path(product.id), class: "listBtn" do
+          %figure.listImages
+            = image_tag product.images.first.image_url.url ,alt: "image_url",class: "new-image"
+          .productBody
+            %h3.productBody__name
+              = product.name
+            %ul.productBody__menu
+              %li
+                = "#{product.price}円"
+              %li
+                %i.fa.fa-star.starIcon
+                  0
+            %p.productBody__taxIn（税込）
+    - else
+      .ProductSearch
+        お探しの商品はございませんでした。
+= render "products/shared/banner"
+= render "products/shared/footer"
+
