@@ -33,6 +33,8 @@ class PurchasesController < ApplicationController
     #bmarket DB保存
     @purchase = Purchase.new(create_purchase)
     if @purchase.save && @product.update(status:"売却済") && @product.user_id != current_user.id
+      favorites = Favorite.where(product_id:@purchase.product_id)
+      favorites.destroy
       redirect_to product_purchase_path(@product,@purchase)
     else
       render "new"
