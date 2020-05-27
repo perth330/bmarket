@@ -1,0 +1,28 @@
+.favoriteDelete {
+  &__box {
+    display: flex;
+    .favD {
+      color: chocolate;
+      font-weight: bold;
+    }
+    i {
+      color: chocolate;
+      margin-top: 2px;
+      margin-right: 10px;
+    }
+  }
+  
+}
+
+.favoritePost {
+  display: flex;
+    i {
+      color: black;
+      margin-top: 2px;
+      margin-right: 10px;
+    }
+  &__box {
+    border: none;
+  }
+  
+}

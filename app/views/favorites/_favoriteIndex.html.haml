@@ -1,0 +1,11 @@
+.favorite__box
+  .favorite__box__show
+    = link_to product_path(favorite.product_id),class:"favorite__box__box" do
+      .favorite__box__img
+        = image_tag (favorite.product.images[0].image_url.url)
+      .favorite__box__text
+        = favorite.product.name
+  .favorite__box__delete
+    = form_tag(favorite_path(favorite.product.id), method: :delete) do
+      %input{ type: "hidden"}
+      %button.favorite__box__btn 削除
