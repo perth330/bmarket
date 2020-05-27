@@ -5,12 +5,13 @@
       %h1.rightIcon
         = link_to image_tag(asset_path("material/logo/logo.png"),class: "rightIcon__furima"),root_path
       .searchBox
-        %form.mainForm
+        = form_with(url: search_products_path, local: true, method: :get, class: "mainForm") do |f|
           .mainForm__inputBox
-            %input.mainForm__inputBox__text{placeholder: "キーワードから探す",type: "text"}
+            = f.text_field :keyword, placeholder: "キーワードから探す", class: "mainForm__inputBox__text"
             %button{type:"submit"}
               .mainForm__inputBox__searchBox__icon
                 = image_tag "material/icon/icon-search 1.png",class: "searchIcon"
+
     .boxUnder 
       .boxUnder__left
         .boxUnder__left__category

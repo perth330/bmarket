@@ -29,4 +29,8 @@ class Product < ApplicationRecord
   has_one :purchase, dependent: :destroy
   # has_many :products_tags
   # has_many :tags,  through:  :products_tags
+  def self.search(search)
+    return Product.all unless search
+    Product.where('name LIKE(?)', "%#{search}%")
+  end
 end
