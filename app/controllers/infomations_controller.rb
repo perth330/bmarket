@@ -1,5 +1,6 @@
 class InfomationsController < ApplicationController
-  before_action :redirect_root
+  before_action :redirect_root,only:[:index,:show]
+
 
   def index
     @products = Product.includes(:images).where(user_id: current_user.id).where(status: 0).order("id DESC")
@@ -12,7 +13,7 @@ class InfomationsController < ApplicationController
   private
 
   def redirect_root
-    redirect_to root_path unless user_signed_in?
+    redirect_to root_path unless user_signed_in? && current_user.present?
   end
 
 end
