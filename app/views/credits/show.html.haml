@@ -1,10 +1,10 @@
 .creditHeader
   - breadcrumb :credit
   = render "products/shared/header"
-.creditMain
-  .creditSide
+%main.contents.clearfix
+  .contents__leftContent
     = render "users/user_menu_bar"
-  .creditShow
+  .contents__rightContent
     .menu
       %h1 支払い方法
     .index
