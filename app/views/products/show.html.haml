@@ -22,11 +22,12 @@
       .productBox__price
         .productBox__price__included
           = @product.price
+          円
         .productBox__price__detail
           .productBox__price__detail__tax
-            (税込)
+            （税込） 
           .productBox__price__detail__postage
-            = @product.delivery_day
+            = @product.delivery_cost
       .productBox__detail
         = @product.introduction
       .productBox__table
