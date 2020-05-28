@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
   resources :favorites, only: [:index, :create, :destroy]
   resources :brands, only: [:index, :new]
-  resources :categories, only: [:new]
+  resources :categories, only: [:index]
   resources :addresses, only: [:index, :new, :create, :destroy]
   resources :infomations, only: [:index, :show]
 end
