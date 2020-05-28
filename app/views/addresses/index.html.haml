@@ -1,10 +1,10 @@
-.addressHeader 
+.addressHeader
   - breadcrumb :address
   = render "products/shared/header"
-.addressMain
-  .addressSide
+%main.contents.clearfix
+  .contents__leftContent
     = render "users/user_menu_bar"
-  .addressesIndex
+  .contents__rightContent
     .menu
       %h1 お届け先住所登録
     .index
