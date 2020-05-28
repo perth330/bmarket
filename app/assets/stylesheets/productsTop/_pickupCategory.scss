@@ -62,6 +62,8 @@
   &:after {
     position: absolute;
     content: "SOLD";
+    letter-spacing: 0.05em;
+    font-weight: bold;
     transform: rotate(315deg);
     display: block;
     font-size: 11px;
@@ -71,7 +73,7 @@
     left: 4px;
     text-align: center;
     z-index: 2;
-    line-height: 1.2;
+    line-height: 1;
   }
 }
   .new-image {
