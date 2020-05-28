@@ -8,7 +8,6 @@
       = form_with(model:favorite,local:true,url:"/favorites") do |f|
         = f.hidden_field :product_id,value:product.id
         = f.submit "★ お気に入り", class: "favoritePost__box"
-
 -else
   .favoritePost
     .favP ★ お気に入り
