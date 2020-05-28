@@ -47,6 +47,33 @@
   position: relative;
   overflow: hidden;
   margin: 0;
+  &.sold{
+  &:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50px 50px 0 0;
+    border-color: #f00 transparent transparent transparent;
+  }
+  &:after {
+    position: absolute;
+    content: "SOLD";
+    transform: rotate(315deg);
+    display: block;
+    font-size: 11px;
+    white-space: pre;
+    color: #fff;
+    top: 12px;
+    left: 4px;
+    text-align: center;
+    z-index: 2;
+    line-height: 1.2;
+  }
+}
   .new-image {
     text-decoration: none;
     top: 0;
@@ -85,4 +112,6 @@
   margin :0 auto;
   padding-top: 50px;
 }
-  
+
+
+
