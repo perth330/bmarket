@@ -27,6 +27,8 @@
         = link_to new_user_registration_path, class: "boxUnder__right__registration" do
           新規登録
       - else
+        = link_to destroy_user_session_path, method: :delete, class: "boxUnder__right__logout" do
+          ログアウト
         = link_to user_path(current_user), class:"boxUnder__right__mypage" do
           マイページ
   = render "products/shared/breadcrumbs"
