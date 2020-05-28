@@ -27,7 +27,6 @@ class CreditsController < ApplicationController
         card: token,
         metadata: { user_id: current_user.id },
       )
-      #bmarketのDBに反映
       @credit = Credit.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @credit.save
         redirect_to "/credits/show"
@@ -48,7 +47,7 @@ class CreditsController < ApplicationController
     end
   end
 
-  def destroy #PayjpとCardデータベースを削除
+  def destroy 
     credit = Credit.find_by(user_id: current_user.id)
     if credit.present?
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
@@ -61,9 +60,6 @@ class CreditsController < ApplicationController
 
   private
 
-  #def set_card
-  #@credit = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present?
-  #end
   def card_params
     params.require(:credit).permit(:card_number, :exp_month, :exp_year, :cvc)
   end
