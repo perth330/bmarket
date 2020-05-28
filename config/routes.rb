@@ -1,24 +1,24 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-                       registrations: "users/registrations",
-                     }
+    registrations: "users/registrations",
+    }
   devise_scope :user do
     get "registrations_address", to: "users/registrations#new_address"
     post "registrations_address", to: "users/registrations#create_address"
   end
   root "products#index"
-  resources :users 
-  resources :credits
+  resources :users , only: [:index, :show]
+  resources :credits, only: [:new, :create, :show, :destroy]
   resources :products do
-    resources :purchases
+    resources :purchases, only: [:new, :create, :show]
     resources :comments, only: [:create]
     collection do
       get 'search'
     end
   end
   resources :favorites, only: [:index, :create, :destroy]
-  resources :brands
-  resources :categories
-  resources :addresses
-  resources :infomations,only:[:index, :show]
+  resources :brands, only: [:index, :new]
+  resources :categories, only: [:index]
+  resources :addresses, only: [:index, :new, :create, :destroy]
+  resources :infomations, only: [:index, :show]
 end

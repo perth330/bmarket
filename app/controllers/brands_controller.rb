@@ -18,5 +18,4 @@ class BrandsController < ApplicationController
       format.json
     end
   end
-
 end
