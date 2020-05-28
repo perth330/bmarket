@@ -76,7 +76,6 @@ $(function() {
     })
   })
   
-  // 画像用のinputを生成する関数
   function buildFileField(index){
     const html = `
     <div class="uploadBox__image" data-index="${index}">

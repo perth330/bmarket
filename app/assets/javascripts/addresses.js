@@ -1,7 +1,5 @@
 $(function(){
   function compareAddress(fromAddress,forAddress){
-    // fromが比較元、forが比較先
-    // 住所を比較して、前から重複する部分のみ取り出す
     let result = ""
     if ( fromAddress != forAddress ){
       for(let i = 0;i < forAddress.length; i++){
