@@ -6,14 +6,12 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   has_one :purchase
   has_many :favorites, dependent: :destroy
-  def like_user(product,user)
-    Favorite.find_by(product_id:product,user_id: user)
-   end
+  has_many :comments, dependent: :destroy
+  has_one :purchase, dependent: :destroy
 
   enum status: { "出品中": 0, "売却済": 1 }
 
   validates_associated :images
-
   validates :name, presence: true
   validates :introduction, presence: true
   validates :condition, presence: true
@@ -25,10 +23,12 @@ class Product < ApplicationRecord
   validates :status, presence: true
   validates :images, presence: true
 
-  has_many :comments, dependent: :destroy
-  has_one :purchase, dependent: :destroy
   def self.search(search)
     return Product.all unless search
     Product.where('name LIKE(?)', "%#{search}%")
+  end
+
+  def like_user(product,user)
+    Favorite.find_by(product_id:product,user_id: user)
   end
 end
