@@ -266,7 +266,7 @@ Capistrano による自動デプロイ
 
 | Column  | Type       | Options           |
 | ------- | ---------- | ----------------- |
-| user    | text       | foreign_key: true |
+| user    | references | foreign_key: true |
 | product | references | foreign_key: true |
 
 ### Association
