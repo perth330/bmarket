@@ -88,6 +88,7 @@ Ruby 2.5.1
 
 ### フロントエンド
 
+JavaScript<br>
 jquery 1.12.4
 
 ### マークアップ言語
@@ -135,7 +136,7 @@ Capistrano による自動デプロイ
 ### Association
 
 - has_many :comments
-- has_many :credits
+- has_one :credits
 - has_many :purchases
 - has_many :addresses
 - has_many :products
@@ -143,12 +144,11 @@ Capistrano による自動デプロイ
 
 ## credits テーブル
 
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| number          | string     | null: false                    |
-| effective_year  | integer    | null: false                    |
-| effective_month | integer    | null: false                    |
-| user            | references | null: false, foreign_key: true |
+| Column      | Type       | Options           |
+| ----------- | ---------- | ----------------- |
+| customer_id | string     | null: false       |
+| card_id     | string     | null: false       |
+| user        | references | foreign_key: true |
 
 ### Association
 
@@ -186,6 +186,7 @@ Capistrano による自動デプロイ
 
 ### Association
 
+- has_many:purchases
 - belongs_to :user
 
 ## purchases テーブル
@@ -259,4 +260,16 @@ Capistrano による自動デプロイ
 
 ### Association
 
+- belongs_to :product
+
+## favorites テーブル
+
+| Column  | Type       | Options           |
+| ------- | ---------- | ----------------- |
+| user    | text       | foreign_key: true |
+| product | references | foreign_key: true |
+
+### Association
+
+- belongs_to :user
 - belongs_to :product
