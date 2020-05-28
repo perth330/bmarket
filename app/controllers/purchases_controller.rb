@@ -5,10 +5,6 @@ class PurchasesController < ApplicationController
   before_action :set_customer, only: [:show, :new, :create]
   before_action :set_credit, only: [:show, :new, :create]
 
-
-  def show
-  end
-
   def new
     redirect_to root_path unless not current_user.id == @product.user_id
     redirect_to root_path unless move_to_root_end_of_products.nil?
@@ -40,6 +36,9 @@ class PurchasesController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
   def create_purchase
     params.require(:purchase).permit(:address_id).merge(seller_id:@product.user_id,buyer_id:current_user.id,product_id:@product.id)
@@ -60,6 +59,4 @@ class PurchasesController < ApplicationController
   def move_to_root_end_of_products
     @productEndes = Purchase.find_by(product_id:@product.id)
   end
-
-
 end

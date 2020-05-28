@@ -78,6 +78,7 @@ class ProductsController < ApplicationController
       redirect_to root_path, notice:"商品の削除が失敗しました。"
     end
   end
+
   def search
     @products = Product.search(params[:keyword]).where(status: 0)
   end
@@ -102,5 +103,6 @@ class ProductsController < ApplicationController
   def move_to_root_end_of_products
     @productEndes = Purchase.find_by(product_id:@product.id)
   end
+
 end
 

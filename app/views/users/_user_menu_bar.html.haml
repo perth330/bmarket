@@ -1,7 +1,7 @@
 %nav.leftContent__mypageNav
   %ul.mypageNav__list
     %li.mypageNav__list__item.active
-      = link_to "マイページ","#",class:"item__link"
+      = link_to "マイページ",user_path(current_user),class:"item__link"
     %li.mypageNav__list__item
       = link_to "お知らせ","#",class:"item__link"
     %li.mypageNav__list__item

@@ -67,4 +67,5 @@ class CreditsController < ApplicationController
   def card_params
     params.require(:credit).permit(:card_number, :exp_month, :exp_year, :cvc)
   end
+
 end
