@@ -18,13 +18,13 @@
                 %p.buyItem__box__name
                   = @product.name
                 %p.buyItem__box__price
-                  = @product.price
-                  %span 円
+                  = "¥#{@product.price.to_s(:delimited)}円"
                   %span (税込)
+                  %ul
                   - if @product.delivery_cost = "送料込み（出品者負担）"
-                    　送料込み
+                    %li 送料込み
                   - else
-                    　着払い
+                    %li 着払い
         %section.buyContent.buyItem
           .buyContent__inner
             %ul.buyPrice__table
@@ -32,8 +32,7 @@
                 .buyPrice__cell__label
                   支払い金額
                 .buyPrice__cell
-                  = @product.price
-                  %span.data__buyPay 円
+                  = "¥#{@product.price.to_s(:delimited)}円"
             %ul.buy__accordion
               %li.accordion__parent
                 .user__point__accordion

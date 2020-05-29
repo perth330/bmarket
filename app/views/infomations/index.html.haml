@@ -16,7 +16,7 @@
               = product.name
             %ul.productBody__menu
               %li
-                = "#{product.price}円"
+                = "¥#{product.price.to_s(:delimited)}円"
               %li
                 %i.fa.fa-star.starIcon
                   0

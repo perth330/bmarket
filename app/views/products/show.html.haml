@@ -21,10 +21,9 @@
                   = image_tag image.image_url.url
       .productBox__price
         .productBox__price__included
-          = @product.price
-          円
+          = "¥#{@product.price.to_s(:delimited)}円"
         .productBox__price__detail
-          .productBox__price__detail__tax
+          %B.productBox__price__detail__tax
             （税込） 
           .productBox__price__detail__postage
             = @product.delivery_cost

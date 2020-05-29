@@ -18,8 +18,8 @@
                 = @product.name
               %p.buyItem__box__price
                 %span
-                  = @product.price
-                %span 円(税込)
+                  = "¥#{@product.price.to_s(:delimited)}円"
+                  %span (税込)
       %section.purchaseShow__buyContent.buyItem
         .buyContent__inner
           %form
@@ -29,7 +29,7 @@
                   支払い金額
                 .buyPrice__cell
                   %span.data__buyPay 
-                    = "#{@product.price}円"
+                    = "¥#{@product.price.to_s(:delimited)}円"
             %ul.buy__accordion
               %li.accordion__parent
               %section.purchaseShow__buyContent__userInfo
